@@ -29,14 +29,55 @@
     "knowsAbout": ["AI Agents", "LangGraph", "Claude API", "n8n", "Automation", "LLM Integration"]
   }
   </script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2DZPV8S00"></script>
+  <!-- Google Consent Mode v2 (default deny before consent) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+  </script>
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2DZPV8S00"></script>
+  <script>
+    gtag('js', new Date());
     gtag('config', 'G-L2DZPV8S00');
+  </script>
+
+  <!-- Axeptio cookie consent -->
+  <script type="text/javascript">
+    window.axeptioSettings = {
+      clientId: "6a15d774cf90b4fc3dd8fa90",
+      cookiesVersion: "nicogaray-en-EU"
+    };
+    (function(d, s) {
+      var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+      e.async = true; e.src = "//static.axept.io/sdk-slim.js";
+      t.parentNode.insertBefore(e, t);
+    })(document, "script");
+  </script>
+
+  <!-- Axeptio → gtag consent bridge -->
+  <script>
+    void 0===window._axcb&&(window._axcb=[]);
+    window._axcb.push(function(axeptio){
+      axeptio.on("cookies:complete", function(choices){
+        gtag('consent','update',{
+          'analytics_storage': choices.google_analytics ? 'granted' : 'denied',
+          'ad_storage': choices.google_ads ? 'granted' : 'denied',
+          'ad_user_data': choices.google_ads ? 'granted' : 'denied',
+          'ad_personalization': choices.google_ads ? 'granted' : 'denied'
+        });
+      });
+    });
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
