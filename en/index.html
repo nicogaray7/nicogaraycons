@@ -65,34 +65,6 @@
     gtag('config', 'G-L2DZPV8S00');
   </script>
 
-  <!-- Axeptio cookie consent -->
-  <script>
-    window.axeptioSettings = {
-      clientId: "6a15d774cf90b4fc3dd8fa90",
-      cookiesVersion: "9d98a1b2-853b-40c7-b76d-9161ec1a67bd",
-    };
-
-    (function(d, s) {
-      var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
-      e.async = true; e.src = "//static.axept.io/sdk.js";
-      t.parentNode.insertBefore(e, t);
-    })(document, "script");
-  </script>
-
-  <!-- Axeptio → gtag consent bridge -->
-  <script>
-    void 0===window._axcb&&(window._axcb=[]);
-    window._axcb.push(function(axeptio){
-      axeptio.on("cookies:complete", function(choices){
-        gtag('consent','update',{
-          'analytics_storage': choices.google_analytics ? 'granted' : 'denied',
-          'ad_storage': choices.google_ads ? 'granted' : 'denied',
-          'ad_user_data': choices.google_ads ? 'granted' : 'denied',
-          'ad_personalization': choices.google_ads ? 'granted' : 'denied'
-        });
-      });
-    });
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -498,6 +470,78 @@
       section { padding: 70px 5%; }
       .hero-stats { gap: 24px; }
       .contact-card { padding: 40px 24px; }
+    }
+
+    /* ── COOKIE BANNER ── */
+    .cookie-banner {
+      position: fixed; bottom: 20px; left: 20px; right: 20px; z-index: 9999;
+      max-width: 460px; margin: 0 auto;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      transform: translateY(150%); opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.4s;
+    }
+    .cookie-banner.visible { transform: translateY(0); opacity: 1; }
+    .cookie-banner::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      border-radius: 16px 16px 0 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+    .cookie-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .cookie-text { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
+    .cookie-text a { color: var(--accent2); text-decoration: underline; }
+    .cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .cookie-btn {
+      flex: 1; min-width: 120px;
+      padding: 11px 18px; font-size: 0.85rem; font-weight: 600;
+      border-radius: 9px; cursor: pointer; border: none;
+      font-family: inherit; transition: all 0.2s; text-align: center;
+    }
+    .cookie-btn-accept { background: var(--accent); color: #fff; box-shadow: 0 0 20px rgba(91,110,245,0.3); }
+    .cookie-btn-accept:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(91,110,245,0.4); }
+    .cookie-btn-reject { background: var(--bg3); color: var(--text); border: 1px solid var(--border); }
+    .cookie-btn-reject:hover { border-color: var(--accent); color: var(--accent); }
+    .cookie-settings-link {
+      background: none; border: none; color: var(--muted);
+      font-size: 0.78rem; cursor: pointer; font-family: inherit;
+      text-decoration: underline; margin-top: 12px; padding: 0;
+    }
+    .cookie-settings-link:hover { color: var(--text); }
+    .cookie-prefs { margin-top: 16px; display: none; flex-direction: column; gap: 10px; }
+    .cookie-prefs.open { display: flex; }
+    .cookie-pref-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 12px; background: var(--bg3); border-radius: 8px;
+      font-size: 0.82rem;
+    }
+    .cookie-pref-row label { font-weight: 500; }
+    .cookie-pref-row .desc { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+    .cookie-switch { position: relative; width: 40px; height: 22px; flex-shrink: 0; }
+    .cookie-switch input { opacity: 0; width: 0; height: 0; }
+    .cookie-slider {
+      position: absolute; inset: 0; cursor: pointer;
+      background: var(--border); border-radius: 22px; transition: 0.3s;
+    }
+    .cookie-slider::before {
+      content: ''; position: absolute; height: 16px; width: 16px;
+      left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: 0.3s;
+    }
+    .cookie-switch input:checked + .cookie-slider { background: var(--accent); }
+    .cookie-switch input:checked + .cookie-slider::before { transform: translateX(18px); }
+    .cookie-switch input:disabled + .cookie-slider { opacity: 0.5; cursor: not-allowed; }
+    .cookie-reopen {
+      position: fixed; bottom: 18px; left: 18px; z-index: 9998;
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--bg2); border: 1px solid var(--border);
+      cursor: pointer; font-size: 1.1rem; display: none;
+      align-items: center; justify-content: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .cookie-reopen:hover { border-color: var(--accent); transform: scale(1.05); }
+    .cookie-reopen.visible { display: flex; }
+    @media (max-width: 520px) {
+      .cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 20px; }
     }
   </style>
 </head>
@@ -993,6 +1037,92 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
   document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
+
+<!-- COOKIE CONSENT BANNER -->
+<button class="cookie-reopen" id="cookieReopen" aria-label="Manage cookies" title="Manage cookies">🍪</button>
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-title">🍪 Cookies</div>
+  <p class="cookie-text">
+    I use analytics cookies (Google Analytics) to understand how the site is used.
+    No data is shared for advertising. You can accept, reject or customize.
+  </p>
+  <div class="cookie-prefs" id="cookiePrefs">
+    <div class="cookie-pref-row">
+      <div>
+        <label for="cp-necessary">Necessary</label>
+        <div class="desc">Always on · site functionality</div>
+      </div>
+      <span class="cookie-switch"><input type="checkbox" id="cp-necessary" checked disabled><span class="cookie-slider"></span></span>
+    </div>
+    <div class="cookie-pref-row">
+      <div>
+        <label for="cp-analytics">Analytics</label>
+        <div class="desc">Google Analytics · anonymized stats</div>
+      </div>
+      <span class="cookie-switch"><input type="checkbox" id="cp-analytics"><span class="cookie-slider"></span></span>
+    </div>
+  </div>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-btn-reject" id="cookieReject">Reject</button>
+    <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept</button>
+  </div>
+  <button class="cookie-settings-link" id="cookieToggle">Customize</button>
+  <button class="cookie-settings-link" id="cookieSavePrefs" style="display:none;">Save my choices</button>
+</div>
+
+<script>
+(function() {
+  var KEY = 'cookie-consent-v1';
+  var banner = document.getElementById('cookieBanner');
+  var reopen = document.getElementById('cookieReopen');
+  var prefs = document.getElementById('cookiePrefs');
+  var toggle = document.getElementById('cookieToggle');
+  var savePrefs = document.getElementById('cookieSavePrefs');
+  var analyticsCb = document.getElementById('cp-analytics');
+
+  function gtagSafe(){ window.dataLayer = window.dataLayer || []; function g(){dataLayer.push(arguments);} return g; }
+  var g = gtagSafe();
+
+  function applyConsent(analytics) {
+    g('consent', 'update', {
+      'analytics_storage': analytics ? 'granted' : 'denied'
+    });
+    window.dataLayer.push({ event: analytics ? 'cookie_consent_granted' : 'cookie_consent_denied' });
+  }
+
+  function save(analytics) {
+    try { localStorage.setItem(KEY, JSON.stringify({ analytics: analytics, ts: Date.now() })); } catch(e){}
+    applyConsent(analytics);
+  }
+
+  function showBanner(){ banner.classList.add('visible'); reopen.classList.remove('visible'); }
+  function hideBanner(){ banner.classList.remove('visible'); reopen.classList.add('visible'); }
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) { showBanner(); return; }
+      var data = JSON.parse(raw);
+      applyConsent(!!data.analytics);
+      analyticsCb.checked = !!data.analytics;
+      reopen.classList.add('visible');
+    } catch(e) { showBanner(); }
+  }
+
+  document.getElementById('cookieAccept').addEventListener('click', function(){ analyticsCb.checked = true; save(true); hideBanner(); });
+  document.getElementById('cookieReject').addEventListener('click', function(){ analyticsCb.checked = false; save(false); hideBanner(); });
+  toggle.addEventListener('click', function(){
+    prefs.classList.toggle('open');
+    var open = prefs.classList.contains('open');
+    toggle.style.display = open ? 'none' : '';
+    savePrefs.style.display = open ? '' : 'none';
+  });
+  savePrefs.addEventListener('click', function(){ save(analyticsCb.checked); hideBanner(); prefs.classList.remove('open'); toggle.style.display=''; savePrefs.style.display='none'; });
+  reopen.addEventListener('click', showBanner);
+
+  load();
+})();
 </script>
 
 </body>
