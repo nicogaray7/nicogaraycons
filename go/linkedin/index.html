@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Buffer page: ne pas indexer -->
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Redirection vers LinkedIn…</title>
+
+  <!-- Cible de redirection (modifiable à un seul endroit) -->
+  <script>
+    window.LINKEDIN_URL = "https://www.linkedin.com/in/nicogaray/";
+    window.REDIRECT_FALLBACK_MS = 1500; // sécurité si GTM ne rappelle pas
+  </script>
+
+  <!-- dataLayer + event de clic AVANT le chargement de GTM -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    window.doRedirect = function () {
+      if (window.__redirected) return;
+      window.__redirected = true;
+      window.location.replace(window.LINKEDIN_URL);
+    };
+
+    // Event de clic : déclenche les tags GTM (GA4, LinkedIn Insight, etc.).
+    // GA4 attribue la campagne automatiquement via les utm_* présents sur l'URL de cette page.
+    // eventCallback redirige dès que les tags ont répondu ; eventTimeout borne l'attente.
+    window.dataLayer.push({
+      event: "linkedin_redirect",
+      link_destination: window.LINKEDIN_URL,
+      page_referrer: document.referrer || "(direct)",
+      eventTimeout: window.REDIRECT_FALLBACK_MS,
+      eventCallback: window.doRedirect
+    });
+
+    // Filet de sécurité : redirige même si GTM est bloqué (adblock) ou lent
+    setTimeout(window.doRedirect, window.REDIRECT_FALLBACK_MS);
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-54MMFRP');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Fallback sans JS : redirige après 2s -->
+  <noscript>
+    <meta http-equiv="refresh" content="2;url=https://www.linkedin.com/in/nicogaray/" />
+  </noscript>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background:#07080f;color:#e8eaf6;
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,sans-serif;
+      min-height:100vh;display:flex;align-items:center;justify-content:center;
+    }
+    .wrap{text-align:center;padding:32px}
+    .spinner{
+      width:42px;height:42px;margin:0 auto 24px;
+      border:3px solid rgba(91,110,245,0.2);border-top-color:#5b6ef5;
+      border-radius:50%;animation:spin .8s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    h1{font-size:1.1rem;font-weight:600;margin-bottom:8px}
+    p{font-size:.9rem;color:#7c82a3}
+    a{color:#818cf8}
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54MMFRP"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="wrap">
+    <div class="spinner"></div>
+    <h1>Redirection vers LinkedIn…</h1>
+    <p>Si rien ne se passe, <a href="https://www.linkedin.com/in/nicogaray/">cliquez ici</a>.</p>
+  </div>
+</body>
+</html>
