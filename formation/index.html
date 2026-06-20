@@ -2,6 +2,13 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-54MMFRP');</script>
+  <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cours d'informatique pour débutants et seniors, en visio ou à domicile | Nico Formation</title>
   <meta name="description" content="Cours particuliers d'informatique pour débutants et seniors : ordinateur, smartphone, internet, e-mails, démarches en ligne et ChatGPT. Sans jargon, à votre rythme. 35 €/h, 1er échange de 30 min offert." />
@@ -253,6 +260,9 @@
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54MMFRP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <a class="skip" href="#main" style="position:absolute;left:-9999px;">Aller au contenu</a>
 
   <!-- Header -->
@@ -274,7 +284,7 @@
     <!-- Hero -->
     <section class="hero">
       <div class="wrap">
-        <span class="eyebrow">📍 Cours en visio partout en France ou à domicile</span>
+        <span class="eyebrow">📍 Cours en visio ou à domicile</span>
         <h1>Apprenez l'informatique simplement, à votre rythme</h1>
         <p class="sub">Ordinateur, smartphone, internet, e-mails, démarches en ligne et même ChatGPT. Des cours particuliers adaptés aux débutants et aux seniors, sans jargon et sans stress.</p>
         <div class="hero-cta">
@@ -482,5 +492,31 @@
   <div class="sticky-cta">
     <a class="btn btn-primary" href="https://calendly.com/garay-nico/30min" target="_blank" rel="noopener">Réserver un appel gratuit</a>
   </div>
+
+  <!-- Tracking : pousse un evenement dataLayer a chaque clic sur un CTA Calendly (pour GTM) -->
+  <script>
+    (function () {
+      window.dataLayer = window.dataLayer || [];
+      function locationOf(el) {
+        if (el.closest('.sticky-cta')) return 'sticky_mobile';
+        if (el.closest('header.site')) return 'header';
+        if (el.closest('.hero')) return 'hero';
+        if (el.closest('#tarifs')) return 'tarifs';
+        if (el.closest('.final')) return 'final';
+        if (el.closest('footer.site')) return 'footer';
+        return 'autre';
+      }
+      document.querySelectorAll('a[href*="calendly.com"]').forEach(function (a) {
+        a.addEventListener('click', function () {
+          window.dataLayer.push({
+            event: 'cta_click',
+            cta_label: a.textContent.trim(),
+            cta_location: locationOf(a),
+            cta_destination: 'calendly'
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
