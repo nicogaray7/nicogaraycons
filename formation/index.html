@@ -2,6 +2,25 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <!-- Google Consent Mode v2 : tags actifs par défaut, bloqués si l'utilisateur a refusé (opt-out) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function(){
+      var refused = false;
+      try { var s = JSON.parse(localStorage.getItem('formation-consent-v1')); refused = s && s.granted === false; } catch(e){}
+      var v = refused ? 'denied' : 'granted';
+      gtag('consent', 'default', {
+        'ad_storage': v,
+        'ad_user_data': v,
+        'ad_personalization': v,
+        'analytics_storage': v,
+        'functionality_storage': v,
+        'personalization_storage': v,
+        'security_storage': 'granted'
+      });
+    })();
+  </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -580,6 +599,59 @@
           });
         });
       });
+    })();
+  </script>
+  <!-- Bandeau de consentement (RGPD / Google Consent Mode) -->
+  <style>
+    .cc-banner { position:fixed; left:0; right:0; bottom:0; z-index:200; background:#fff; border-top:1px solid var(--line);
+      box-shadow:0 -8px 30px rgba(31,36,51,.14); padding:16px 16px calc(16px + env(safe-area-inset-bottom)); display:none; }
+    .cc-banner.cc-show { display:block; }
+    .cc-inner { max-width:1080px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:12px 22px; justify-content:space-between; }
+    .cc-text { font-size:14px; color:var(--muted); max-width:700px; line-height:1.5; }
+    .cc-text a { color:var(--indigo); }
+    .cc-actions { display:flex; gap:10px; flex-shrink:0; }
+    .cc-btn { font-weight:700; font-size:15px; border-radius:999px; padding:11px 24px; cursor:pointer; border:2px solid var(--indigo);
+      transition:background-color .15s ease,color .15s ease; }
+    .cc-refuse { background:#fff; color:var(--indigo); }
+    .cc-refuse:hover { background:var(--indigo); color:#fff; }
+    .cc-accept { background:var(--indigo); color:#fff; }
+    .cc-accept:hover { background:var(--indigo-dark); color:#fff; }
+    .cc-reopen { position:fixed; left:16px; bottom:16px; z-index:120; width:46px; height:46px; border-radius:50%;
+      border:1px solid var(--line); background:#fff; box-shadow:var(--shadow); cursor:pointer; font-size:22px; line-height:1; display:none; }
+    .cc-reopen.cc-show { display:block; }
+    @media (max-width:720px){ .cc-actions{ width:100%; } .cc-btn{ flex:1; } .cc-reopen{ bottom:84px; } }
+  </style>
+  <div class="cc-banner" id="ccBanner" role="dialog" aria-label="Consentement aux cookies">
+    <div class="cc-inner">
+      <p class="cc-text">🍪 Ce site utilise Google Analytics (mesure d'audience) pour s'améliorer. Aucune donnée vendue. Vous pouvez refuser à tout moment. <a href="https://nicogaray.com" target="_blank" rel="noopener">En savoir plus</a></p>
+      <div class="cc-actions">
+        <button class="cc-btn cc-refuse" id="ccRefuse" type="button">Refuser</button>
+        <button class="cc-btn cc-accept" id="ccAccept" type="button">Accepter</button>
+      </div>
+    </div>
+  </div>
+  <button class="cc-reopen" id="ccReopen" type="button" aria-label="Préférences cookies" title="Préférences cookies">🍪</button>
+  <script>
+    (function(){
+      var KEY='formation-consent-v1';
+      var banner=document.getElementById('ccBanner'), reopen=document.getElementById('ccReopen');
+      window.dataLayer=window.dataLayer||[];
+      function gtag(){dataLayer.push(arguments);}
+      function apply(granted){
+        var v=granted?'granted':'denied';
+        gtag('consent','update',{ad_storage:v,ad_user_data:v,ad_personalization:v,analytics_storage:v,functionality_storage:v,personalization_storage:v});
+        dataLayer.push({event: granted?'consent_granted':'consent_denied'});
+      }
+      function set(granted){ try{localStorage.setItem(KEY,JSON.stringify({granted:granted,ts:Date.now()}));}catch(e){} apply(granted); }
+      function show(){ banner.classList.add('cc-show'); reopen.classList.remove('cc-show'); }
+      function hide(){ banner.classList.remove('cc-show'); reopen.classList.add('cc-show'); }
+      document.getElementById('ccAccept').addEventListener('click',function(){ set(true); hide(); });
+      document.getElementById('ccRefuse').addEventListener('click',function(){ set(false); hide(); });
+      reopen.addEventListener('click',show);
+      try{
+        var raw=localStorage.getItem(KEY);
+        if(!raw){ show(); } else { apply(!!JSON.parse(raw).granted); reopen.classList.add('cc-show'); }
+      }catch(e){ show(); }
     })();
   </script>
 </body>
