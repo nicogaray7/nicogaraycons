@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "formation.nicogaray.com" }],
+      "destination": "/formation/index.html"
+    }
+  ]
+}
