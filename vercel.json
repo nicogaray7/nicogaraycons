@@ -1,9 +1,10 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
+      "src": "/",
       "has": [{ "type": "host", "value": "formation.nicogaray.com" }],
-      "destination": "/formation/index.html"
-    }
+      "dest": "/formation/index.html"
+    },
+    { "handle": "filesystem" }
   ]
 }
