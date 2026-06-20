@@ -1,6 +1,16 @@
 {
   "routes": [
     {
+      "src": "/sitemap.xml",
+      "has": [{ "type": "host", "value": "formation.nicogaray.com" }],
+      "dest": "/formation/sitemap.xml"
+    },
+    {
+      "src": "/robots.txt",
+      "has": [{ "type": "host", "value": "formation.nicogaray.com" }],
+      "dest": "/formation/robots.txt"
+    },
+    {
       "src": "/",
       "has": [{ "type": "host", "value": "formation.nicogaray.com" }],
       "dest": "/formation/index.html"
