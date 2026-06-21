@@ -42,7 +42,7 @@
     "knowsAbout": ["AI Agents", "LangGraph", "Claude API", "n8n", "Automatisation", "LLM Integration"]
   }
   </script>
-  <!-- Google Consent Mode v2 (default deny before consent) -->
+  <!-- Google Consent Mode v2 (opt-out : analytics granted par défaut, denied si refus) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -50,11 +50,10 @@
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
-      'analytics_storage': 'denied',
-      'functionality_storage': 'denied',
+      'analytics_storage': 'granted',
+      'functionality_storage': 'granted',
       'personalization_storage': 'denied',
-      'security_storage': 'granted',
-      'wait_for_update': 500
+      'security_storage': 'granted'
     });
   </script>
 
@@ -1077,7 +1076,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <label for="ngAna">Mesure d'audience</label>
         <div class="ng-d">Google Analytics · statistiques anonymisées</div>
       </div>
-      <label class="ng-sw"><input type="checkbox" id="ngAna"><span class="ng-sl"></span></label>
+      <label class="ng-sw"><input type="checkbox" id="ngAna" checked><span class="ng-sl"></span></label>
     </div>
   </div>
   <div class="ng-tray-actions">
