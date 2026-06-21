@@ -144,7 +144,7 @@
 
   <nav>
     <a href="https://nicogaray.com/?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux" class="nav-logo">Nico<span>.</span>AI</a>
-    <a href="https://calendly.com/garay-nico/30min?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux" class="nav-cta">Échanger 30 min</a>
+    <a href="https://nicogaray.com/go/rdv/?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux" class="nav-cta">Échanger 30 min</a>
   </nav>
 
   <header class="hero">
@@ -152,7 +152,7 @@
       <span class="badge">Consultant IA à Bordeaux et en Gironde</span>
       <h1>Et si votre équipe ne faisait <span>que ce qu'elle fait de mieux ?</span></h1>
       <p class="sub">J'installe des automatisations IA pour les TPE et PME de Bordeaux. Les tâches répétitives (devis, relances, mails, rappels de RDV) tournent toutes seules, dans un environnement privé qui protège vos données. Vous reprenez du temps pour votre métier.</p>
-      <a href="https://calendly.com/garay-nico/30min?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux" class="btn">Réserver un échange de 30 min</a>
+      <a href="https://nicogaray.com/go/rdv/?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux" class="btn">Réserver un échange de 30 min</a>
       <span class="btn-sub">Offert et sans engagement. J'analyse votre besoin et vous recevez ensuite un rapport personnalisé gratuit.</span>
     </div>
   </header>
@@ -269,7 +269,7 @@
       <div class="cta-band">
         <h2>On en parle 30 minutes ?</h2>
         <p class="lead">Pendant l'échange (offert, en visio ou sur place) j'analyse votre besoin, puis je vous envoie un rapport personnalisé gratuit avec des pistes concrètes, que l'on travaille ensemble ou non.</p>
-        <a href="https://calendly.com/garay-nico/30min?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux" class="btn">Réserver mon créneau</a>
+        <a href="https://nicogaray.com/go/rdv/?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux" class="btn">Réserver mon créneau</a>
       </div>
     </div>
   </section>
@@ -279,8 +279,24 @@
       Nico Garay, consultant agents IA à Bordeaux et en Gironde<br>
       <a href="https://nicogaray.com/?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux">nicogaray.com</a>
       &nbsp;|&nbsp; <a href="https://nicogaray.com/go/linkedin?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux" target="_blank" rel="noopener">LinkedIn</a>
-      &nbsp;|&nbsp; <a href="https://calendly.com/garay-nico/30min?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux">Prendre rendez-vous</a>
+      &nbsp;|&nbsp; <a href="https://nicogaray.com/go/rdv/?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux">Prendre rendez-vous</a>
     </div>
   </footer>
+  <script>
+    // Propage l'attribution (lead/email venus de l'email via utm_content/utm_term) vers les liens /go/rdv
+    (function(){
+      var p = new URLSearchParams(location.search);
+      var c = p.get('utm_content'), t = p.get('utm_term');
+      if (!c && !t) return;
+      document.querySelectorAll('a[href*="/go/rdv"]').forEach(function(a){
+        try {
+          var u = new URL(a.getAttribute('href'), location.origin);
+          if (c) u.searchParams.set('utm_content', c);
+          if (t) u.searchParams.set('utm_term', t);
+          a.setAttribute('href', u.toString());
+        } catch(e){}
+      });
+    })();
+  </script>
 </body>
 </html>
