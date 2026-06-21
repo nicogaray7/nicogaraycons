@@ -61,6 +61,7 @@
         gtag('event', 'clic_rdv', {
           lead: lead || '(non renseigne)',
           email_sequence: email || '(non renseigne)',
+          transport_type: 'beacon',
           event_callback: go,
           event_timeout: 1500
         });
