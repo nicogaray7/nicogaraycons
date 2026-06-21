@@ -32,18 +32,29 @@
       function clean(v){ return (v||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,60); }
       var lead = clean(p.get('lead') || p.get('utm_content'));
       var email = clean(p.get('email') || p.get('utm_term'));
-      // Envoie l'évènement dans la couche de données (capté par GTM -> GA4)
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: 'clic_rdv', lead: lead || '(non renseigne)', email_sequence: email || '(non renseigne)' });
       // Destination Calendly, en conservant l'attribution
       var base = 'https://calendly.com/garay-nico/30min';
       var qs = 'utm_source=email&utm_medium=email&utm_campaign=prospection-bordeaux';
       if (lead)  qs += '&utm_content=' + encodeURIComponent(lead);
       if (email) qs += '&utm_term=' + encodeURIComponent(email);
       var dest = base + '?' + qs;
-      // Laisse ~700 ms pour l'envoi de l'évènement, puis redirige
       window.__dest = dest;
-      setTimeout(function(){ window.location.replace(dest); }, 700);
+      // Redirige une seule fois, APRES que les tags (beacon GA4) aient pu partir
+      var redirected = false;
+      function go(){ if (redirected) return; redirected = true; window.location.replace(dest); }
+      // Envoie l'évènement dans la couche de données (capté par GTM -> GA4)
+      // eventCallback : GTM appelle go() une fois les tags déclenchés (beacon parti).
+      // eventTimeout : GTM appelle go() au plus tard après ce délai.
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'clic_rdv',
+        lead: lead || '(non renseigne)',
+        email_sequence: email || '(non renseigne)',
+        eventCallback: go,
+        eventTimeout: 1500
+      });
+      // Filet de sécurité si GTM est absent ou si le callback n'est pas appelé
+      setTimeout(go, 2000);
     })();
   </script>
 </head>
