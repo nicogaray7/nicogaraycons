@@ -30,8 +30,8 @@
       // Lit les paramètres lead et email de l'URL
       var p = new URLSearchParams(window.location.search);
       function clean(v){ return (v||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,60); }
-      var lead = clean(p.get('lead'));
-      var email = clean(p.get('email'));
+      var lead = clean(p.get('lead') || p.get('utm_content'));
+      var email = clean(p.get('email') || p.get('utm_term'));
       // Envoie l'évènement dans la couche de données (capté par GTM -> GA4)
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'clic_rdv', lead: lead || '(non renseigne)', email_sequence: email || '(non renseigne)' });
