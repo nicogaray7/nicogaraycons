@@ -47,21 +47,24 @@
       window.__dest = dest;
       // Applique le choix mémorisé (opt-out) : granted par défaut, denied si l'utilisateur a refusé
       try { var _r = localStorage.getItem('ng-pref-v1'); if (_r) { gtag('consent','update',{ 'analytics_storage': JSON.parse(_r).analytics ? 'granted' : 'denied' }); } } catch(e){}
-      // Redirige une seule fois, APRES que les tags (beacon GA4) aient pu partir
+      // Redirige une seule fois, APRES l'envoi du beacon GA4
       var redirected = false;
       function go(){ if (redirected) return; redirected = true; window.location.replace(dest); }
-      // Envoie l'évènement dans la couche de données (capté par GTM -> GA4)
-      // eventCallback : GTM appelle go() une fois les tags déclenchés (beacon parti).
-      // eventTimeout : GTM appelle go() au plus tard après ce délai.
+      // Envoie l'évènement GA4 clic_rdv DIRECTEMENT via gtag (gtag.js déjà chargé),
+      // avec event_callback pour rediriger une fois le hit parti. Plus fiable que
+      // la couche de données + tag GTM avant une redirection rapide.
+      // On garde aussi le push dataLayer pour ceux qui veulent un déclencheur GTM.
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'clic_rdv',
-        lead: lead || '(non renseigne)',
-        email_sequence: email || '(non renseigne)',
-        eventCallback: go,
-        eventTimeout: 1500
-      });
-      // Filet de sécurité si GTM est absent ou si le callback n'est pas appelé
+      window.dataLayer.push({ event: 'clic_rdv_dl', lead: lead || '(non renseigne)', email_sequence: email || '(non renseigne)' });
+      if (typeof gtag === 'function') {
+        gtag('event', 'clic_rdv', {
+          lead: lead || '(non renseigne)',
+          email_sequence: email || '(non renseigne)',
+          event_callback: go,
+          event_timeout: 1500
+        });
+      } else { go(); }
+      // Filet de sécurité si gtag absent ou callback non appelé
       setTimeout(go, 2000);
     })();
   </script>
