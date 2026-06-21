@@ -110,12 +110,32 @@
 
     .cta-band { text-align:center; background:linear-gradient(180deg, var(--bg2), var(--bg3)); border:1px solid var(--border); border-radius:18px; padding:48px 24px; margin: 10px 0; }
 
+    .services-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:18px; }
+    .service-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:26px; }
+    .service-num { color:var(--accent); font-weight:700; font-size:0.85rem; }
+    .service-icon { font-size:1.5rem; margin:8px 0 4px; }
+    .service-card h3 { font-size:1.12rem; font-weight:700; margin-bottom:8px; }
+    .service-card p { color:var(--muted); font-size:0.95rem; }
+    .service-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .tag { font-size:0.72rem; color:var(--accent2); background:rgba(91,110,245,0.10); border:1px solid var(--border); border-radius:999px; padding:4px 10px; }
+
+    .results-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:18px; }
+    .result-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; display:flex; flex-direction:column; }
+    .result-sector { font-size:0.72rem; font-weight:700; color:var(--accent2); text-transform:uppercase; letter-spacing:0.07em; }
+    .result-card h3 { font-size:1.02rem; font-weight:700; margin:8px 0 4px; }
+    .result-context { color:var(--muted); font-size:0.86rem; margin-bottom:14px; }
+    .result-challenge { font-style:italic; color:var(--text); font-size:0.9rem; background:var(--bg2); border-left:2px solid var(--accent); border-radius:6px; padding:12px 14px; margin-bottom:16px; }
+    .result-metrics { display:flex; gap:14px; margin-top:auto; flex-wrap:wrap; }
+    .metric { flex:1; min-width:78px; }
+    .metric-val { font-size:1.35rem; font-weight:800; color:var(--accent); letter-spacing:-0.02em; }
+    .metric-desc { font-size:0.72rem; color:var(--muted); line-height:1.35; }
+
     footer { border-top:1px solid var(--border); padding:30px 0; text-align:center; color:var(--muted); font-size:.85rem; }
     footer a { color:var(--accent2); text-decoration:none; }
 
     @media (max-width: 720px) {
       .stats { grid-template-columns: 1fr; }
-      .cards, .uses { grid-template-columns: 1fr; }
+      .cards, .uses, .services-grid, .results-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -139,12 +159,42 @@
 
   <section>
     <div class="wrap">
-      <h2>Des résultats concrets, pas du jargon</h2>
-      <p class="lead">Quelques automatisations déjà déployées chez mes clients.</p>
-      <div class="stats">
-        <div class="stat"><b>−73 %</b><span>de tickets traités à la main (e-commerce)</span></div>
-        <div class="stat"><b>2 min</b><span>pour un premier contact client qualifié (immobilier)</span></div>
-        <div class="stat"><b>+12 h</b><span>par semaine rendues à l'équipe commerciale</span></div>
+      <h2>Cas d'usage type</h2>
+      <p class="lead">Scénarios représentatifs basés sur des missions types : problématiques courantes, solutions déployables.</p>
+      <div class="results-grid">
+        <div class="result-card">
+          <span class="result-sector">E-commerce / Mode</span>
+          <h3>Boutique en ligne, 42 salariés, Lyon</h3>
+          <p class="result-context">Agent IA pour la gestion du service client</p>
+          <div class="result-challenge">« On recevait 300+ tickets par semaine. Mon équipe SAV passait 90 % de son temps sur des questions répétitives. »</div>
+          <div class="result-metrics">
+            <div class="metric"><div class="metric-val">-73 %</div><div class="metric-desc">tickets traités à la main</div></div>
+            <div class="metric"><div class="metric-val">2h</div><div class="metric-desc">délai de réponse (vs 18h)</div></div>
+            <div class="metric"><div class="metric-val">+28 %</div><div class="metric-desc">satisfaction client</div></div>
+          </div>
+        </div>
+        <div class="result-card">
+          <span class="result-sector">RH / Recrutement</span>
+          <h3>Cabinet de recrutement spécialisé tech</h3>
+          <p class="result-context">Présélection des candidatures + scoring du fit poste</p>
+          <div class="result-challenge">« Sur un poste senior, on reçoit 200 à 400 CV en quelques jours. Pendant la lecture, les meilleurs profils signent ailleurs. »</div>
+          <div class="result-metrics">
+            <div class="metric"><div class="metric-val">-80 %</div><div class="metric-desc">temps de présélection</div></div>
+            <div class="metric"><div class="metric-val">3j à 4h</div><div class="metric-desc">délai de short-list</div></div>
+            <div class="metric"><div class="metric-val">+35 %</div><div class="metric-desc">conversion en entretien</div></div>
+          </div>
+        </div>
+        <div class="result-card">
+          <span class="result-sector">Immobilier / Indépendant</span>
+          <h3>Mandataire immobilier indépendant</h3>
+          <p class="result-context">Qualification des leads + synchronisation CRM</p>
+          <div class="result-challenge">« Seul à gérer prospection, visites et closing, les leads attendaient une demi-journée. Le soir et le week-end, je perdais des mandats. »</div>
+          <div class="result-metrics">
+            <div class="metric"><div class="metric-val">2 min</div><div class="metric-desc">premier contact, 24h/24</div></div>
+            <div class="metric"><div class="metric-val">100 %</div><div class="metric-desc">leads pré-qualifiés</div></div>
+            <div class="metric"><div class="metric-val">+12h</div><div class="metric-desc">temps commercial par semaine</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -179,12 +229,37 @@
 
   <section>
     <div class="wrap">
-      <h2>Comment on travaille ensemble</h2>
-      <div class="cards">
-        <div class="card"><h3>1. Audit</h3><p>On regarde vos tâches répétitives et on chiffre le temps (et l'argent) récupérable. Vous repartez avec une feuille de route claire.</p></div>
-        <div class="card"><h3>2. Mise en place</h3><p>Je conçois et installe les automatisations sur mesure, branchées à vos outils. Vous repartez avec quelque chose qui marche.</p></div>
-        <div class="card"><h3>3. Formation</h3><p>Votre équipe est formée et autonome. Pas de dépendance, pas de boîte noire.</p></div>
-        <div class="card"><h3>4. Suivi</h3><p>Je surveille, j'ajuste et je fais évoluer les automatisations dans le temps.</p></div>
+      <h2>Quatre étapes, un accompagnement complet</h2>
+      <p class="lead">De l'idée à la mise en production, je m'occupe de tout le cycle de vie de vos agents IA.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-num">01 /</span>
+          <div class="service-icon">🔍</div>
+          <h3>Audit IA</h3>
+          <p>Je passe vos process au crible, je sors les cas d'usage à ROI rapide et je vous livre un plan d'action concret. Pas de slides : un rapport activable.</p>
+          <div class="service-tags"><span class="tag">2-3 jours</span><span class="tag">Rapport livré</span><span class="tag">ROI estimé</span></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">02 /</span>
+          <div class="service-icon">🛠️</div>
+          <h3>Build</h3>
+          <p>Je conçois, développe et déploie vos agents IA sur mesure, de l'architecture à la mise en production, branchés sur vos outils existants. Tests inclus.</p>
+          <div class="service-tags"><span class="tag">Sur mesure</span><span class="tag">Intégration complète</span><span class="tag">Tests inclus</span></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">03 /</span>
+          <div class="service-icon">🎓</div>
+          <h3>Formation</h3>
+          <p>Je forme vos équipes à comprendre, utiliser et faire évoluer les agents en place. Un outil que personne n'adopte ne sert à rien.</p>
+          <div class="service-tags"><span class="tag">Ateliers pratiques</span><span class="tag">Documentation</span><span class="tag">Suivi</span></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">04 /</span>
+          <div class="service-icon">🔧</div>
+          <h3>Maintenance</h3>
+          <p>Je surveille vos agents, j'affine les prompts, je gère les mises à jour de modèles et je fais évoluer les workflows. Votre IA reste toujours au niveau.</p>
+          <div class="service-tags"><span class="tag">Monitoring</span><span class="tag">Alertes</span><span class="tag">Évolutions</span></div>
+        </div>
       </div>
     </div>
   </section>
