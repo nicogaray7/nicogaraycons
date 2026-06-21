@@ -8,7 +8,7 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('consent', 'default', {
       'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied',
-      'analytics_storage':'denied','wait_for_update':500
+      'analytics_storage':'granted','functionality_storage':'granted','security_storage':'granted'
     });
   </script>
   <!-- Google Tag Manager -->
@@ -45,8 +45,8 @@
       if (email) qs += '&utm_term=' + encodeURIComponent(email);
       var dest = base + '?' + qs;
       window.__dest = dest;
-      // Applique le consentement mémorisé sur la landing (même origine)
-      try { var _r = localStorage.getItem('ng-pref-v1'); if (_r && JSON.parse(_r).analytics) { gtag('consent','update',{ 'analytics_storage':'granted' }); } } catch(e){}
+      // Applique le choix mémorisé (opt-out) : granted par défaut, denied si l'utilisateur a refusé
+      try { var _r = localStorage.getItem('ng-pref-v1'); if (_r) { gtag('consent','update',{ 'analytics_storage': JSON.parse(_r).analytics ? 'granted' : 'denied' }); } } catch(e){}
       // Redirige une seule fois, APRES que les tags (beacon GA4) aient pu partir
       var redirected = false;
       function go(){ if (redirected) return; redirected = true; window.location.replace(dest); }
