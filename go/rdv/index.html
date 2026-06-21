@@ -40,7 +40,8 @@
       var email = clean(p.get('email') || p.get('utm_term'));
       // Destination Calendly, en conservant l'attribution
       var base = 'https://calendly.com/garay-nico/30min';
-      var qs = 'utm_source=email&utm_medium=email&utm_campaign=prospection-bordeaux';
+      function val(k, d){ var v = p.get(k); return v ? encodeURIComponent(v) : d; }
+      var qs = 'utm_source=' + val('utm_source','email') + '&utm_medium=' + val('utm_medium','site') + '&utm_campaign=' + val('utm_campaign','prospection-bordeaux');
       if (lead)  qs += '&utm_content=' + encodeURIComponent(lead);
       if (email) qs += '&utm_term=' + encodeURIComponent(email);
       var dest = base + '?' + qs;
