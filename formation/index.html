@@ -2,21 +2,20 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <!-- Google Consent Mode v2 : tags actifs par défaut, bloqués si l'utilisateur a refusé (opt-out) -->
+  <!-- Google Consent Mode v2 (opt-out : analytics granted par défaut, denied si refus mémorisé) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     (function(){
       var refused = false;
-      try { var s = JSON.parse(localStorage.getItem('formation-consent-v1')); refused = s && s.granted === false; } catch(e){}
-      var v = refused ? 'denied' : 'granted';
+      try { var s = JSON.parse(localStorage.getItem('ng-pref-v1')); refused = s && s.analytics === false; } catch(e){}
       gtag('consent', 'default', {
-        'ad_storage': v,
-        'ad_user_data': v,
-        'ad_personalization': v,
-        'analytics_storage': v,
-        'functionality_storage': v,
-        'personalization_storage': v,
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': refused ? 'denied' : 'granted',
+        'functionality_storage': 'granted',
+        'personalization_storage': 'denied',
         'security_storage': 'granted'
       });
     })();
@@ -634,58 +633,111 @@
       });
     })();
   </script>
-  <!-- Bandeau de consentement (RGPD / Google Consent Mode) -->
+  <!-- Bannière de consentement (ng-tray, identique à nicogaray.com, couleurs formation) -->
   <style>
-    .cc-banner { position:fixed; left:0; right:0; bottom:0; z-index:200; background:#fff; border-top:1px solid var(--line);
-      box-shadow:0 -8px 30px rgba(31,36,51,.14); padding:16px 16px calc(16px + env(safe-area-inset-bottom)); display:none; }
-    .cc-banner.cc-show { display:block; }
-    .cc-inner { max-width:1080px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:12px 22px; justify-content:space-between; }
-    .cc-text { font-size:14px; color:var(--muted); max-width:700px; line-height:1.5; }
-    .cc-text a { color:var(--indigo); }
-    .cc-actions { display:flex; gap:10px; flex-shrink:0; }
-    .cc-btn { font-weight:700; font-size:15px; border-radius:999px; padding:11px 24px; cursor:pointer; border:2px solid var(--indigo);
-      transition:background-color .15s ease,color .15s ease; }
-    .cc-refuse { background:#fff; color:var(--indigo); }
-    .cc-refuse:hover { background:var(--indigo); color:#fff; }
-    .cc-accept { background:var(--indigo); color:#fff; }
-    .cc-accept:hover { background:var(--indigo-dark); color:#fff; }
-    .cc-reopen { position:fixed; left:16px; bottom:16px; z-index:120; width:46px; height:46px; border-radius:50%;
-      border:1px solid var(--line); background:#fff; box-shadow:var(--shadow); cursor:pointer; font-size:22px; line-height:1; display:none; }
-    .cc-reopen.cc-show { display:block; }
-    @media (max-width:720px){ .cc-actions{ width:100%; } .cc-btn{ flex:1; } .cc-reopen{ bottom:84px; } }
+    .ng-tray { position: fixed; bottom: 20px; left: 20px; right: 20px; z-index: 9999; max-width: 460px; margin: 0 auto;
+      background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; box-shadow:0 20px 50px rgba(31,36,51,.18);
+      transform: translateY(150%); opacity:0; transition: transform .4s cubic-bezier(0.16,1,0.3,1), opacity .4s; }
+    .ng-tray.ng-on { transform: translateY(0); opacity:1; }
+    .ng-tray::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius:16px 16px 0 0; background:linear-gradient(90deg, var(--indigo), var(--indigo-dark)); }
+    .ng-tray-h { font-size:1rem; font-weight:700; margin-bottom:8px; color:var(--ink); display:flex; align-items:center; gap:8px; }
+    .ng-tray-p { font-size:.85rem; color:var(--muted); line-height:1.6; margin-bottom:18px; }
+    .ng-tray-p a { color:var(--indigo); text-decoration:underline; }
+    .ng-tray-actions { display:flex; gap:10px; flex-wrap:wrap; }
+    .ng-tray-btn { flex:1; min-width:120px; padding:11px 18px; font-size:.85rem; font-weight:700; border-radius:9px; cursor:pointer; border:none; font-family:inherit; transition:all .2s; text-align:center; }
+    .ng-tray-btn-y { background:var(--indigo); color:#fff; }
+    .ng-tray-btn-y:hover { background:var(--indigo-dark); }
+    .ng-tray-btn-n { background:#fff; color:var(--indigo); border:1px solid var(--line); }
+    .ng-tray-btn-n:hover { border-color:var(--indigo); }
+    .ng-tray-link { background:none; border:none; color:var(--muted); font-size:.78rem; cursor:pointer; font-family:inherit; text-decoration:underline; margin-top:12px; padding:0; }
+    .ng-tray-link:hover { color:var(--ink); }
+    .ng-tray-prefs { margin-top:16px; display:none; flex-direction:column; gap:10px; }
+    .ng-tray-prefs.ng-open { display:flex; }
+    .ng-tray-row { display:flex; align-items:center; justify-content:space-between; padding:10px 12px; background:var(--paper); border:1px solid var(--line); border-radius:8px; font-size:.82rem; }
+    .ng-tray-row label { font-weight:600; color:var(--ink); }
+    .ng-tray-row .ng-d { font-size:.72rem; color:var(--muted); margin-top:2px; }
+    .ng-sw { position:relative; width:40px; height:22px; flex-shrink:0; }
+    .ng-sw input { opacity:0; width:0; height:0; }
+    .ng-sl { position:absolute; inset:0; cursor:pointer; background:var(--line); border-radius:22px; transition:.3s; }
+    .ng-sl::before { content:''; position:absolute; height:16px; width:16px; left:3px; bottom:3px; background:#fff; border-radius:50%; transition:.3s; box-shadow:0 1px 3px rgba(0,0,0,.2); }
+    .ng-sw input:checked + .ng-sl { background:var(--indigo); }
+    .ng-sw input:checked + .ng-sl::before { transform:translateX(18px); }
+    .ng-sw input:disabled + .ng-sl { opacity:.5; cursor:not-allowed; }
+    .ng-pill { position:fixed; bottom:18px; left:18px; z-index:9998; width:42px; height:42px; border-radius:50%; background:#fff; border:1px solid var(--line); box-shadow:var(--shadow); cursor:pointer; font-size:1.1rem; display:none; align-items:center; justify-content:center; transition:border-color .2s, transform .2s; }
+    .ng-pill:hover { border-color:var(--indigo); transform:scale(1.05); }
+    .ng-pill.ng-on { display:flex; }
+    @media (max-width:520px){ .ng-tray { left:12px; right:12px; bottom:12px; padding:20px; } }
   </style>
-  <div class="cc-banner" id="ccBanner" role="dialog" aria-label="Consentement aux cookies">
-    <div class="cc-inner">
-      <p class="cc-text">🍪 Ce site utilise Google Analytics (mesure d'audience) pour s'améliorer. Aucune donnée vendue. Vous pouvez refuser à tout moment. <a href="https://nicogaray.com" target="_blank" rel="noopener">En savoir plus</a></p>
-      <div class="cc-actions">
-        <button class="cc-btn cc-refuse" id="ccRefuse" type="button">Refuser</button>
-        <button class="cc-btn cc-accept" id="ccAccept" type="button">Accepter</button>
+  <button class="ng-pill" id="ngPill" aria-label="Préférences de confidentialité" title="Préférences de confidentialité">🍪</button>
+  <div class="ng-tray" id="ngTray" role="dialog" aria-live="polite" aria-label="Préférences de confidentialité">
+    <div class="ng-tray-h">🍪 Confidentialité</div>
+    <p class="ng-tray-p">J'utilise des outils de mesure d'audience (Google Analytics) pour comprendre comment le site est utilisé. Aucune donnée n'est partagée à des fins publicitaires. Vous pouvez accepter, refuser ou personnaliser.</p>
+    <div class="ng-tray-prefs" id="ngTrayPrefs">
+      <div class="ng-tray-row">
+        <div>
+          <label for="ngNec">Nécessaires</label>
+          <div class="ng-d">Toujours actifs · fonctionnement du site</div>
+        </div>
+        <label class="ng-sw"><input type="checkbox" id="ngNec" checked disabled><span class="ng-sl"></span></label>
+      </div>
+      <div class="ng-tray-row">
+        <div>
+          <label for="ngAna">Mesure d'audience</label>
+          <div class="ng-d">Google Analytics · statistiques anonymisées</div>
+        </div>
+        <label class="ng-sw"><input type="checkbox" id="ngAna" checked><span class="ng-sl"></span></label>
       </div>
     </div>
+    <div class="ng-tray-actions">
+      <button class="ng-tray-btn ng-tray-btn-n" id="ngNo">Refuser</button>
+      <button class="ng-tray-btn ng-tray-btn-y" id="ngYes">Accepter</button>
+    </div>
+    <button class="ng-tray-link" id="ngToggle">Personnaliser</button>
+    <button class="ng-tray-link" id="ngSave" style="display:none;">Enregistrer mes choix</button>
   </div>
-  <button class="cc-reopen" id="ccReopen" type="button" aria-label="Préférences cookies" title="Préférences cookies">🍪</button>
   <script>
-    (function(){
-      var KEY='formation-consent-v1';
-      var banner=document.getElementById('ccBanner'), reopen=document.getElementById('ccReopen');
-      window.dataLayer=window.dataLayer||[];
-      function gtag(){dataLayer.push(arguments);}
-      function apply(granted){
-        var v=granted?'granted':'denied';
-        gtag('consent','update',{ad_storage:v,ad_user_data:v,ad_personalization:v,analytics_storage:v,functionality_storage:v,personalization_storage:v});
-        dataLayer.push({event: granted?'consent_granted':'consent_denied'});
-      }
-      function set(granted){ try{localStorage.setItem(KEY,JSON.stringify({granted:granted,ts:Date.now()}));}catch(e){} apply(granted); }
-      function show(){ banner.classList.add('cc-show'); reopen.classList.remove('cc-show'); }
-      function hide(){ banner.classList.remove('cc-show'); reopen.classList.add('cc-show'); }
-      document.getElementById('ccAccept').addEventListener('click',function(){ set(true); hide(); });
-      document.getElementById('ccRefuse').addEventListener('click',function(){ set(false); hide(); });
-      reopen.addEventListener('click',show);
-      try{
-        var raw=localStorage.getItem(KEY);
-        if(!raw){ show(); } else { apply(!!JSON.parse(raw).granted); reopen.classList.add('cc-show'); }
-      }catch(e){ show(); }
-    })();
+  (function() {
+    var KEY = 'ng-pref-v1';
+    var tray = document.getElementById('ngTray');
+    var pill = document.getElementById('ngPill');
+    var prefs = document.getElementById('ngTrayPrefs');
+    var toggle = document.getElementById('ngToggle');
+    var savePrefs = document.getElementById('ngSave');
+    var anaCb = document.getElementById('ngAna');
+    window.dataLayer = window.dataLayer || [];
+    function g(){ dataLayer.push(arguments); }
+    function applyConsent(analytics) {
+      g('consent', 'update', { 'analytics_storage': analytics ? 'granted' : 'denied' });
+      dataLayer.push({ event: analytics ? 'consent_analytics_granted' : 'consent_analytics_denied' });
+    }
+    function save(analytics) {
+      try { localStorage.setItem(KEY, JSON.stringify({ analytics: analytics, ts: Date.now() })); } catch(e){}
+      applyConsent(analytics);
+    }
+    function showTray(){ tray.classList.add('ng-on'); pill.classList.remove('ng-on'); }
+    function hideTray(){ tray.classList.remove('ng-on'); pill.classList.add('ng-on'); }
+    function load() {
+      try {
+        var raw = localStorage.getItem(KEY);
+        if (!raw) { showTray(); return; }
+        var data = JSON.parse(raw);
+        applyConsent(!!data.analytics);
+        anaCb.checked = !!data.analytics;
+        pill.classList.add('ng-on');
+      } catch(e) { showTray(); }
+    }
+    document.getElementById('ngYes').addEventListener('click', function(){ anaCb.checked = true; save(true); hideTray(); });
+    document.getElementById('ngNo').addEventListener('click', function(){ anaCb.checked = false; save(false); hideTray(); });
+    toggle.addEventListener('click', function(){
+      prefs.classList.toggle('ng-open');
+      var open = prefs.classList.contains('ng-open');
+      toggle.style.display = open ? 'none' : '';
+      savePrefs.style.display = open ? '' : 'none';
+    });
+    savePrefs.addEventListener('click', function(){ save(anaCb.checked); hideTray(); prefs.classList.remove('ng-open'); toggle.style.display=''; savePrefs.style.display='none'; });
+    pill.addEventListener('click', showTray);
+    load();
+  })();
   </script>
   <script src="/assets/track.js" defer></script>
 </body>
