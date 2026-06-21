@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Consent Mode v2 par défaut (mis à jour ensuite par Axeptio) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied',
+      'analytics_storage':'denied','wait_for_update':500
+    });
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-54MMFRP');</script>
+  <!-- End Google Tag Manager -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Redirection vers la prise de rendez-vous…</title>
+  <style>
+    body{font-family:'Inter',system-ui,sans-serif;background:#07080f;color:#e8eaf6;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;text-align:center}
+    a{color:#818cf8}
+  </style>
+  <script>
+    (function(){
+      // Lit les paramètres lead et email de l'URL
+      var p = new URLSearchParams(window.location.search);
+      function clean(v){ return (v||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,60); }
+      var lead = clean(p.get('lead'));
+      var email = clean(p.get('email'));
+      // Envoie l'évènement dans la couche de données (capté par GTM -> GA4)
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'clic_rdv', lead: lead || '(non renseigne)', email_sequence: email || '(non renseigne)' });
+      // Destination Calendly, en conservant l'attribution
+      var base = 'https://calendly.com/garay-nico/30min';
+      var qs = 'utm_source=email&utm_medium=email&utm_campaign=prospection-bordeaux';
+      if (lead)  qs += '&utm_content=' + encodeURIComponent(lead);
+      if (email) qs += '&utm_term=' + encodeURIComponent(email);
+      var dest = base + '?' + qs;
+      // Laisse ~700 ms pour l'envoi de l'évènement, puis redirige
+      window.__dest = dest;
+      setTimeout(function(){ window.location.replace(dest); }, 700);
+    })();
+  </script>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54MMFRP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <div>
+    <p>Redirection vers la prise de rendez-vous…</p>
+    <p><a id="manual" href="https://calendly.com/garay-nico/30min">Cliquez ici si rien ne se passe</a></p>
+  </div>
+  <script>
+    // Filet de sécurité : met à jour le lien manuel et redirige si JS du head a échoué
+    (function(){
+      try {
+        var a = document.getElementById('manual');
+        if (window.__dest && a) a.href = window.__dest;
+      } catch(e){}
+    })();
+  </script>
+</body>
+</html>
