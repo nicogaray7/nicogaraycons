@@ -2,6 +2,21 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <!-- Google Consent Mode v2 (default deny before consent) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+  </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -136,6 +151,72 @@
     @media (max-width: 720px) {
       .stats { grid-template-columns: 1fr; }
       .cards, .uses, .services-grid, .results-grid { grid-template-columns: 1fr; }
+    }
+
+    /* PRIVACY TRAY (consentement) */
+    .ng-tray {
+      position: fixed; bottom: 20px; left: 20px; right: 20px; z-index: 9999;
+      max-width: 460px; margin: 0 auto;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      transform: translateY(150%); opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.4s;
+    }
+    .ng-tray.ng-on { transform: translateY(0); opacity: 1; }
+    .ng-tray::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      border-radius: 16px 16px 0 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+    .ng-tray-h { font-size: 1rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .ng-tray-p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
+    .ng-tray-p a { color: var(--accent2); text-decoration: underline; }
+    .ng-tray-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .ng-tray-btn {
+      flex: 1; min-width: 120px;
+      padding: 11px 18px; font-size: 0.85rem; font-weight: 600;
+      border-radius: 9px; cursor: pointer; border: none;
+      font-family: inherit; transition: all 0.2s; text-align: center;
+    }
+    .ng-tray-btn-y { background: var(--accent); color: #fff; box-shadow: 0 0 20px rgba(91,110,245,0.3); }
+    .ng-tray-btn-y:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(91,110,245,0.4); }
+    .ng-tray-btn-n { background: var(--bg3); color: var(--text); border: 1px solid var(--border); }
+    .ng-tray-btn-n:hover { border-color: var(--accent); color: var(--accent); }
+    .ng-tray-link {
+      background: none; border: none; color: var(--muted);
+      font-size: 0.78rem; cursor: pointer; font-family: inherit;
+      text-decoration: underline; margin-top: 12px; padding: 0;
+    }
+    .ng-tray-link:hover { color: var(--text); }
+    .ng-tray-prefs { margin-top: 16px; display: none; flex-direction: column; gap: 10px; }
+    .ng-tray-prefs.ng-open { display: flex; }
+    .ng-tray-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 12px; background: var(--bg3); border-radius: 8px;
+      font-size: 0.82rem;
+    }
+    .ng-tray-row label { font-weight: 500; }
+    .ng-tray-row .ng-d { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+    .ng-sw { position: relative; width: 40px; height: 22px; flex-shrink: 0; }
+    .ng-sw input { opacity: 0; width: 0; height: 0; }
+    .ng-sl { position: absolute; inset: 0; cursor: pointer; background: var(--border); border-radius: 22px; transition: 0.3s; }
+    .ng-sl::before { content: ''; position: absolute; height: 16px; width: 16px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: 0.3s; }
+    .ng-sw input:checked + .ng-sl { background: var(--accent); }
+    .ng-sw input:checked + .ng-sl::before { transform: translateX(18px); }
+    .ng-sw input:disabled + .ng-sl { opacity: 0.5; cursor: not-allowed; }
+    .ng-pill {
+      position: fixed; bottom: 18px; left: 18px; z-index: 9998;
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--bg2); border: 1px solid var(--border);
+      cursor: pointer; font-size: 1.1rem; display: none;
+      align-items: center; justify-content: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .ng-pill:hover { border-color: var(--accent); transform: scale(1.05); }
+    .ng-pill.ng-on { display: flex; }
+    @media (max-width: 520px) {
+      .ng-tray { left: 12px; right: 12px; bottom: 12px; padding: 20px; }
     }
   </style>
 </head>
@@ -297,6 +378,87 @@
         } catch(e){}
       });
     })();
+  </script>
+
+  <!-- Bannière de consentement (maison, Consent Mode v2) -->
+  <button class="ng-pill" id="ngPill" aria-label="Préférences de confidentialité" title="Préférences de confidentialité">🍪</button>
+  <div class="ng-tray" id="ngTray" role="dialog" aria-live="polite" aria-label="Préférences de confidentialité">
+    <div class="ng-tray-h">🍪 Confidentialité</div>
+    <p class="ng-tray-p">
+      J'utilise des outils de mesure d'audience (Google Analytics) pour comprendre comment le site est utilisé.
+      Aucune donnée n'est partagée à des fins publicitaires. Vous pouvez accepter, refuser ou personnaliser.
+    </p>
+    <div class="ng-tray-prefs" id="ngTrayPrefs">
+      <div class="ng-tray-row">
+        <div>
+          <label for="ngNec">Nécessaires</label>
+          <div class="ng-d">Toujours actifs · fonctionnement du site</div>
+        </div>
+        <label class="ng-sw"><input type="checkbox" id="ngNec" checked disabled><span class="ng-sl"></span></label>
+      </div>
+      <div class="ng-tray-row">
+        <div>
+          <label for="ngAna">Mesure d'audience</label>
+          <div class="ng-d">Google Analytics · statistiques anonymisées</div>
+        </div>
+        <label class="ng-sw"><input type="checkbox" id="ngAna"><span class="ng-sl"></span></label>
+      </div>
+    </div>
+    <div class="ng-tray-actions">
+      <button class="ng-tray-btn ng-tray-btn-n" id="ngNo">Refuser</button>
+      <button class="ng-tray-btn ng-tray-btn-y" id="ngYes">Accepter</button>
+    </div>
+    <button class="ng-tray-link" id="ngToggle">Personnaliser</button>
+    <button class="ng-tray-link" id="ngSave" style="display:none;">Enregistrer mes choix</button>
+  </div>
+  <script>
+  (function() {
+    var KEY = 'ng-pref-v1';
+    var tray = document.getElementById('ngTray');
+    var pill = document.getElementById('ngPill');
+    var prefs = document.getElementById('ngTrayPrefs');
+    var toggle = document.getElementById('ngToggle');
+    var savePrefs = document.getElementById('ngSave');
+    var anaCb = document.getElementById('ngAna');
+
+    window.dataLayer = window.dataLayer || [];
+    function g(){ dataLayer.push(arguments); }
+
+    function applyConsent(analytics) {
+      g('consent', 'update', { 'analytics_storage': analytics ? 'granted' : 'denied' });
+      dataLayer.push({ event: analytics ? 'consent_analytics_granted' : 'consent_analytics_denied' });
+    }
+    function save(analytics) {
+      try { localStorage.setItem(KEY, JSON.stringify({ analytics: analytics, ts: Date.now() })); } catch(e){}
+      applyConsent(analytics);
+    }
+    function showTray(){ tray.classList.add('ng-on'); pill.classList.remove('ng-on'); }
+    function hideTray(){ tray.classList.remove('ng-on'); pill.classList.add('ng-on'); }
+
+    function load() {
+      try {
+        var raw = localStorage.getItem(KEY);
+        if (!raw) { showTray(); return; }
+        var data = JSON.parse(raw);
+        applyConsent(!!data.analytics);
+        anaCb.checked = !!data.analytics;
+        pill.classList.add('ng-on');
+      } catch(e) { showTray(); }
+    }
+
+    document.getElementById('ngYes').addEventListener('click', function(){ anaCb.checked = true; save(true); hideTray(); });
+    document.getElementById('ngNo').addEventListener('click', function(){ anaCb.checked = false; save(false); hideTray(); });
+    toggle.addEventListener('click', function(){
+      prefs.classList.toggle('ng-open');
+      var open = prefs.classList.contains('ng-open');
+      toggle.style.display = open ? 'none' : '';
+      savePrefs.style.display = open ? '' : 'none';
+    });
+    savePrefs.addEventListener('click', function(){ save(anaCb.checked); hideTray(); prefs.classList.remove('ng-open'); toggle.style.display=''; savePrefs.style.display='none'; });
+    pill.addEventListener('click', showTray);
+
+    load();
+  })();
   </script>
 </body>
 </html>
