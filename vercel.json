@@ -14,19 +14,49 @@
     },
     {
       "src": "/sitemap.xml",
-      "has": [{ "type": "host", "value": "formation.nicogaray.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "formation.nicogaray.com"
+        }
+      ],
       "dest": "/formation/sitemap.xml"
     },
     {
       "src": "/robots.txt",
-      "has": [{ "type": "host", "value": "formation.nicogaray.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "formation.nicogaray.com"
+        }
+      ],
       "dest": "/formation/robots.txt"
     },
     {
       "src": "/",
-      "has": [{ "type": "host", "value": "formation.nicogaray.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "formation.nicogaray.com"
+        }
+      ],
       "dest": "/formation/index.html"
     },
-    { "handle": "filesystem" }
+    {
+      "src": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.nicogaray.com"
+        }
+      ],
+      "status": 308,
+      "headers": {
+        "Location": "https://nicogaray.com/$1"
+      }
+    },
+    {
+      "handle": "filesystem"
+    }
   ]
 }
