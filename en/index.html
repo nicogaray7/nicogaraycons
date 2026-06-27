@@ -472,6 +472,13 @@
     .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--text); }
 
+    /* ── ZONES / HUB ── */
+    #zones { background: var(--bg); }
+    .zone-group h4 { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 28px 0 12px; }
+    .zone-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .zone-links a { display: inline-block; padding: 8px 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 999px; color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: border-color .2s, color .2s, transform .15s; }
+    .zone-links a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
     @media (max-width: 768px) {
       nav .nav-links { display: none; }
       section { padding: 70px 5%; }
@@ -1006,6 +1013,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- ZONES / HUB -->
+<section id="zones">
+  <div class="container">
+    <div class="section-label">Where I work</div>
+    <h2>An AI consultant<br/>close to your market</h2>
+    <p class="subtitle">I help trades, shops and SMBs remotely, across France and worldwide. Find your country or city:</p>
+    <div class="zone-group">
+      <h4>Countries</h4>
+      <div class="zone-links">
+        <a href="/en/us/">United States</a>
+        <a href="/en/ca/">Canada</a>
+        <a href="/en/gb/">United Kingdom</a>
+        <a href="/en/sg/">Singapore</a>
+        <a href="/be/">Belgium</a>
+        <a href="/ch/">Switzerland</a>
+        <a href="/lu/">Luxembourg</a>
+      </div>
+    </div>
+    <div class="zone-group">
+      <h4>Cities in France (pages in French)</h4>
+      <div class="zone-links">
+        <a href="/paris/">Paris</a>
+        <a href="/lyon/">Lyon</a>
+        <a href="/marseille/">Marseille</a>
+        <a href="/toulouse/">Toulouse</a>
+        <a href="/nantes/">Nantes</a>
+        <a href="/lille/">Lille</a>
+        <a href="/nice/">Nice</a>
+        <a href="/bordeaux/">Bordeaux</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
@@ -1037,6 +1078,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     © <span id="footer-year">2026</span> Nico Garay · Independent AI consultant · Remote only · Anywhere in the world
   </div>
   <div class="footer-links">
+    <a href="/en/us/">United States</a>
+    <a href="/en/gb/">United Kingdom</a>
+    <a href="/en/sg/">Singapore</a>
+    <a href="#zones">All areas</a>
     <a href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="#hero">Back to top ↑</a>
   </div>
