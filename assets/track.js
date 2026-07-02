@@ -1,4 +1,4 @@
-/* Suivi GA4 : clic_cta (avec emplacement) + scroll par paliers. Respecte le Consent Mode via gtag. */
+/* Suivi GA4 : clic_cta (avec emplacement) + generate_lead + scroll par paliers. Respecte le Consent Mode via gtag. */
 (function () {
   function send(name, params) {
     if (typeof window.gtag === 'function') {
@@ -23,7 +23,17 @@
     return 'autre';
   }
 
-  // 1) clic_cta sur tout clic de CTA
+  // Extrait le parametre ?lead= d'une URL de CTA (ex. /go/rdv/?lead=lyon)
+  function leadSource(href) {
+    try {
+      var url = new URL(href, window.location.href);
+      return url.searchParams.get('lead') || url.searchParams.get('utm_source') || 'inconnu';
+    } catch (e) {
+      return 'inconnu';
+    }
+  }
+
+  // 1) clic_cta sur tout clic de CTA + generate_lead GA4 sur les liens RDV/Calendly
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a, button') : null;
     if (!a) return;
@@ -32,11 +42,23 @@
     var isCTA = /btn|cta/i.test(cls) || /calendly\.com|\/go\/rdv/i.test(href);
     if (!isCTA) return;
     var label = (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
+    var location = ctaLocation(a);
+
+    // Event custom (compatible GTM)
     send('clic_cta', {
       cta_label: label,
       cta_url: href || '(sans lien)',
-      cta_location: ctaLocation(a)
+      cta_location: location
     });
+
+    // Event GA4 standard generate_lead sur tous les liens RDV/Calendly
+    if (/calendly\.com|\/go\/rdv/i.test(href)) {
+      send('generate_lead', {
+        lead_source: leadSource(href),
+        cta_location: location,
+        cta_label: label
+      });
+    }
   }, true);
 
   // 2) scroll par paliers (25/50/75/90), une fois chacun
