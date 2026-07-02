@@ -333,6 +333,14 @@
     footer.site a:hover { text-decoration: underline; }
     .f-links { display: flex; flex-wrap: wrap; gap: 18px; }
 
+    /* Bandeau disponibilites */
+    .dispo-band { background: var(--indigo-soft); border-top: 1px solid rgba(91,110,245,.15); border-bottom: 1px solid rgba(91,110,245,.15); padding: 14px 0; }
+    .dispo-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 28px; font-size: 15px; color: var(--ink); }
+    .dispo-item { display: flex; align-items: center; gap: 7px; }
+    .dispo-icon { font-size: 17px; line-height: 1; flex-shrink: 0; }
+    .dispo-sep { width: 1px; height: 22px; background: rgba(91,110,245,.25); display: block; }
+    @media (max-width: 720px) { .dispo-sep { display: none; } .dispo-inner { gap: 8px 0; flex-direction: column; text-align: center; } }
+
     /* Sticky mobile CTA */
     .sticky-cta { display: none; }
 
@@ -431,6 +439,26 @@
           <div class="stat"><b>4,75/5</b><small>note moyenne des élèves</small></div>
           <div class="stat"><b>30 €/h</b><small>packs 5h et 10h</small></div>
           <div class="stat"><b>100 %</b><small>sur mesure</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bandeau dispo + confiance (CRO) -->
+    <section class="dispo-band">
+      <div class="wrap dispo-inner">
+        <div class="dispo-item">
+          <span class="dispo-icon">🗓️</span>
+          <span><strong>Disponible cette semaine</strong> &mdash; Créneaux en visio et à domicile</span>
+        </div>
+        <div class="dispo-sep" aria-hidden="true"></div>
+        <div class="dispo-item">
+          <span class="dispo-icon">💶</span>
+          <span><strong>30 €/h</strong> &middot; 1er échange 30 min offert &middot; Sans engagement</span>
+        </div>
+        <div class="dispo-sep" aria-hidden="true"></div>
+        <div class="dispo-item">
+          <span class="dispo-icon">⭐</span>
+          <span><strong>4,9/5</strong> sur Superprof &middot; 8 avis vérifiés</span>
         </div>
       </div>
     </section>
@@ -640,7 +668,13 @@
 
   <!-- Sticky mobile CTA -->
   <div class="sticky-cta">
-    <a class="btn btn-primary" href="/go/rdv/?lead=formation&utm_source=formation.nicogaray.com&utm_medium=cta&utm_campaign=formation" target="_blank" rel="noopener">Réserver un appel gratuit</a>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;">
+      <div style="font-size:13px;color:var(--muted);line-height:1.3;">
+        <strong style="color:var(--ink);font-size:15px;">30 €/h</strong><br>
+        1er échange offert
+      </div>
+      <a class="btn btn-primary" style="flex:1;max-width:220px;font-size:15px;padding:13px 18px;min-height:46px;" href="/go/rdv/?lead=formation&utm_source=formation.nicogaray.com&utm_medium=sticky_cta&utm_campaign=formation" target="_blank" rel="noopener">Réserver gratuitement</a>
+    </div>
   </div>
 
   <!-- Tracking : pousse un evenement dataLayer a chaque clic sur un CTA Calendly (pour GTM) -->
