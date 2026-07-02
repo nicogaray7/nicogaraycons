@@ -43,6 +43,56 @@
       "dest": "/formation/index.html"
     },
     {
+      "src": "/bordeaux-seniors/?",
+      "has": [
+        {
+          "type": "host",
+          "value": "formation.nicogaray.com"
+        }
+      ],
+      "dest": "/formation/bordeaux-seniors/index.html"
+    },
+    {
+      "src": "/creon-entre-deux-mers/?",
+      "has": [
+        {
+          "type": "host",
+          "value": "formation.nicogaray.com"
+        }
+      ],
+      "dest": "/formation/creon-entre-deux-mers/index.html"
+    },
+    {
+      "src": "/apprendre-smartphone-senior/?",
+      "has": [
+        {
+          "type": "host",
+          "value": "formation.nicogaray.com"
+        }
+      ],
+      "dest": "/formation/apprendre-smartphone-senior/index.html"
+    },
+    {
+      "src": "/demarches-en-ligne-seniors/?",
+      "has": [
+        {
+          "type": "host",
+          "value": "formation.nicogaray.com"
+        }
+      ],
+      "dest": "/formation/demarches-en-ligne-seniors/index.html"
+    },
+    {
+      "src": "/chatgpt-debutant/?",
+      "has": [
+        {
+          "type": "host",
+          "value": "formation.nicogaray.com"
+        }
+      ],
+      "dest": "/formation/chatgpt-debutant/index.html"
+    },
+    {
       "src": "/(.*)",
       "has": [
         {

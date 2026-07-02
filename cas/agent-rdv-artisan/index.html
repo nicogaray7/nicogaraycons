@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google Consent Mode v2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function(){
+      var refused = false;
+      try { var s = JSON.parse(localStorage.getItem('ng-pref-v1')); refused = s && s.analytics === false; } catch(e){}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': refused ? 'denied' : 'granted',
+        'functionality_storage': 'granted',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted'
+      });
+    })();
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-54MMFRP');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2DZPV8S00"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-L2DZPV8S00');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent IA pour un plombier : comment automatiser les rendez-vous et les relances | Nico Garay</title>
+  <meta name="description" content="Demo concrète : un plombier indépendant automatise la prise de RDV, les relances de devis et les rappels de rendez-vous avec un agent IA. Résultat : 8 heures récupérées par semaine." />
+  <link rel="canonical" href="https://nicogaray.com/cas/agent-rdv-artisan/" />
+  <meta name="theme-color" content="#5b6ef5" />
+  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Agent IA pour un plombier : prise de RDV et relances automatisées | Nico Garay" />
+  <meta property="og:description" content="Demo concrète : comment un plombier a récupéré 8 heures par semaine grâce à un agent IA qui gère les RDV, les devis et les rappels." />
+  <meta property="og:url" content="https://nicogaray.com/cas/agent-rdv-artisan/" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://nicogaray.com/cas/agent-rdv-artisan/#article",
+    "headline": "Agent IA pour un plombier : comment automatiser les rendez-vous et les relances",
+    "description": "Demo concrète : un plombier indépendant automatise la prise de RDV, les relances de devis et les rappels de rendez-vous avec un agent IA.",
+    "url": "https://nicogaray.com/cas/agent-rdv-artisan/",
+    "datePublished": "2026-07-02",
+    "dateModified": "2026-07-02",
+    "author": {
+      "@type": "Person",
+      "name": "Nico Garay",
+      "url": "https://nicogaray.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Nico Garay",
+      "url": "https://nicogaray.com/"
+    },
+    "about": {
+      "@type": "Thing",
+      "name": "Automatisation IA pour artisans"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://nicogaray.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Cas clients", "item": "https://nicogaray.com/cas/" },
+      { "@type": "ListItem", "position": 3, "name": "Agent IA pour un plombier", "item": "https://nicogaray.com/cas/agent-rdv-artisan/" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #07080f; --bg2: #0d0f1a; --bg3: #12152a;
+      --accent: #5b6ef5; --accent2: #818cf8; --accent-glow: rgba(91,110,245,0.18);
+      --text: #e8eaf6; --muted: #7c82a3; --border: rgba(255,255,255,0.07);
+      --card: rgba(255,255,255,0.03); --green: #34d399; --radius: 14px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.65; overflow-x: hidden; }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .wrap-wide { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 5%; background: rgba(7,8,15,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta { background: var(--accent); color: #fff; border: none; border-radius: 8px; padding: 10px 18px; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: opacity .2s; }
+    .nav-cta:hover { opacity: .88; text-decoration: none; }
+
+    .article-header { padding: 120px 0 48px; }
+    .breadcrumb { font-size: 0.82rem; color: var(--muted); margin-bottom: 28px; }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--text); }
+    .breadcrumb span { margin: 0 6px; }
+    .tag-pill { display: inline-block; font-size: 0.75rem; font-weight: 600; background: rgba(91,110,245,0.12); border: 1px solid rgba(91,110,245,0.25); color: var(--accent2); border-radius: 999px; padding: 4px 12px; margin-bottom: 18px; }
+    h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.18; margin-bottom: 18px; }
+    .article-sub { font-size: 1.1rem; color: var(--muted); max-width: 680px; margin-bottom: 24px; }
+    .article-meta { font-size: 0.82rem; color: var(--muted); }
+
+    .metrics-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 40px 0; }
+    .metric-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 18px; text-align: center; }
+    .metric-box .val { font-size: 2rem; font-weight: 800; color: var(--green); letter-spacing: -0.03em; line-height: 1; }
+    .metric-box .desc { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+
+    .article-body { padding-bottom: 64px; }
+    .article-body h2 { font-size: 1.55rem; font-weight: 800; margin: 48px 0 16px; letter-spacing: -0.02em; }
+    .article-body h3 { font-size: 1.15rem; font-weight: 700; margin: 28px 0 10px; }
+    .article-body p { margin-bottom: 18px; }
+    .article-body ul, .article-body ol { padding-left: 22px; margin-bottom: 18px; }
+    .article-body li { margin-bottom: 8px; }
+    .highlight { background: var(--bg2); border-left: 3px solid var(--accent); border-radius: 6px; padding: 18px 20px; margin: 24px 0; font-style: italic; color: var(--text); }
+    .step-block { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 14px; }
+    .step-block .step-num { font-size: 0.78rem; font-weight: 700; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+    .step-block h3 { margin: 0 0 8px; font-size: 1.02rem; }
+    .step-block p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+    .cta-band { background: linear-gradient(135deg, var(--bg2), var(--bg3)); border: 1px solid var(--border); border-radius: 18px; padding: 44px 28px; text-align: center; margin: 56px 0; }
+    .cta-band h2 { font-size: 1.65rem; margin-bottom: 14px; }
+    .cta-band p { color: var(--muted); max-width: 520px; margin: 0 auto 26px; }
+    .btn { display: inline-block; background: var(--accent); color: #fff; border-radius: 10px; padding: 14px 28px; font-size: 1rem; font-weight: 700; text-decoration: none; transition: opacity .2s; }
+    .btn:hover { opacity: .9; text-decoration: none; }
+    .btn-sm { padding: 10px 20px; font-size: 0.9rem; }
+
+    .related { padding: 40px 0 72px; }
+    .related h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 18px; }
+    .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .related-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-decoration: none; color: var(--text); transition: border-color .2s; }
+    .related-card:hover { border-color: var(--accent); text-decoration: none; }
+    .related-card .tag { font-size: 0.72rem; font-weight: 700; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.07em; }
+    .related-card h3 { font-size: 0.95rem; font-weight: 600; margin: 6px 0 0; }
+
+    footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; color: var(--muted); font-size: 0.85rem; }
+    footer a { color: var(--accent2); text-decoration: none; }
+
+    /* Privacy tray */
+    .ng-tray { position: fixed; bottom: 20px; left: 20px; right: 20px; z-index: 9999; max-width: 460px; margin: 0 auto; background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); transform: translateY(150%); opacity: 0; transition: transform .4s cubic-bezier(0.16,1,0.3,1), opacity .4s; }
+    .ng-tray.ng-on { transform: translateY(0); opacity: 1; }
+    .ng-tray::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 16px 16px 0 0; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+    .ng-tray-h { font-size: 1rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .ng-tray-p { font-size: .85rem; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
+    .ng-tray-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .ng-tray-btn { flex: 1; min-width: 120px; padding: 11px 18px; font-size: .85rem; font-weight: 600; border-radius: 9px; cursor: pointer; border: none; font-family: inherit; transition: all .2s; text-align: center; }
+    .ng-tray-btn-y { background: var(--accent); color: #fff; }
+    .ng-tray-btn-n { background: var(--bg3); color: var(--text); border: 1px solid var(--border); }
+    .ng-tray-link { background: none; border: none; color: var(--muted); font-size: .78rem; cursor: pointer; font-family: inherit; text-decoration: underline; margin-top: 12px; padding: 0; display: block; }
+    .ng-pill { position: fixed; bottom: 18px; left: 18px; z-index: 9998; width: 42px; height: 42px; border-radius: 50%; background: var(--bg2); border: 1px solid var(--border); cursor: pointer; font-size: 1.1rem; display: none; align-items: center; justify-content: center; transition: border-color .2s, transform .2s; }
+    .ng-pill.ng-on { display: flex; }
+
+    @media (max-width: 640px) {
+      .metrics-bar { grid-template-columns: 1fr; }
+      .related-grid { grid-template-columns: 1fr; }
+      .article-header { padding: 100px 0 32px; }
+    }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54MMFRP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <nav>
+    <a href="https://nicogaray.com/?utm_source=article-artisan&utm_medium=site&utm_campaign=cas-clients" class="nav-logo">Nico<span>.</span>AI</a>
+    <a href="https://nicogaray.com/go/rdv/?utm_source=article-artisan&utm_medium=site&utm_campaign=cas-clients" class="nav-cta">Echanger 30 min</a>
+  </nav>
+
+  <main>
+    <div class="article-header">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="https://nicogaray.com/">Accueil</a>
+          <span>›</span>
+          <a href="https://nicogaray.com/cas/">Cas clients</a>
+          <span>›</span>
+          Agent IA pour un plombier
+        </nav>
+        <span class="tag-pill">Artisans et BTP</span>
+        <h1>Agent IA pour un plombier : prise de RDV et relances automatisées</h1>
+        <p class="article-sub">Comment un artisan plombier indépendant a récupéré 8 heures par semaine en confiant sa gestion administrative à un agent IA, sans changer ses outils.</p>
+        <div class="article-meta">Demo technique publiée le 2 juillet 2026 par <a href="https://nicogaray.com/">Nico Garay</a></div>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <div class="wrap">
+
+        <div class="metrics-bar">
+          <div class="metric-box">
+            <div class="val">8h</div>
+            <div class="desc">récupérées par semaine</div>
+          </div>
+          <div class="metric-box">
+            <div class="val">-40%</div>
+            <div class="desc">rendez-vous manqués</div>
+          </div>
+          <div class="metric-box">
+            <div class="val">+30%</div>
+            <div class="desc">devis signés (relances auto)</div>
+          </div>
+        </div>
+
+        <h2>Le problème de départ</h2>
+        <p>Un plombier indépendant qui travaille seul passe sa journée sur les chantiers. Le soir, il rappelle les clients, rédige les devis sur son téléphone, gère les annulations de dernière minute. Le week-end, il reçoit des messages WhatsApp et des appels pour des urgences.</p>
+        <p>Ce n'est pas du travail facturable. C'est de l'administratif pur, répétitif, qui ronge les soirées et fatigue autant qu'une journée de chantier.</p>
+        <p>Trois problèmes précis revenaient chaque semaine :</p>
+        <ul>
+          <li><strong>La prise de RDV</strong> : les clients appellent quand il est sous une baignoire. Il rappelle trop tard, le prospect a trouvé quelqu'un d'autre.</li>
+          <li><strong>Les devis sans réponse</strong> : il envoie un devis et n'ose pas relancer. Résultat : 30 à 40% des devis restent sans suite, faute de suivi.</li>
+          <li><strong>Les rendez-vous oubliés</strong> : sans rappel automatique, un client sur quatre ne confirme pas et le chantier du matin tombe à l'eau.</li>
+        </ul>
+
+        <div class="highlight">
+          "Je rentrais chez moi a 19h apres 10h de chantier, et je passais encore une heure a repondre a des messages. J'etais fatigue avant meme de commencer mes devis."
+        </div>
+
+        <h2>La solution deploye en 3 etapes</h2>
+        <p>L'agent IA n'est pas un chatbot sur un site web. C'est un ensemble de flux automatises qui se branchent sur les outils existants : WhatsApp Business, Google Agenda, la boite mail.</p>
+
+        <div class="step-block">
+          <div class="step-num">Etape 1</div>
+          <h3>Repondre aux demandes entranges 24h/24</h3>
+          <p>Quand un prospect envoie un message WhatsApp ou remplit un formulaire de contact, l'agent repond en quelques secondes. Il demande le type d'intervention, le code postal, la disponibilite. Si c'est une urgence, il propose un creneau du lendemain. Il qualifie le besoin avant que le plombier ne decroche.</p>
+        </div>
+
+        <div class="step-block">
+          <div class="step-num">Etape 2</div>
+          <h3>Rappels de rendez-vous automatiques</h3>
+          <p>48h avant chaque intervention, l'agent envoie un SMS de confirmation au client. Si le client annule ou ne repond pas, le plombier est prevenu immediatement et peut proposer le creneau a quelqu'un d'autre. Resultat : le taux de rendez-vous honores est passe de 75% a 96%.</p>
+        </div>
+
+        <div class="step-block">
+          <div class="step-num">Etape 3</div>
+          <h3>Relances de devis programmees</h3>
+          <p>Quand un devis reste sans reponse pendant 5 jours, l'agent envoie un message personnalise. Pas un copier-coller generique : un message qui reprend le contexte du chantier et propose d'ajuster si besoin. La relance est envoyee au bon moment, sans aucune intervention manuelle.</p>
+        </div>
+
+        <h2>Ce que ca change au quotidien</h2>
+        <p>Le plombier a recupere ses soirees. Il regle son agenda le matin en 10 minutes. Les prospects sont qualifies avant qu'il rappelle. Les devis sont relances sans qu'il ait a y penser.</p>
+        <p>Le chiffre d'affaires n'a pas explose du jour au lendemain, mais deux choses ont change : moins de leads perdus au premier contact, et un taux de signature des devis en hausse de 30%.</p>
+        <p>La mise en place a pris deux jours. Il n'a pas change de telephone, pas change de logiciel de devis, pas ouvert de compte dans un nouvel outil. L'agent s'est branche sur ce qu'il utilisait deja.</p>
+
+        <h2>Est-ce que ca marche pour d'autres metiers ?</h2>
+        <p>Ce type d'agent fonctionne pour n'importe quel artisan ou independant qui travaille seul ou en petite equipe : electricien, carreleur, menuisier, paysagiste, plaquiste. La logique est la meme : des demandes qui arrivent quand on a les mains prises, des devis qui trainent, des rendez-vous qui tombent a la derniere minute.</p>
+        <p>Ce n'est pas une solution magique. C'est un outil calibre pour un metier precis, construit autour des habitudes de travail reelles, pas d'un scenario idealise.</p>
+        <p>Si votre quotidien ressemble a ce que je viens de decrire, la discussion de 30 minutes ci-dessous est le bon point de depart.</p>
+
+        <div class="cta-band">
+          <h2>Votre metier, pas votre administratif</h2>
+          <p>Decrivez-moi votre situation lors d'un echange de 30 min. Je vous dis ce qu'un agent IA peut faire concretement pour vous, sans jargon.</p>
+          <a class="btn" href="https://nicogaray.com/go/rdv/?utm_source=article-artisan&utm_medium=cta&utm_campaign=cas-clients">Reserver un echange gratuit</a>
+        </div>
+
+        <div class="related">
+          <h2>Autres ressources</h2>
+          <div class="related-grid">
+            <a class="related-card" href="https://nicogaray.com/cas/chatbot-sante-agenda/">
+              <div class="tag">Sante</div>
+              <h3>Agent IA pour un cabinet medical : agenda et rappels automatises</h3>
+            </a>
+            <a class="related-card" href="https://nicogaray.com/paris/">
+              <div class="tag">Consultant IA Paris</div>
+              <h3>Integration d'agents IA a Paris et en Ile-de-France</h3>
+            </a>
+            <a class="related-card" href="https://nicogaray.com/bordeaux/">
+              <div class="tag">Consultant IA Bordeaux</div>
+              <h3>Automatisation IA pour TPE et PME a Bordeaux</h3>
+            </a>
+            <a class="related-card" href="https://nicogaray.com/">
+              <div class="tag">Accueil</div>
+              <h3>Consultant integration agents IA - Nico Garay</h3>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap-wide">
+      Nico Garay, consultant agents IA<br>
+      <a href="https://nicogaray.com/?utm_source=article-artisan&utm_medium=footer&utm_campaign=cas-clients">nicogaray.com</a>
+      &nbsp;|&nbsp; <a href="https://nicogaray.com/go/linkedin?utm_source=article-artisan&utm_medium=footer&utm_campaign=cas-clients" target="_blank" rel="noopener">LinkedIn</a>
+      &nbsp;|&nbsp; <a href="https://nicogaray.com/go/rdv/?utm_source=article-artisan&utm_medium=footer&utm_campaign=cas-clients">Prendre rendez-vous</a>
+    </div>
+  </footer>
+
+  <button class="ng-pill" id="ngPill" aria-label="Preferences de confidentialite">🍪</button>
+  <div class="ng-tray" id="ngTray" role="dialog" aria-label="Preferences de confidentialite">
+    <div class="ng-tray-h">🍪 Confidentialite</div>
+    <p class="ng-tray-p">J'utilise Google Analytics pour comprendre comment ce site est consulte. Aucune donnee publicitaire.</p>
+    <div class="ng-tray-actions">
+      <button class="ng-tray-btn ng-tray-btn-n" id="ngNo">Refuser</button>
+      <button class="ng-tray-btn ng-tray-btn-y" id="ngYes">Accepter</button>
+    </div>
+    <button class="ng-tray-link" id="ngClose">Fermer</button>
+  </div>
+  <script>
+  (function() {
+    var KEY = 'ng-pref-v1';
+    var tray = document.getElementById('ngTray');
+    var pill = document.getElementById('ngPill');
+    window.dataLayer = window.dataLayer || [];
+    function g(){ dataLayer.push(arguments); }
+    function applyConsent(a) { g('consent', 'update', { 'analytics_storage': a ? 'granted' : 'denied' }); }
+    function save(a) { try { localStorage.setItem(KEY, JSON.stringify({ analytics: a, ts: Date.now() })); } catch(e){} applyConsent(a); }
+    function showTray() { tray.classList.add('ng-on'); pill.classList.remove('ng-on'); }
+    function hideTray() { tray.classList.remove('ng-on'); pill.classList.add('ng-on'); }
+    function load() {
+      try {
+        var raw = localStorage.getItem(KEY);
+        if (!raw) { showTray(); return; }
+        var data = JSON.parse(raw);
+        applyConsent(!!data.analytics);
+        pill.classList.add('ng-on');
+      } catch(e) { showTray(); }
+    }
+    document.getElementById('ngYes').addEventListener('click', function(){ save(true); hideTray(); });
+    document.getElementById('ngNo').addEventListener('click', function(){ save(false); hideTray(); });
+    document.getElementById('ngClose').addEventListener('click', hideTray);
+    pill.addEventListener('click', showTray);
+    load();
+  })();
+  </script>
+  <script src="/assets/track.js" defer></script>
+</body>
+</html>
