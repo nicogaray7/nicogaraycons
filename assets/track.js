@@ -61,6 +61,20 @@
     }
   }, true);
 
+  // 1 bis) clic sur un lien partenaire (affiliation) : /go/<partenaire>/
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var href = (a.getAttribute && a.getAttribute('href')) || '';
+    var m = href.match(/\/go\/(hostinger|claude)\b/i);
+    if (!m) return;
+    send('partenaire_clic', {
+      partenaire: m[1].toLowerCase(),
+      cta_location: ctaLocation(a),
+      cta_label: (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60)
+    });
+  }, true);
+
   // 2) scroll par paliers (25/50/75/90), une fois chacun
   var fired = {};
   var thresholds = [25, 50, 75, 90];
