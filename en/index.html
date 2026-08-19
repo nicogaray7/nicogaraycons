@@ -380,6 +380,59 @@
     .exp-company { color: var(--accent2); font-size: 0.85rem; font-weight: 500; }
     .exp-period { color: var(--muted); font-size: 0.78rem; margin-top: 4px; }
 
+    /* ── PARTENAIRE ── */
+    #partenaire { background: var(--bg); }
+    .partner-card {
+      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 40px; margin-top: 40px;
+      position: relative; overflow: hidden;
+    }
+    .partner-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, #673de6, var(--accent2));
+    }
+    .partner-brand {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px;
+    }
+    .partner-brand .mark {
+      width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+      background: linear-gradient(135deg, #673de6, #8b5cf6);
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1rem; font-weight: 800;
+    }
+    .partner-card p { color: var(--muted); font-size: 0.96rem; line-height: 1.7; max-width: 560px; }
+    .partner-uses { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .partner-uses span {
+      font-size: 0.8rem; font-weight: 500; color: var(--text);
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 999px; padding: 6px 14px;
+    }
+    .partner-side { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .partner-promo {
+      display: inline-block; font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--green);
+      background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.25);
+      border-radius: 999px; padding: 6px 14px; margin-bottom: 18px;
+    }
+    .btn-partner { background: #673de6; box-shadow: 0 0 30px rgba(103,61,230,0.3); }
+    .btn-partner:hover { box-shadow: 0 8px 40px rgba(103,61,230,0.45); }
+    .partner-card + .partner-card { margin-top: 20px; }
+    .partner-card.claude::before { background: linear-gradient(90deg, #d97757, #e0a08a); }
+    .partner-card.claude .partner-brand .mark { background: linear-gradient(135deg, #d97757, #c96442); }
+    .partner-promo.claude {
+      color: #e8a184; background: rgba(217,119,87,0.1); border-color: rgba(217,119,87,0.28);
+    }
+    .btn-claude { background: #d97757; box-shadow: 0 0 30px rgba(217,119,87,0.28); }
+    .btn-claude:hover { box-shadow: 0 8px 40px rgba(217,119,87,0.42); }
+    @media (max-width: 768px) {
+      .partner-card { grid-template-columns: 1fr; gap: 26px; padding: 32px 24px; }
+      .partner-side { align-items: flex-start; text-align: left; }
+    }
+
+    /* ── TESTIMONIALS ── */
     #stack { background: var(--bg2); }
     .stack-intro { color: var(--muted); margin-bottom: 40px; max-width: 560px; }
     .stack-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
@@ -465,7 +518,7 @@
       flex-wrap: wrap; gap: 16px;
     }
     .footer-left { font-size: 0.85rem; color: var(--muted); }
-    .footer-links { display: flex; gap: 24px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 12px 24px; }
     .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--text); }
 
@@ -923,6 +976,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- PARTNER -->
+<section id="partenaire">
+  <div class="container">
+    <div class="section-label">Partners</div>
+    <h2>The tools that run<br/>everything I build</h2>
+    <p class="subtitle">Everything I build, for myself and for my clients, sits on these two. It is also what I recommend when you are starting from scratch.</p>
+    <div class="partner-card">
+      <div>
+        <div class="partner-brand"><span class="mark" aria-hidden="true">H</span>Hostinger</div>
+        <p>VPS to keep agents and automations running 24/7, web hosting, domain names and business email in one place. Simple panel, low prices, responsive support: the foundation I set up most often for my clients.</p>
+        <div class="partner-uses">
+          <span>VPS &amp; Docker</span>
+          <span>Web hosting</span>
+          <span>Domain names</span>
+          <span>Business email</span>
+          <span>SSL included</span>
+        </div>
+      </div>
+      <div class="partner-side">
+        <div class="partner-promo">20% off with my link</div>
+        <a class="btn-primary btn-partner" data-cta="partenaire-hostinger"
+           href="/go/hostinger/?lead=en-home-partner&utm_source=nicogaray-en-home&utm_medium=site&utm_campaign=partenaire-hostinger"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="Discover Hostinger with 20% off">
+          <span aria-hidden="true">🚀</span> Get 20% off
+        </a>
+      </div>
+    </div>
+    <div class="partner-card claude">
+      <div>
+        <div class="partner-brand"><span class="mark" aria-hidden="true">✳</span>Claude</div>
+        <p>The model I use every day: designing and running agents, writing code, analysing documents, plugging into business tools through MCP. It is the engine behind most of the automations I ship.</p>
+        <div class="partner-uses">
+          <span>Agents &amp; Claude Code</span>
+          <span>Anthropic API</span>
+          <span>Document analysis</span>
+          <span>MCP</span>
+        </div>
+      </div>
+      <div class="partner-side">
+        <div class="partner-promo claude">7 days of Pro free</div>
+        <a class="btn-primary btn-claude" data-cta="partenaire-claude"
+           href="/go/claude/?lead=en-home-partner&utm_source=nicogaray-en-home&utm_medium=site&utm_campaign=partenaire-claude"
+           target="_blank" rel="sponsored nofollow noopener"
+           aria-label="Try Claude Pro free for 7 days">
+          <span aria-hidden="true">✨</span> Try Claude
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="container">
@@ -1079,6 +1184,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="/en/gb/">United Kingdom</a>
     <a href="/en/sg/">Singapore</a>
     <a href="#zones">All areas</a>
+    <a href="/go/hostinger/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-hostinger" target="_blank" rel="sponsored nofollow noopener">Hostinger · my hosting partner (-20%)</a>
+    <a href="/go/claude/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-claude" target="_blank" rel="sponsored nofollow noopener">Claude · the AI I use</a>
     <a href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="#hero">Back to top ↑</a>
   </div>
