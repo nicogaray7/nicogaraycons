@@ -75,6 +75,19 @@
     });
   }, true);
 
+  // 1 ter) clic vers le profil Malt : /go/malt/ ou lien malt.fr direct
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var href = (a.getAttribute && a.getAttribute('href')) || '';
+    if (!/\/go\/malt\b|malt\.fr\//i.test(href)) return;
+    send('clic_malt', {
+      lead_source: leadSource(href),
+      cta_location: ctaLocation(a),
+      cta_label: (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60)
+    });
+  }, true);
+
   // 2) scroll par paliers (25/50/75/90), une fois chacun
   var fired = {};
   var thresholds = [25, 50, 75, 90];
