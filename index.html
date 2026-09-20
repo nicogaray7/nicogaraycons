@@ -627,6 +627,36 @@
     @media (max-width: 520px) {
       .ng-tray { left: 12px; right: 12px; bottom: 12px; padding: 20px; }
     }
+  
+    /* -- USE CASES -- */
+    #use-cases { background: var(--bg); }
+    .uc-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr));
+      gap: 20px; margin-top: 48px;
+    }
+    .uc-card {
+      display: flex; flex-direction: column; min-width: 0;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+      text-decoration: none; color: inherit;
+      transition: border-color .18s ease, transform .18s ease;
+    }
+    .uc-card:hover, .uc-card:focus-visible { border-color: var(--accent); transform: translateY(-2px); }
+    .uc-tag {
+      display: inline-block; align-self: flex-start;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--accent2);
+      background: var(--accent-glow); border-radius: 6px;
+      padding: 3px 10px; margin-bottom: 18px;
+    }
+    .uc-card h3 { font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: 10px; }
+    .uc-card p { font-size: 0.86rem; color: var(--muted); line-height: 1.55; margin-bottom: 18px; flex: 1; }
+    .uc-figure { font-size: 1.05rem; font-weight: 700; color: var(--accent2); margin-bottom: 12px; }
+    .uc-link { font-size: 0.82rem; font-weight: 600; color: var(--accent); }
+    .uc-card:hover .uc-link { text-decoration: underline; }
+    .uc-all { margin-top: 40px; text-align: center; }
+    .uc-all a { font-size: 0.9rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+    .uc-all a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -642,6 +672,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#results">Résultats</a></li>
+    <li><a href="#use-cases">Réalisations</a></li>
     <li><a href="#experience">Parcours</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -862,6 +893,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+<!-- USE CASES -->
+<section id="use-cases">
+  <div class="container">
+    <div class="section-label">Réalisations</div>
+    <h2>Ce que j'ai déjà<br/>mis en service</h2>
+    <p class="subtitle">Six cas détaillés, de l'artisan seul au déploiement sur vingt marchés. Chaque page décrit le problème de départ, ce qui a été construit et ce que cela a changé.</p>
+    <div class="uc-grid">
+      <a class="uc-card" href="/cas/assistant-multicanal/">
+        <span class="uc-tag">En production</span>
+        <h3>Assistant IA multi-canal en production</h3>
+        <p>Il lit les mails, l'agenda et les documents, propose une action et attend votre validation avant de l'exécuter.</p>
+        <div class="uc-figure">Depuis 2025</div>
+        <span class="uc-link">Lire le cas &rarr;</span>
+      </a>
+      <a class="uc-card" href="/cas/automatisation-formulaires/">
+        <span class="uc-tag">Back-office</span>
+        <h3>Automatisation d'un processus à formulaires</h3>
+        <p>Collecte, génération des documents et remplissage automatique de quatre portails en ligne, avec validation humaine avant envoi.</p>
+        <div class="uc-figure">0 ressaisie</div>
+        <span class="uc-link">Lire le cas &rarr;</span>
+      </a>
+      <a class="uc-card" href="/cas/agent-rdv-artisan/">
+        <span class="uc-tag">Artisan &middot; Démonstration</span>
+        <h3>Agent IA pour un plombier : prise de RDV et relances</h3>
+        <p>Prise de rendez-vous, relances de devis et rappels de rendez-vous automatisés pour un artisan seul.</p>
+        <div class="uc-figure">8 h/semaine</div>
+        <span class="uc-link">Lire le cas &rarr;</span>
+      </a>
+      <a class="uc-card" href="/cas/chatbot-sante-agenda/">
+        <span class="uc-tag">Santé &middot; Démonstration</span>
+        <h3>Agent IA pour un cabinet médical : agenda et rappels</h3>
+        <p>Gestion des rendez-vous, rappels patients et annulations pour un cabinet de trois praticiens.</p>
+        <div class="uc-figure">12 h/semaine</div>
+        <span class="uc-link">Lire le cas &rarr;</span>
+      </a>
+      <a class="uc-card" href="/cas/deploiement-20-marches/">
+        <span class="uc-tag">Grand compte</span>
+        <h3>Déploiement d'un site de marque sur 20 marchés</h3>
+        <p>Cadrage en Italie et en Espagne, développement en Inde, adaptation par chaque équipe locale. Un seul backlog.</p>
+        <div class="uc-figure">20 marchés</div>
+        <span class="uc-link">Lire le cas &rarr;</span>
+      </a>
+      <a class="uc-card" href="/cas/parcours-clients-crm/">
+        <span class="uc-tag">Grand compte &middot; CRM</span>
+        <h3>Refonte des parcours clients et activation CRM</h3>
+        <p>Nettoyage de la base, définition des groupes avec le métier, construction et mesure des parcours.</p>
+        <div class="uc-figure">+5 % de rétention</div>
+        <span class="uc-link">Lire le cas &rarr;</span>
+      </a>
+    </div>
+    <div class="uc-all"><a href="/cas/">Voir les six cas &rarr;</a></div>
   </div>
 </section>
 
