@@ -118,5 +118,17 @@
     {
       "handle": "filesystem"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/cas/agent-rdv-artisan",
+      "destination": "/cas/agent-devis-artisan/",
+      "permanent": true
+    },
+    {
+      "source": "/cas/agent-rdv-artisan/",
+      "destination": "/cas/agent-devis-artisan/",
+      "permanent": true
+    }
   ]
 }
