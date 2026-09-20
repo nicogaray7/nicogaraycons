@@ -89,7 +89,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Google+Sans+Code:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -100,7 +100,7 @@
       --card: rgba(255,255,255,0.03); --green: #34d399; --radius: 14px;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.65; overflow-x: hidden; }
+    body { background: var(--bg); color: var(--text); font-family: 'Google Sans Text', 'Google Sans', sans-serif; font-size: 16px; line-height: 1.65; overflow-x: hidden; }
     a { color: var(--accent2); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
@@ -113,7 +113,7 @@
     .nav-cta:hover { opacity: .88; text-decoration: none; }
 
     .article-header { padding: 120px 0 48px; }
-    .breadcrumb { font-size: 0.82rem; color: var(--muted); margin-bottom: 28px; }
+    .breadcrumb { position: static; display: block; padding: 0; margin-bottom: 28px; background: none; backdrop-filter: none; border: 0; z-index: auto; font-size: 0.82rem; color: var(--muted); }
     .breadcrumb a { color: var(--muted); }
     .breadcrumb a:hover { color: var(--text); }
     .breadcrumb span { margin: 0 6px; }

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Brand website rolled out across 20 markets">
+<defs>
+<linearGradient id="bgg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b6ef5" stop-opacity="0.14"/><stop offset="1" stop-color="#5b6ef5" stop-opacity="0"/></linearGradient>
+<marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6ef5"/></marker>
+<marker id="am" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7c82a3"/></marker>
+<marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+<marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f0b86e"/></marker>
+</defs>
+<rect width="1200" height="600" rx="14" fill="#0d0f1a"/>
+<rect width="1200" height="600" rx="14" fill="url(#bgg)"/>
+<rect x="40" y="44" width="20" height="2" fill="#818cf8"/>
+<text x="70.0" y="49.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="600" fill="#818cf8" text-anchor="start" letter-spacing="1.8">WHAT CHANGES FOR YOU</text>
+<text x="40.0" y="88.0" font-family="Google Sans, Google Sans Text, system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#e8eaf6" text-anchor="start">Brand website rolled out across 20 markets</text>
+<text x="40.0" y="126.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" fill="#7c82a3" text-anchor="start">A core built centrally, twenty local teams adapting it, and one delivery to hold together across four geographies.</text>
+<rect x="40" y="148" width="508" height="248" rx="14" fill="rgba(255,255,255,0.035)" stroke="#f0b86e" stroke-opacity="0.22"/><rect x="60" y="166" width="72" height="24" rx="12" fill="#f0b86e" fill-opacity="0.13" stroke="#f0b86e" stroke-opacity="0.4"/><text x="71.0" y="182.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" fill="#f0b86e" text-anchor="start" letter-spacing="1.2">BEFORE</text><text x="144.4" y="182.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="500" fill="#7c82a3" text-anchor="start">twenty teams, twenty ways</text>
+<rect x="652" y="148" width="508" height="248" rx="14" fill="rgba(255,255,255,0.035)" stroke="#34d399" stroke-opacity="0.22"/><rect x="672" y="166" width="64" height="24" rx="12" fill="#34d399" fill-opacity="0.13" stroke="#34d399" stroke-opacity="0.4"/><text x="683.0" y="182.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" fill="#34d399" text-anchor="start" letter-spacing="1.2">AFTER</text><text x="748.0" y="182.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="500" fill="#7c82a3" text-anchor="start">one core, twenty local versions</text>
+<g transform="translate(89,214) rotate(-7)"><rect width="62" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.28"/><rect x="6" y="9" width="40" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="22" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(184,213) rotate(-7)"><rect width="61" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.66"/><rect x="6" y="9" width="39" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="21" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(261,212) rotate(5)"><rect width="52" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.44"/><rect x="6" y="9" width="30" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="16" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(350,213) rotate(5)"><rect width="67" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.28"/><rect x="6" y="9" width="45" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="25" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(449,213) rotate(-7)"><rect width="57" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.51"/><rect x="6" y="9" width="35" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="19" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(91,250) rotate(-7)"><rect width="57" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.50"/><rect x="6" y="9" width="35" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="19" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(171,254) rotate(-4)"><rect width="63" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.49"/><rect x="6" y="9" width="41" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="23" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(273,254) rotate(-3)"><rect width="67" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.30"/><rect x="6" y="9" width="45" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="25" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(361,260) rotate(3)"><rect width="56" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.29"/><rect x="6" y="9" width="34" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="19" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(433,259) rotate(-2)"><rect width="51" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.47"/><rect x="6" y="9" width="29" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="16" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(96,294) rotate(2)"><rect width="74" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.46"/><rect x="6" y="9" width="52" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="29" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(181,293) rotate(-1)"><rect width="59" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.61"/><rect x="6" y="9" width="37" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="20" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(262,289) rotate(1)"><rect width="68" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.49"/><rect x="6" y="9" width="46" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="25" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(353,299) rotate(1)"><rect width="64" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.52"/><rect x="6" y="9" width="42" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="23" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(433,289) rotate(5)"><rect width="66" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.32"/><rect x="6" y="9" width="44" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="24" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(89,328) rotate(5)"><rect width="65" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.27"/><rect x="6" y="9" width="43" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="24" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(169,338) rotate(2)"><rect width="67" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.40"/><rect x="6" y="9" width="45" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="25" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(266,335) rotate(6)"><rect width="65" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.28"/><rect x="6" y="9" width="43" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="24" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(345,330) rotate(-6)"><rect width="65" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.28"/><rect x="6" y="9" width="43" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="24" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<g transform="translate(440,336) rotate(6)"><rect width="68" height="30" rx="5" fill="#12152a" stroke="#7c82a3" stroke-opacity="0.38"/><rect x="6" y="9" width="46" height="4" rx="2" fill="#7c82a3" fill-opacity="0.3"/><rect x="6" y="18" width="25" height="4" rx="2" fill="#7c82a3" fill-opacity="0.2"/></g>
+<text x="294.0" y="384.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="600" fill="#f0b86e" text-anchor="middle">Nothing is reusable</text>
+<rect x="678" y="240" width="74" height="74" rx="12" fill="#12152a" stroke="#5b6ef5" stroke-opacity="0.65"/>
+<path d="M 715 260 l 22 12 l -22 12 l -22 -12 z" fill="none" stroke="#5b6ef5" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M 693 284 l 22 12 l 22 -12" fill="none" stroke="#5b6ef5" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="715.0" y="330.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#818cf8" text-anchor="middle">One core</text>
+<rect x="800" y="216" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="806" y="225" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="806" y="234" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="868" y="216" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="874" y="225" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="874" y="234" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="936" y="216" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="942" y="225" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="942" y="234" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="1004" y="216" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="1010" y="225" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="1010" y="234" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="1072" y="216" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="1078" y="225" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="1078" y="234" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="800" y="254" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="806" y="263" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="806" y="272" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="868" y="254" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="874" y="263" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="874" y="272" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="936" y="254" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="942" y="263" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="942" y="272" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="1004" y="254" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="1010" y="263" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="1010" y="272" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="1072" y="254" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="1078" y="263" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="1078" y="272" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="800" y="292" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="806" y="301" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="806" y="310" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="868" y="292" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="874" y="301" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="874" y="310" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="936" y="292" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="942" y="301" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="942" y="310" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="1004" y="292" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="1010" y="301" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="1010" y="310" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="1072" y="292" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="1078" y="301" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="1078" y="310" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="800" y="330" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="806" y="339" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="806" y="348" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="868" y="330" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="874" y="339" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="874" y="348" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="936" y="330" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="942" y="339" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="942" y="348" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="1004" y="330" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="1010" y="339" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="1010" y="348" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<rect x="1072" y="330" width="58" height="30" rx="5" fill="#12152a" stroke="#34d399" stroke-opacity="0.45"/>
+<rect x="1078" y="339" width="34" height="4" rx="2" fill="#34d399" fill-opacity="0.45"/>
+<rect x="1078" y="348" width="20" height="4" rx="2" fill="#818cf8" fill-opacity="0.4"/>
+<path d="M 756.0 277.0 L 792.0 231.0" fill="none" stroke="#5b6ef5" stroke-width="1.2" opacity="0.5" marker-end="url(#a)"/>
+<path d="M 756.0 277.0 L 792.0 269.0" fill="none" stroke="#5b6ef5" stroke-width="1.2" opacity="0.5" marker-end="url(#a)"/>
+<path d="M 756.0 277.0 L 792.0 307.0" fill="none" stroke="#5b6ef5" stroke-width="1.2" opacity="0.5" marker-end="url(#a)"/>
+<path d="M 756.0 277.0 L 792.0 345.0" fill="none" stroke="#5b6ef5" stroke-width="1.2" opacity="0.5" marker-end="url(#a)"/>
+<text x="906.0" y="384.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="600" fill="#34d399" text-anchor="middle">Local exceptions, without breaking the base</text>
+<circle cx="600.0" cy="272.0" r="20" fill="#12152a" stroke="#5b6ef5" stroke-opacity="0.45"/>
+<path d="M 594.0 264.0 l 8 8 l -8 8" fill="none" stroke="#5b6ef5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40.0" y="440" width="362.7" height="86" rx="12" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.10)"/>
+<text x="60.0" y="480.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="27" font-weight="800" fill="#818cf8" text-anchor="start">20 markets</text>
+<text x="60.0" y="500.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#7c82a3" text-anchor="start">from France to South Korea, each</text>
+<text x="60.0" y="515.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#7c82a3" text-anchor="start">with its own rules</text>
+<rect x="418.7" y="440" width="362.7" height="86" rx="12" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.10)"/>
+<text x="438.7" y="480.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="27" font-weight="800" fill="#818cf8" text-anchor="start">+15% traffic</text>
+<text x="438.7" y="500.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#7c82a3" text-anchor="start">in the first quarter after launch</text>
+<rect x="797.3" y="440" width="362.7" height="86" rx="12" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.10)"/>
+<text x="817.3" y="480.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="27" font-weight="800" fill="#818cf8" text-anchor="start">-10% bounce</text>
+<text x="817.3" y="500.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#7c82a3" text-anchor="start">measured market by market, not as</text>
+<text x="817.3" y="515.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#7c82a3" text-anchor="start">an average</text>
+<text x="40.0" y="560.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#e8eaf6" text-anchor="start">The hard part is never the tool. It is deciding how much local exception the shared base can absorb.</text>
+</svg>

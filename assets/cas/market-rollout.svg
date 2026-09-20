@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 880" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Brand website rolled out across 20 markets, Stellantis">
+<defs>
+<linearGradient id="bgg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b6ef5" stop-opacity="0.15"/><stop offset="1" stop-color="#5b6ef5" stop-opacity="0"/></linearGradient>
+<marker id="seq" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6ef5"/></marker>
+<marker id="msg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10" fill="none" stroke="#7c82a3" stroke-width="1.4"/></marker>
+<marker id="grn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+</defs>
+<rect width="1440" height="880" rx="14" fill="#0d0f1a"/>
+<rect width="1440" height="880" rx="14" fill="url(#bgg)"/>
+<rect x="34" y="38" width="20" height="2" fill="#818cf8"/>
+<text x="64" y="43" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="600" letter-spacing="1.8" fill="#818cf8">CASE STUDY 03</text>
+<text x="34" y="82" font-family="Google Sans, Google Sans Text, system-ui, -apple-system, sans-serif" font-size="26" font-weight="800" letter-spacing="-0.6" fill="#e8eaf6">Brand website rolled out across 20 markets, Stellantis</text>
+<text x="34" y="106" font-family="Google Sans Code, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#7c82a3">BPMN-style notation · lanes, tasks, gateways, data stores</text>
+<text x="1406" y="106" text-anchor="end" font-family="Google Sans Code, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" fill="#818cf8" fill-opacity="0.9">FR UK ES DE IT HU AR TR JP KR +10</text>
+<rect x="34" y="126" width="1372" height="136" fill="none" stroke="rgba(255,255,255,0.10)"/>
+<rect x="34" y="126" width="94" height="136" fill="#12152a" stroke="rgba(255,255,255,0.10)"/>
+<text x="81" y="188" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#7c82a3">STELLANTIS</text>
+<text x="81" y="203" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#7c82a3">GROUP</text>
+<rect x="34" y="262" width="1372" height="136" fill="rgba(255,255,255,0.016)"/>
+<rect x="34" y="262" width="1372" height="136" fill="none" stroke="rgba(255,255,255,0.10)"/>
+<rect x="34" y="262" width="94" height="136" fill="#12152a" stroke="rgba(255,255,255,0.10)"/>
+<text x="81" y="324" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#7c82a3">PROJECT</text>
+<text x="81" y="339" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#7c82a3">LEAD</text>
+<rect x="34" y="398" width="1372" height="136" fill="none" stroke="rgba(255,255,255,0.10)"/>
+<rect x="34" y="398" width="94" height="136" fill="#12152a" stroke="rgba(255,255,255,0.10)"/>
+<text x="81" y="460" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#7c82a3">SCOPING</text>
+<text x="81" y="475" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#7c82a3">AGENCIES</text>
+<text x="81" y="490" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#7c82a3">ITALY AND</text>
+<text x="81" y="505" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#7c82a3">SPAIN</text>
+<rect x="34" y="534" width="1372" height="136" fill="rgba(255,255,255,0.016)"/>
+<rect x="34" y="534" width="1372" height="136" fill="none" stroke="rgba(255,255,255,0.10)"/>
+<rect x="34" y="534" width="94" height="136" fill="#12152a" stroke="rgba(255,255,255,0.10)"/>
+<text x="81" y="596" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#7c82a3">CENTRAL</text>
+<text x="81" y="611" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#7c82a3">BUILD INDIA</text>
+<rect x="34" y="670" width="1372" height="136" fill="none" stroke="rgba(255,255,255,0.10)"/>
+<rect x="34" y="670" width="94" height="136" fill="#12152a" stroke="rgba(255,255,255,0.10)"/>
+<text x="81" y="732" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#7c82a3">MARKETS 20</text>
+<text x="81" y="747" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#7c82a3">COUNTRIES</text>
+<path d="M 238.0 216.0 V 280.0" fill="none" stroke="#7c82a3" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#msg)"/>
+<rect x="218.3" y="243.0" width="57.4" height="18" rx="9" fill="#0d0f1a" stroke="#7c82a3" stroke-opacity="0.35"/>
+<text x="247.0" y="256.0" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.3" fill="#7c82a3">mandate</text>
+<path d="M 326.0 330.0 H 343.0 V 466.0 H 352.0" fill="none" stroke="#5b6ef5" stroke-width="1.7" marker-end="url(#seq)"/>
+<path d="M 536.0 466.0 H 553.0 V 602.0 H 562.0" fill="none" stroke="#5b6ef5" stroke-width="1.7" marker-end="url(#seq)"/>
+<path d="M 746.0 602.0 H 763.0 V 738.0 H 772.0" fill="none" stroke="#5b6ef5" stroke-width="1.7" marker-end="url(#seq)"/>
+<path d="M 956.0 738.0 H 982.0" fill="none" stroke="#5b6ef5" stroke-width="1.7" marker-end="url(#seq)"/>
+<path d="M 1166.0 738.0 H 1214.5 V 330.0 H 1255.0" fill="none" stroke="#5b6ef5" stroke-width="1.7" marker-end="url(#seq)"/>
+<path d="M 1288.0 305.0 V 224.0" fill="none" stroke="#34d399" stroke-width="1.7" marker-end="url(#grn)"/>
+<rect x="1280.7" y="251.5" width="32.6" height="18" rx="9" fill="#0d0f1a" stroke="#34d399" stroke-opacity="0.35"/>
+<text x="1297.0" y="264.5" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.3" fill="#34d399">yes</text>
+<path d="M 658.0 372.0 V 398.0 H 448.0 V 416.0" fill="none" stroke="#7c82a3" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#msg)"/>
+<rect x="515.0" y="379.0" width="76.0" height="18" rx="9" fill="#0d0f1a" stroke="#7c82a3" stroke-opacity="0.35"/>
+<text x="553.0" y="392.0" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.3" fill="#7c82a3">arbitrates</text>
+<path d="M 658.0 372.0 V 552.0" fill="none" stroke="#7c82a3" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#msg)"/>
+<rect x="625.9" y="457.0" width="82.2" height="18" rx="9" fill="#0d0f1a" stroke="#7c82a3" stroke-opacity="0.35"/>
+<text x="667.0" y="470.0" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.3" fill="#7c82a3">prioritises</text>
+<path d="M 658.0 372.0 V 534.0 H 868.0 V 688.0" fill="none" stroke="#7c82a3" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#msg)"/>
+<rect x="731.2" y="515.0" width="63.6" height="18" rx="9" fill="#0d0f1a" stroke="#7c82a3" stroke-opacity="0.35"/>
+<text x="763.0" y="528.0" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.3" fill="#7c82a3">unblocks</text>
+<circle cx="238.0" cy="194.0" r="21" fill="#12152a" stroke="#818cf8" stroke-width="1.6"/>
+<g transform="translate(230.0,186.0) scale(0.667)" fill="none" stroke="#818cf8" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4h12l-3 4 3 4H6"/></g>
+<text x="238.0" y="151.0" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#7c82a3">Programme</text>
+<text x="238.0" y="164.0" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#7c82a3">launched</text>
+<rect x="150.0" y="288.0" width="176" height="84" rx="12" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.10)" stroke-opacity="1"/>
+<rect x="150.0" y="288.0" width="176" height="3" rx="1.5" fill="none" fill-opacity="0.8"/>
+<g transform="translate(165.0,302.0) scale(0.708)" fill="none" stroke="#818cf8" stroke-width="2.26" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z M12 11.5a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1z"/></g>
+<text x="190.0" y="315.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" fill="#e8eaf6">Frame</text>
+<text x="165.0" y="338.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">Scope, roadmap and</text>
+<text x="165.0" y="353.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">governance agreed with</text>
+<text x="165.0" y="368.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">the group</text>
+<rect x="360.0" y="424.0" width="176" height="84" rx="12" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.10)" stroke-opacity="1"/>
+<rect x="360.0" y="424.0" width="176" height="3" rx="1.5" fill="none" fill-opacity="0.8"/>
+<g transform="translate(375.0,438.0) scale(0.708)" fill="none" stroke="#818cf8" stroke-width="2.26" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z M14 3v4h4 M9 12h6 M9 16h6"/></g>
+<text x="400.0" y="451.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" fill="#e8eaf6">Specify</text>
+<text x="375.0" y="474.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">Requirements and designs</text>
+<text x="375.0" y="489.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">produced in Italy and</text>
+<text x="375.0" y="504.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">Spain</text>
+<rect x="570.0" y="288.0" width="176" height="84" rx="12" fill="rgba(255,255,255,0.035)" stroke="#5b6ef5" stroke-opacity="1"/>
+<rect x="570.0" y="288.0" width="176" height="3" rx="1.5" fill="#5b6ef5" fill-opacity="0.8"/>
+<g transform="translate(585.0,302.0) scale(0.708)" fill="none" stroke="#5b6ef5" stroke-width="2.26" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z M2 20c0-3.5 3.2-5.5 7-5.5s7 2 7 5.5 M17 6.5a3 3 0 0 1 0 6 M18 14.5c2.4.5 4 2.3 4 5.5"/></g>
+<text x="610.0" y="315.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" fill="#e8eaf6">Drive delivery</text>
+<text x="585.0" y="338.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">One backlog, four</text>
+<text x="585.0" y="353.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">geographies, daily</text>
+<text x="585.0" y="368.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">arbitration</text>
+<rect x="570.0" y="560.0" width="176" height="84" rx="12" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.10)" stroke-opacity="1"/>
+<rect x="570.0" y="560.0" width="176" height="3" rx="1.5" fill="none" fill-opacity="0.8"/>
+<g transform="translate(585.0,574.0) scale(0.708)" fill="none" stroke="#818cf8" stroke-width="2.26" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></g>
+<text x="610.0" y="587.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" fill="#e8eaf6">Build centrally</text>
+<text x="585.0" y="610.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">One core platform,</text>
+<text x="585.0" y="625.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">development teams in</text>
+<text x="585.0" y="640.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">India</text>
+<rect x="780.0" y="696.0" width="176" height="84" rx="12" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.10)" stroke-opacity="1"/>
+<rect x="780.0" y="696.0" width="176" height="3" rx="1.5" fill="none" fill-opacity="0.8"/>
+<g transform="translate(795.0,710.0) scale(0.708)" fill="none" stroke="#818cf8" stroke-width="2.26" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M3 12h18 M12 3c3 3.5 3 14.5 0 18 M12 3c-3 3.5-3 14.5 0 18"/></g>
+<text x="820.0" y="723.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" fill="#e8eaf6">Localise</text>
+<text x="795.0" y="746.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">Content, catalogue and</text>
+<text x="795.0" y="761.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">legal, by each market</text>
+<text x="795.0" y="776.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">team</text>
+<rect x="990.0" y="696.0" width="176" height="84" rx="12" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.10)" stroke-opacity="1"/>
+<rect x="990.0" y="696.0" width="176" height="3" rx="1.5" fill="none" fill-opacity="0.8"/>
+<g transform="translate(1005.0,710.0) scale(0.708)" fill="none" stroke="#818cf8" stroke-width="2.26" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6"/></g>
+<text x="1030.0" y="723.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" fill="#e8eaf6">Test locally</text>
+<text x="1005.0" y="746.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">The country team</text>
+<text x="1005.0" y="761.0" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11.5" fill="#7c82a3">validates its own site</text>
+<path d="M 1288.0 305.0 L 1313.0 330.0 L 1288.0 355.0 L 1263.0 330.0 Z" fill="#12152a" stroke="#34d399" stroke-width="1.7"/>
+<path d="M 1281.0 323.0 l 14 14 M 1295.0 323.0 l -14 14" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+<text x="1288.0" y="372.0" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#34d399">Market</text>
+<text x="1288.0" y="385.0" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#34d399">sign-off?</text>
+<circle cx="1288.0" cy="194.0" r="21" fill="#12152a" stroke="#34d399" stroke-width="3.0"/>
+<g transform="translate(1280.0,186.0) scale(0.667)" fill="none" stroke="#34d399" stroke-width="2.40" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4h12l-3 4 3 4H6"/></g>
+<text x="1288.0" y="164.0" text-anchor="middle" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#7c82a3">Market live</text>
+<path d="M 44 824 h -8 v 24 h 8" fill="none" stroke="#818cf8" stroke-opacity="0.55" stroke-width="1.4"/>
+<text x="52" y="840" font-family="Google Sans Text, Google Sans, system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#818cf8">One programme backlog across four geographies: scoping in Italy and Spain, development in India, rollout with every market team</text>
+<text x="1406" y="840" text-anchor="end" font-family="Google Sans Code, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" fill="#7c82a3">Adobe Experience Manager software · Jira software</text>
+</svg>
