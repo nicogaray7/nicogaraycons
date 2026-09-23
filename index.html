@@ -90,17 +90,17 @@
       --accent-glow: rgba(91,110,245,0.18);
       --cta: #5b6ef5;
       --cta-ink: #ffffff;
-      --text: #e8eaf6;
-      --muted: #9aa0be;
-      --border: rgba(255,255,255,0.08);
-      --card: rgba(255,255,255,0.03);
+      --text: #f2f3fb;
+      --muted: #a2a8c4;
+      --border: rgba(255,255,255,0.14);
+      --card: transparent;
       --green: #34d399;
-      --radius: 14px;
-      --space-1: 8px;
-      --space-2: 16px;
-      --space-3: 24px;
-      --space-4: 40px;
-      --space-5: 64px;
+      --radius: 2px;
+      --space-1: 12px;
+      --space-2: 24px;
+      --space-3: 36px;
+      --space-4: 56px;
+      --space-5: 96px;
     }
 
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
@@ -128,15 +128,14 @@
     .container { max-width: 1120px; margin: 0 auto; }
 
     section { padding: var(--space-5) 5%; }
-    .section-head { max-width: 640px; margin-bottom: var(--space-4); }
+    #offre, #resultats, #preuve, #methode { border-top: 1px solid var(--border); }
+    .section-head { max-width: 680px; margin-bottom: var(--space-4); }
     .section-label {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--accent2); margin-bottom: 12px;
+      display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: var(--space-1);
     }
-    .section-label::before { content: ''; width: 20px; height: 1px; background: var(--accent2); }
-    h2 { font-size: clamp(1.7rem, 5vw, 2.6rem); font-weight: 700; }
-    .subtitle { color: var(--muted); margin-top: 14px; font-size: 1.02rem; }
+    h2 { font-size: clamp(1.9rem, 5.4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; }
+    .subtitle { color: var(--muted); margin-top: 16px; font-size: 1.05rem; max-width: 56ch; }
 
     /* ── NAV ── */
     nav {
@@ -177,20 +176,16 @@
     .nav-cta { display: none; }
 
     /* ── HERO ── */
-    #hero { position: relative; padding-top: 120px; padding-bottom: var(--space-5); overflow: hidden; }
-    .hero-glow {
-      position: absolute; top: -220px; left: 50%; transform: translateX(-50%);
-      width: 700px; height: 560px; pointer-events: none;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 68%);
-    }
-    .hero-content { position: relative; max-width: 780px; }
+    #hero { position: relative; padding-top: 112px; padding-bottom: var(--space-4); }
+    .hero-glow { display: none; }
+    .hero-content { position: relative; max-width: 900px; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 9px;
-      padding: 7px 15px; border: 1px solid var(--border); border-radius: 999px;
-      background: var(--card); font-size: 0.86rem; color: var(--muted); margin-bottom: var(--space-3);
+      padding: 6px 0; font-size: 0.84rem; letter-spacing: 0.04em;
+      color: var(--muted); margin-bottom: var(--space-2);
     }
     .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex: none; }
-    h1 { font-size: clamp(2.1rem, 7.5vw, 3.9rem); font-weight: 700; }
+    h1 { font-size: clamp(2.1rem, 5.2vw, 3.5rem); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; }
     h1 .accent { color: var(--accent2); }
     .hero-desc { color: var(--muted); font-size: 1.08rem; margin-top: var(--space-3); max-width: 560px; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--space-4); }
@@ -206,12 +201,12 @@
     /* ── CARTES ── */
     .grid { display: grid; gap: var(--space-2); }
     .card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: var(--space-3);
-      transition: border-color 200ms ease, transform 200ms ease;
+      background: none; border: none; border-top: 2px solid var(--text);
+      border-radius: 0; padding: var(--space-2) 0 0;
+      transition: border-color 200ms ease;
     }
-    .card:hover { border-color: rgba(91,110,245,0.45); transform: translateY(-3px); }
-    .card h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: 8px; }
+    .card:hover { border-top-color: var(--accent); }
+    .card h3 { font-size: 1.18rem; font-weight: 700; margin-bottom: 10px; }
     .card p { color: var(--muted); font-size: 0.95rem; }
     .card-icon {
       width: 38px; height: 38px; display: grid; place-items: center; margin-bottom: 14px;
@@ -227,16 +222,18 @@
     /* ── RÉSULTATS ── */
     .result-card { display: flex; flex-direction: column; gap: 14px; }
     .result-sector {
-      align-self: flex-start; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--accent2);
-      background: rgba(91,110,245,0.1); padding: 5px 11px; border-radius: 999px;
+      align-self: flex-start; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted); padding: 0; border-radius: 0;
     }
     .result-quote {
-      color: var(--muted); font-size: 0.94rem; font-style: italic;
-      border-left: 2px solid var(--accent); padding-left: 14px;
+      color: var(--muted); font-size: 0.94rem;
+      border-left: 1px solid var(--border); padding-left: 16px;
     }
-    .result-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: auto; padding-top: 6px; }
-    .metric-val { font-size: 1.32rem; font-weight: 700; color: var(--green); }
+    .result-metrics {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+      margin-top: auto; padding-top: var(--space-1); border-top: 1px solid var(--border);
+    }
+    .metric-val { font-size: 1.5rem; font-weight: 800; color: var(--text); letter-spacing: -0.03em; }
     .metric-desc { font-size: 0.74rem; color: var(--muted); line-height: 1.3; }
     .results-note { color: var(--muted); font-size: 0.84rem; margin-top: var(--space-3); }
 
@@ -247,33 +244,32 @@
     .quote-author { display: flex; align-items: center; gap: 12px; margin-top: auto; }
     .author-initials {
       width: 40px; height: 40px; flex: none; display: grid; place-items: center;
-      border-radius: 50%; background: rgba(91,110,245,0.16); color: var(--accent2);
+      border-radius: 0; border: 1px solid var(--border); color: var(--text);
       font-family: 'Inter', system-ui, sans-serif; font-weight: 700; font-size: 0.86rem;
     }
     .author-name { font-weight: 600; font-size: 0.94rem; }
     .author-role { font-size: 0.78rem; color: var(--muted); line-height: 1.3; }
     .tools { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--space-4); }
     .tool-chip {
-      padding: 7px 14px; border: 1px solid var(--border); border-radius: 999px;
-      background: var(--card); font-size: 0.85rem; color: var(--muted); white-space: nowrap;
+      padding: 6px 0; border: none; border-radius: 0;
+      font-size: 0.85rem; color: var(--muted); white-space: nowrap;
     }
+    .tools { gap: 6px var(--space-2); }
+    .tool-chip + .tool-chip::before { content: '·'; margin-right: var(--space-2); color: var(--border); }
 
     /* ── CONTACT ── */
     #contact { padding-bottom: 120px; }
     .contact-card {
-      position: relative; overflow: hidden; text-align: center;
-      background: linear-gradient(180deg, var(--bg3) 0%, var(--bg2) 100%);
-      border: 1px solid var(--border); border-radius: 20px; padding: var(--space-4) var(--space-3);
+      position: relative; text-align: left;
+      background: none; border: none; border-top: 2px solid var(--text);
+      border-radius: 0; padding: var(--space-3) 0 0;
     }
-    .contact-card::before {
-      content: ''; position: absolute; top: -140px; left: 50%; transform: translateX(-50%);
-      width: 420px; height: 300px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-    }
+    .contact-card::before { content: none; }
     .contact-card > * { position: relative; }
     .contact-card h2 { margin-bottom: 14px; }
-    .contact-card p { color: var(--muted); max-width: 440px; margin: 0 auto var(--space-3); }
-    .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-    .contact-secondary { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; margin-top: var(--space-3); }
+    .contact-card p { color: var(--muted); max-width: 440px; margin: 0 0 var(--space-3); }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-start; }
+    .contact-secondary { display: flex; flex-wrap: wrap; gap: 18px; justify-content: flex-start; margin-top: var(--space-3); }
     .contact-secondary a {
       display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
       font-size: 0.92rem; color: var(--muted); text-decoration: none; transition: color 180ms ease;
@@ -451,7 +447,7 @@
 <section id="offre">
   <div class="container">
     <div class="section-head reveal">
-      <div class="section-label">Ce que je fais</div>
+      <div class="section-label">01 — Ce que je fais</div>
       <h2>Un accompagnement complet,<br/>de l'audit à la maintenance</h2>
       <p class="subtitle">Quatre étapes, chacune livrable seule. Vous pouvez démarrer par l'audit et vous arrêter là.</p>
     </div>
@@ -492,7 +488,7 @@
 <section id="resultats">
   <div class="container">
     <div class="section-head reveal">
-      <div class="section-label">Résultats</div>
+      <div class="section-label">02 — Résultats</div>
       <h2>Ce que ça change<br/>concrètement</h2>
       <p class="subtitle">Scénarios représentatifs basés sur des missions types. Problématiques courantes, solutions déployables.</p>
     </div>
@@ -536,7 +532,7 @@
 <section id="preuve">
   <div class="container">
     <div class="section-head reveal">
-      <div class="section-label">Recommandations</div>
+      <div class="section-label">03 — Recommandations</div>
       <h2>Ils ont travaillé<br/>avec moi</h2>
     </div>
     <div class="grid grid-3">
@@ -591,7 +587,7 @@
 <section id="methode">
   <div class="container">
     <div class="section-head reveal">
-      <div class="section-label">Comment ça marche</div>
+      <div class="section-label">04 — Comment ça marche</div>
       <h2>Trois étapes<br/>avant votre premier agent</h2>
       <p class="subtitle">Pas de cahier des charges de 40 pages. On identifie une tâche, on l'automatise, on mesure.</p>
     </div>
