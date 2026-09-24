@@ -77,491 +77,549 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Google+Sans+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #07080f;
-      --bg2: #0d0f1a;
-      --bg3: #12152a;
+      --bg: #0b0d12;
+      --surface: #141821;
+      --surface2: #1b202c;
+      --text: #e9ecf5;
+      --muted: #8a91a8;
       --accent: #5b6ef5;
-      --accent2: #818cf8;
-      --accent-glow: rgba(91,110,245,0.18);
-      --text: #e8eaf6;
-      --muted: #7c82a3;
-      --border: rgba(255,255,255,0.07);
-      --card: rgba(255,255,255,0.03);
-      --green: #34d399;
-      --radius: 14px;
+      --accent-soft: rgba(91,110,245,0.14);
+      --accent-line: rgba(91,110,245,0.32);
+      --green: #3ecf8e;
+      --border: rgba(255,255,255,0.08);
+      --radius: 12px;
+      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      --sans: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Google Sans Text', 'Google Sans', sans-serif;
+      font-family: var(--sans);
       font-size: 16px;
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 5%;
-      background: rgba(7,8,15,0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+    a { color: inherit; }
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
     }
-    .nav-logo {
-      font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em;
+
+    /* ── LAYOUT ── */
+    .shell {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: block;
+    }
+    .rail {
+      padding: 40px 0 120px;
+    }
+
+    /* colonne gauche */
+    .aside {
+      padding-top: 28px;
+    }
+    .brand {
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 0.98rem;
+      letter-spacing: -0.01em;
       color: var(--text);
       text-decoration: none;
-    }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      background: var(--accent);
-      color: #fff; border: none; border-radius: 8px;
-      padding: 10px 20px; font-size: 0.88rem; font-weight: 600;
-      cursor: pointer; text-decoration: none;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-    .lang-switch {
-      display: flex; align-items: center; gap: 4px;
-      font-size: 0.82rem; font-weight: 600;
-      margin-right: 14px;
-    }
-    .lang-switch a {
-      color: var(--muted); text-decoration: none;
-      padding: 4px 8px; border-radius: 6px;
-      transition: color 0.2s, background 0.2s;
-    }
-    .lang-switch a.active { color: var(--text); background: var(--bg3); }
-    .lang-switch a:hover { color: var(--text); }
-    .lang-switch .sep { color: var(--border); }
-    .nav-right { display: flex; align-items: center; }
-
-    /* ── SECTION BASE ── */
-    section { padding: 100px 5%; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--accent2);
-      margin-bottom: 16px;
-    }
-    .section-label::before {
-      content: ''; display: block; width: 20px; height: 2px;
-      background: var(--accent2);
-    }
-    h2 {
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 800; letter-spacing: -0.03em;
-      line-height: 1.2; margin-bottom: 16px;
-    }
-    .subtitle { color: var(--muted); font-size: 1.08rem; max-width: 600px; }
-
-    /* ── HERO ── */
-    #hero {
-      padding-top: 160px;
-      min-height: 100vh;
-      display: flex; align-items: center;
-      position: relative; overflow: hidden;
-    }
-    .hero-grid {
-      position: absolute; inset: 0; opacity: 0.08;
-      background-image: linear-gradient(var(--border) 1px, transparent 1px),
-                        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .hero-glow {
-      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 600px;
-      background: radial-gradient(ellipse, rgba(91,110,245,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-content { position: relative; max-width: 800px; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent-glow); border: 1px solid rgba(91,110,245,0.3);
-      border-radius: 100px; padding: 6px 14px;
-      font-size: 0.82rem; font-weight: 500; color: var(--accent2);
-      margin-bottom: 28px;
-    }
-    .hero-badge .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 6px var(--green);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-    h1 {
-      font-size: clamp(2.4rem, 5.5vw, 4rem);
-      font-weight: 800; letter-spacing: -0.04em;
-      line-height: 1.1; margin-bottom: 24px;
-    }
-    h1 .accent { color: var(--accent); }
-    h1 .underline {
-      position: relative; display: inline-block;
-    }
-    h1 .underline::after {
-      content: '';
-      position: absolute; bottom: -4px; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      border-radius: 2px;
-    }
-    .hero-desc {
-      font-size: 1.15rem; color: var(--muted); max-width: 560px;
-      margin-bottom: 40px; line-height: 1.7;
-    }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent); color: #fff;
-      border: none; border-radius: 10px;
-      padding: 14px 28px; font-size: 0.95rem; font-weight: 600;
-      cursor: pointer; text-decoration: none;
-      transition: all 0.2s;
-      box-shadow: 0 0 30px rgba(91,110,245,0.3);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(91,110,245,0.4); }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--text);
-      border: 1px solid var(--border); border-radius: 10px;
-      padding: 14px 28px; font-size: 0.95rem; font-weight: 500;
-      cursor: pointer; text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-    .hero-stats {
-      display: flex; gap: 40px; margin-top: 64px;
-      padding-top: 40px; border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-    }
-    .stat-num {
-      font-size: 2rem; font-weight: 800; letter-spacing: -0.04em;
-      color: var(--text);
-    }
-    .stat-num span { color: var(--accent); }
-    .stat-label { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
-
-    /* ── PAIN POINTS ── */
-    #problems { background: var(--bg2); }
-    .problems-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px; margin-top: 48px;
-    }
-    .problem-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px; position: relative; overflow: hidden;
-    }
-    .problem-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-    .problem-icon { font-size: 1.6rem; margin-bottom: 14px; }
-    .problem-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
-    .problem-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
-
-    /* ── SERVICES ── */
-    #services { background: var(--bg); }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px; margin-top: 48px;
-    }
-    .service-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      transition: border-color 0.2s, transform 0.2s;
-      cursor: default;
-    }
-    .service-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
-    }
-    .service-num {
-      font-family: 'Google Sans Code', monospace;
-      font-size: 0.75rem; color: var(--accent); font-weight: 500;
-      margin-bottom: 16px; display: block;
-    }
-    .service-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      background: var(--accent-glow);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; margin-bottom: 20px;
-    }
-    .service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
-    .service-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
-    .service-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
-    .tag {
-      font-size: 0.75rem; font-weight: 500;
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 6px; padding: 3px 10px; color: var(--muted);
-    }
-
-    /* ── RESULTS ── */
-    #results { background: var(--bg2); }
-    .results-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px; margin-top: 48px;
-    }
-    .result-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px; position: relative;
-    }
-    .result-sector {
       display: inline-block;
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--accent2);
-      background: var(--accent-glow); border-radius: 6px;
-      padding: 3px 10px; margin-bottom: 20px;
     }
-    .result-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
-    .result-context { font-size: 0.82rem; color: var(--muted); margin-bottom: 20px; }
-    .result-challenge {
-      font-size: 0.88rem; color: var(--muted);
-      padding: 14px 16px;
-      background: rgba(255,255,255,0.02);
-      border-left: 2px solid var(--border);
-      border-radius: 4px;
-      margin-bottom: 20px;
-      font-style: italic;
+    .brand b { color: var(--accent); font-weight: 600; }
+    .aside-pos {
+      margin-top: 20px;
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
     }
-    .result-metrics { display: flex; gap: 16px; flex-wrap: wrap; }
-    .metric {
-      flex: 1; min-width: 100px;
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 10px; padding: 14px;
-      text-align: center;
+    .aside-pos .hl { color: var(--accent); }
+    .aside-sub {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.6;
     }
-    .metric-val {
-      font-size: 1.5rem; font-weight: 800;
-      letter-spacing: -0.03em; color: var(--green);
+    .aside-status {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 20px;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
     }
-    .metric-desc { font-size: 0.73rem; color: var(--muted); margin-top: 3px; }
-    .result-disclaimer {
-      text-align: center; margin-top: 24px;
-      font-size: 0.75rem; color: var(--muted); font-style: italic;
-      opacity: 0.6;
+    .aside-status .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px rgba(62,207,142,0.6);
     }
+    .aside-cta {
+      display: none;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+    .btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { transform: translateY(-1px); background: #6f7ff7; }
+    .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+    .btn-ghost:hover { border-color: var(--accent-line); }
 
-    /* ── EXPERIENCE ── */
-    #experience { background: var(--bg); }
-    .exp-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 40px; margin-top: 48px;
+    /* sommaire */
+    .toc {
+      margin-top: 32px;
+      display: none;
     }
-    @media (max-width: 700px) { .exp-grid { grid-template-columns: 1fr; } }
-    .exp-timeline { display: flex; flex-direction: column; gap: 0; }
-    .exp-item {
-      display: flex; gap: 16px;
-      padding-bottom: 28px;
-      position: relative;
-    }
-    .exp-item:not(:last-child)::before {
-      content: '';
-      position: absolute; left: 19px; top: 40px;
-      width: 1px; bottom: 0;
-      background: var(--border);
-    }
-    .exp-dot {
-      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
-      background: var(--bg2); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; z-index: 1;
-    }
-    .exp-content {}
-    .exp-role { font-weight: 600; font-size: 0.95rem; margin-bottom: 2px; }
-    .exp-company { color: var(--accent2); font-size: 0.85rem; font-weight: 500; }
-    .exp-period { color: var(--muted); font-size: 0.78rem; margin-top: 4px; }
-
-    /* ── STACK ── */
-    #stack { background: var(--bg2); }
-    .stack-intro { color: var(--muted); margin-bottom: 40px; max-width: 560px; }
-    .stack-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-    .stack-cat h4 {
-      font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--muted); margin-bottom: 14px;
-      padding-bottom: 10px; border-bottom: 1px solid var(--border);
-    }
-    .stack-tools { display: flex; flex-direction: column; gap: 8px; }
-    .stack-tool {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.88rem; color: var(--text); font-weight: 500;
-    }
-    .stack-tool .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-
-    /* ── PARTENAIRE ── */
-    #partenaire { background: var(--bg); }
-    .partner-card {
-      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px;
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 20px; padding: 40px; margin-top: 40px;
-      position: relative; overflow: hidden;
-    }
-    .partner-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, #673de6, var(--accent2));
-    }
-    .partner-brand {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px;
-    }
-    .partner-brand .mark {
-      width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
-      background: linear-gradient(135deg, #673de6, #8b5cf6);
-      display: inline-flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 1rem; font-weight: 800;
-    }
-    .partner-card p { color: var(--muted); font-size: 0.96rem; line-height: 1.7; max-width: 560px; }
-    .partner-uses { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-    .partner-uses span {
-      font-size: 0.8rem; font-weight: 500; color: var(--text);
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 999px; padding: 6px 14px;
-    }
-    .partner-side { display: flex; flex-direction: column; align-items: center; text-align: center; }
-    .partner-promo {
-      display: inline-block; font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase; color: var(--green);
-      background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.25);
-      border-radius: 999px; padding: 6px 14px; margin-bottom: 18px;
-    }
-    .btn-partner { background: #673de6; box-shadow: 0 0 30px rgba(103,61,230,0.3); }
-    .btn-partner:hover { box-shadow: 0 8px 40px rgba(103,61,230,0.45); }
-    .partner-card + .partner-card { margin-top: 20px; }
-    .partner-card.claude::before { background: linear-gradient(90deg, #d97757, #e0a08a); }
-    .partner-card.claude .partner-brand .mark { background: linear-gradient(135deg, #d97757, #c96442); }
-    .partner-promo.claude {
-      color: #e8a184; background: rgba(217,119,87,0.1); border-color: rgba(217,119,87,0.28);
-    }
-    .btn-claude { background: #d97757; box-shadow: 0 0 30px rgba(217,119,87,0.28); }
-    .btn-claude:hover { box-shadow: 0 8px 40px rgba(217,119,87,0.42); }
-    @media (max-width: 768px) {
-      .partner-card { grid-template-columns: 1fr; gap: 26px; padding: 32px 24px; }
-      .partner-side { align-items: flex-start; text-align: left; }
-    }
-
-    /* ── TESTIMONIALS ── */
-    #testimonials { background: var(--bg2); }
-    .testimonials-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px; margin-top: 48px;
-    }
-    .testimonial-card {
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px;
-    }
-    .stars { color: #fbbf24; font-size: 0.85rem; margin-bottom: 14px; letter-spacing: 2px; }
-    .testimonial-text { font-size: 0.9rem; color: var(--muted); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
-    .testimonial-author { display: flex; align-items: center; gap: 12px; }
-    .author-avatar {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: var(--accent-glow); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-    .author-name { font-weight: 600; font-size: 0.88rem; }
-    .author-role { color: var(--muted); font-size: 0.78rem; }
-
-    /* ── CONTACT ── */
-    #contact {
-      background: var(--bg);
-      text-align: center;
-    }
-    .contact-card {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 20px; padding: 60px 40px;
-      max-width: 680px; margin: 48px auto 0;
-      position: relative; overflow: hidden;
-    }
-    .contact-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-    }
-    .contact-glow {
-      position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
-      width: 400px; height: 300px;
-      background: radial-gradient(ellipse, rgba(91,110,245,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .contact-card h3 {
-      font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em;
+    .toc-title {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
       margin-bottom: 12px;
     }
-    .contact-card p { color: var(--muted); margin-bottom: 32px; font-size: 1rem; }
-    .contact-methods { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-    .contact-method {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 10px; padding: 12px 20px;
-      color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500;
-      transition: all 0.2s;
+    .toc ul { list-style: none; }
+    .toc li { margin: 2px 0; }
+    .toc a {
+      display: block;
+      padding: 7px 12px;
+      border-left: 2px solid transparent;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-radius: 0 6px 6px 0;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
     }
-    .contact-method:hover { border-color: var(--accent); color: var(--accent); }
-    .remote-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      margin-top: 28px; font-size: 0.82rem; color: var(--muted);
+    .toc a:hover { color: var(--text); }
+    .toc a.active {
+      color: var(--text);
+      border-left-color: var(--accent);
+      background: var(--accent-soft);
     }
-    .remote-badge .globe { font-size: 1rem; }
+    .aside-lang {
+      margin-top: 28px;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+    }
+    .aside-lang a {
+      color: var(--muted); text-decoration: none;
+      padding: 4px 8px; border-radius: 6px;
+    }
+    .aside-lang a.active { color: var(--text); background: var(--surface); }
+    .aside-lang .sep { color: var(--border); }
+
+    /* colonne droite */
+    .main { min-width: 0; }
+    .block { margin-bottom: 72px; scroll-margin-top: 24px; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .kicker::before {
+      content: ''; width: 18px; height: 1px; background: var(--accent-line);
+    }
+    h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.18;
+      margin-bottom: 12px;
+    }
+    .lead { color: var(--muted); font-size: 1rem; max-width: 60ch; }
+
+    /* ── CONSOLE ── */
+    .console {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    }
+    .console-bar {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+    .console-dots { display: flex; gap: 6px; flex-shrink: 0; }
+    .console-dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--surface2); }
+    .console-name {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .console-timer {
+      margin-left: auto;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--green);
+      flex-shrink: 0;
+    }
+    .console-tabs {
+      display: flex; gap: 4px;
+      padding: 10px 12px 0;
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .console-tabs::-webkit-scrollbar { display: none; }
+    .console-tab {
+      appearance: none;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 10px 12px;
+      min-height: 44px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .console-tab:hover { color: var(--text); }
+    .console-tab[aria-selected="true"] {
+      color: var(--text);
+      border-bottom-color: var(--accent);
+    }
+    .console-body {
+      padding: 16px 14px;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      line-height: 1.7;
+      min-height: 320px;
+    }
+    .log { list-style: none; }
+    .log-line {
+      display: block;
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.05);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .log-line.show { opacity: 1; transform: none; }
+    .log-line:last-child { border-bottom: none; }
+    .log-step {
+      color: var(--accent);
+      margin-right: 8px;
+    }
+    .log-msg { color: var(--text); }
+    .log-tool {
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 0.76rem;
+      overflow-wrap: anywhere;
+    }
+    .log-tool::before { content: '> '; color: var(--accent); }
+    .log-state {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 4px; margin-left: 6px;
+      font-size: 0.76rem;
+      color: var(--green);
+    }
+    .log-state svg { width: 12px; height: 12px; }
+    .log-cursor {
+      display: inline-block;
+      width: 8px; height: 1.05em;
+      background: var(--accent);
+      vertical-align: text-bottom;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .console-foot {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      padding: 12px 14px;
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+    .btn-replay {
+      display: inline-flex; align-items: center; gap: 7px;
+      min-height: 44px;
+      padding: 8px 16px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .btn-replay:hover { border-color: var(--accent-line); }
+    .btn-replay svg { width: 15px; height: 15px; }
+    .console-done {
+      display: none; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: 0.8rem; color: var(--green);
+    }
+    .console-done.show { display: inline-flex; }
+    .console-done svg { width: 15px; height: 15px; }
+    .console-note {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── MODULES (offres) ── */
+    .modules { border-top: 1px solid var(--border); }
+    .module {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 14px;
+      align-items: baseline;
+      padding: 22px 4px;
+      border-bottom: 1px solid var(--border);
+    }
+    .module-num {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+    .module-body h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+    .module-body p { color: var(--muted); font-size: 0.92rem; }
+    .module-tags {
+      margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .module-tags span {
+      font-family: var(--mono); font-size: 0.72rem;
+      color: var(--muted);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 6px; padding: 3px 8px;
+    }
+    .module-meta {
+      font-family: var(--mono); font-size: 0.78rem; color: var(--muted);
+      white-space: nowrap; text-align: right;
+    }
+
+    /* ── CAS D'USAGE ── */
+    .cases { display: flex; flex-direction: column; gap: 12px; }
+    .case {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .case:hover { border-color: var(--accent-line); transform: translateY(-2px); }
+    .case-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .case-tag {
+      font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--accent);
+      background: var(--accent-soft); border-radius: 6px; padding: 3px 9px;
+    }
+    .case-fig {
+      margin-left: auto;
+      font-family: var(--mono); font-size: 0.82rem; color: var(--green);
+      white-space: nowrap;
+    }
+    .case h3 { font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: 6px; }
+    .case p { color: var(--muted); font-size: 0.9rem; }
+    .case-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+    .case-link svg { width: 14px; height: 14px; }
+    .all-cases { margin-top: 16px; }
+    .all-cases a { color: var(--accent); font-weight: 600; text-decoration: none; font-size: 0.92rem; display: inline-flex; align-items: center; gap: 6px; }
+    .all-cases a:hover { text-decoration: underline; }
+    .all-cases svg { width: 14px; height: 14px; }
+
+    /* ── PREUVES ── */
+    .scenarios { display: flex; flex-direction: column; gap: 12px; }
+    .scenario {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px;
+    }
+    .scenario-sector {
+      font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.05em;
+      text-transform: uppercase; color: var(--accent);
+      background: var(--accent-soft); border-radius: 6px; padding: 3px 9px;
+      display: inline-block; margin-bottom: 12px;
+    }
+    .scenario h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 10px; }
+    .scenario blockquote {
+      color: var(--muted); font-size: 0.9rem; font-style: italic;
+      border-left: 2px solid var(--border);
+      padding-left: 14px; margin-bottom: 16px;
+    }
+    .metrics { display: flex; gap: 10px; flex-wrap: wrap; }
+    .metric {
+      flex: 1; min-width: 90px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 9px; padding: 12px; text-align: center;
+    }
+    .metric-val { font-family: var(--mono); font-size: 1.15rem; font-weight: 600; color: var(--green); }
+    .metric-desc { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+    .disclaimer {
+      margin-top: 16px; font-size: 0.78rem; color: var(--muted); font-style: italic;
+    }
+
+    /* ── PARCOURS ── */
+    .timeline { display: flex; flex-direction: column; }
+    .tl-item { display: grid; grid-template-columns: 14px 1fr; gap: 14px; padding-bottom: 22px; position: relative; }
+    .tl-item:not(:last-child)::before {
+      content: ''; position: absolute; left: 6px; top: 16px; bottom: 0; width: 1px; background: var(--border);
+    }
+    .tl-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); margin-top: 5px; z-index: 1; box-shadow: 0 0 0 3px var(--bg); }
+    .tl-role { font-weight: 600; font-size: 0.95rem; }
+    .tl-company { color: var(--accent); font-size: 0.85rem; }
+    .tl-period { font-family: var(--mono); color: var(--muted); font-size: 0.76rem; margin-top: 3px; }
+
+    /* ── STACK ── */
+    .stack-cats { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    .stack-cat h4 {
+      font-family: var(--mono); font-size: 0.74rem; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px;
+      padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    }
+    .stack-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+    .stack-tools span {
+      font-family: var(--mono); font-size: 0.8rem; color: var(--text);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 6px; padding: 4px 10px;
+    }
+
+    /* ── ZONES ── */
+    .zone-group h4 { font-family: var(--mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 20px 0 10px; }
+    .zone-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .zone-links a {
+      display: inline-flex; align-items: center; min-height: 40px;
+      padding: 8px 14px; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 999px; color: var(--text); text-decoration: none; font-size: 0.88rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .zone-links a:hover { border-color: var(--accent-line); color: var(--accent); }
+
+    /* ── CONTACT ── */
+    .contact-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px 24px; text-align: center;
+    }
+    .contact-card h3 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .contact-card p { color: var(--muted); margin-bottom: 24px; }
+    .contact-methods { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .contact-methods .btn { flex: 1 1 auto; min-width: 130px; }
+    .remote {
+      display: inline-flex; align-items: center; gap: 7px;
+      margin-top: 22px; font-family: var(--mono); font-size: 0.78rem; color: var(--muted);
+    }
+    .remote svg { width: 15px; height: 15px; }
 
     /* ── FOOTER ── */
     footer {
-      padding: 32px 5%;
       border-top: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 16px;
+      padding: 28px 0 96px;
+      margin-top: 24px;
     }
-    .footer-left { font-size: 0.85rem; color: var(--muted); }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 12px 24px; }
-    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-copy { font-size: 0.82rem; color: var(--muted); margin-bottom: 16px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 10px 20px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; }
     .footer-links a:hover { color: var(--text); }
 
-    /* ── ZONES / HUB ── */
-    #zones { background: var(--bg); }
-    .zone-group h4 { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 28px 0 12px; }
-    .zone-links { display: flex; flex-wrap: wrap; gap: 10px; }
-    .zone-links a { display: inline-block; padding: 8px 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 999px; color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: border-color .2s, color .2s, transform .15s; }
-    .zone-links a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+    /* ── BARRE COLLANTE MOBILE ── */
+    .mobile-cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+      display: flex; gap: 10px; align-items: center;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(11,13,18,0.94);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+    }
+    .mobile-cta .btn { flex: 1; }
+    .mobile-cta-lang { font-family: var(--mono); font-size: 0.8rem; flex-shrink: 0; }
+    .mobile-cta-lang a { color: var(--muted); text-decoration: none; padding: 4px 6px; }
+    .mobile-cta-lang a.active { color: var(--text); }
 
-    /* ── MISC ── */
-    .separator { height: 1px; background: var(--border); }
-    @media (max-width: 768px) {
-      nav .nav-links { display: none; }
-      section { padding: 70px 5%; }
-      .hero-stats { gap: 24px; }
-      .contact-card { padding: 40px 24px; }
+    /* ── DESKTOP ── */
+    @media (min-width: 900px) {
+      .shell {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 56px;
+        padding: 0 32px;
+      }
+      .aside {
+        position: sticky;
+        top: 0;
+        align-self: start;
+        height: 100vh;
+        overflow-y: auto;
+        padding: 48px 0;
+      }
+      .aside-cta { display: inline-flex; margin-top: 24px; }
+      .toc { display: block; }
+      .rail { padding: 48px 0 80px; }
+      .block { margin-bottom: 96px; }
+      .mobile-cta { display: none; }
+      .stack-cats { grid-template-columns: 1fr 1fr; }
+      .console-body { min-height: 360px; }
+      footer { padding-bottom: 48px; }
     }
 
-    /* ── PRIVACY TRAY ── */
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .log-line { opacity: 1 !important; transform: none !important; }
+      .log-cursor { display: none !important; }
+    }
+
+    /* ── SANS JS ── */
+    .no-js .log-line { opacity: 1 !important; transform: none !important; }
+    .no-js .log-cursor { display: none; }
+    .no-js .console-timer { visibility: hidden; }
+
+    /* ── PRIVACY TRAY (recopié, couleurs remappées sur la palette) ── */
     .ng-tray {
       position: fixed; bottom: 20px; left: 20px; right: 20px; z-index: 9999;
       max-width: 460px; margin: 0 auto;
-      background: var(--bg2); border: 1px solid var(--border);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; padding: 24px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
       transform: translateY(150%); opacity: 0;
@@ -571,754 +629,633 @@
     .ng-tray::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
       border-radius: 16px 16px 0 0;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      background: var(--accent);
     }
     .ng-tray-h { font-size: 1rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
     .ng-tray-p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
-    .ng-tray-p a { color: var(--accent2); text-decoration: underline; }
+    .ng-tray-p a { color: var(--accent); text-decoration: underline; }
     .ng-tray-actions { display: flex; gap: 10px; flex-wrap: wrap; }
     .ng-tray-btn {
-      flex: 1; min-width: 120px;
+      flex: 1; min-width: 120px; min-height: 44px;
       padding: 11px 18px; font-size: 0.85rem; font-weight: 600;
       border-radius: 9px; cursor: pointer; border: none;
-      font-family: inherit; transition: all 0.2s; text-align: center;
+      font-family: inherit; transition: transform 0.2s, border-color 0.2s; text-align: center;
     }
-    .ng-tray-btn-y { background: var(--accent); color: #fff; box-shadow: 0 0 20px rgba(91,110,245,0.3); }
-    .ng-tray-btn-y:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(91,110,245,0.4); }
-    .ng-tray-btn-n { background: var(--bg3); color: var(--text); border: 1px solid var(--border); }
-    .ng-tray-btn-n:hover { border-color: var(--accent); color: var(--accent); }
+    .ng-tray-btn-y { background: var(--accent); color: #fff; }
+    .ng-tray-btn-y:hover { transform: translateY(-1px); }
+    .ng-tray-btn-n { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+    .ng-tray-btn-n:hover { border-color: var(--accent-line); }
     .ng-tray-link {
       background: none; border: none; color: var(--muted);
       font-size: 0.78rem; cursor: pointer; font-family: inherit;
-      text-decoration: underline; margin-top: 12px; padding: 0;
+      text-decoration: underline; margin-top: 12px; padding: 6px 0; min-height: 32px;
     }
     .ng-tray-link:hover { color: var(--text); }
     .ng-tray-prefs { margin-top: 16px; display: none; flex-direction: column; gap: 10px; }
     .ng-tray-prefs.ng-open { display: flex; }
     .ng-tray-row {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 12px; background: var(--bg3); border-radius: 8px;
+      padding: 10px 12px; background: var(--surface2); border-radius: 8px;
       font-size: 0.82rem;
     }
     .ng-tray-row label { font-weight: 500; }
     .ng-tray-row .ng-d { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
-    .ng-sw { position: relative; width: 40px; height: 22px; flex-shrink: 0; }
+    .ng-sw { position: relative; width: 44px; height: 24px; flex-shrink: 0; }
     .ng-sw input { opacity: 0; width: 0; height: 0; }
     .ng-sl {
       position: absolute; inset: 0; cursor: pointer;
-      background: var(--border); border-radius: 22px; transition: 0.3s;
+      background: var(--border); border-radius: 24px; transition: 0.3s;
     }
     .ng-sl::before {
-      content: ''; position: absolute; height: 16px; width: 16px;
+      content: ''; position: absolute; height: 18px; width: 18px;
       left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: 0.3s;
     }
     .ng-sw input:checked + .ng-sl { background: var(--accent); }
-    .ng-sw input:checked + .ng-sl::before { transform: translateX(18px); }
+    .ng-sw input:checked + .ng-sl::before { transform: translateX(20px); }
     .ng-sw input:disabled + .ng-sl { opacity: 0.5; cursor: not-allowed; }
     .ng-pill {
       position: fixed; bottom: 18px; left: 18px; z-index: 9998;
-      width: 42px; height: 42px; border-radius: 50%;
-      background: var(--bg2); border: 1px solid var(--border);
-      cursor: pointer; font-size: 1.1rem; display: none;
-      align-items: center; justify-content: center;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--surface); border: 1px solid var(--border);
+      cursor: pointer; display: none;
+      align-items: center; justify-content: center; color: var(--text);
       transition: border-color 0.2s, transform 0.2s;
     }
-    .ng-pill:hover { border-color: var(--accent); transform: scale(1.05); }
+    .ng-pill svg { width: 20px; height: 20px; }
+    .ng-pill:hover { border-color: var(--accent-line); transform: scale(1.05); }
     .ng-pill.ng-on { display: flex; }
     @media (max-width: 520px) {
-      .ng-tray { left: 12px; right: 12px; bottom: 12px; padding: 20px; }
+      .ng-tray { left: 12px; right: 12px; bottom: 84px; padding: 20px; }
+      .ng-pill { bottom: 82px; }
     }
-  
-    /* -- USE CASES -- */
-    #use-cases { background: var(--bg); }
-    .uc-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr));
-      gap: 20px; margin-top: 48px;
-    }
-    .uc-card {
-      display: flex; flex-direction: column; min-width: 0;
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px;
-      text-decoration: none; color: inherit;
-      transition: border-color .18s ease, transform .18s ease;
-    }
-    .uc-card:hover, .uc-card:focus-visible { border-color: var(--accent); transform: translateY(-2px); }
-    .uc-tag {
-      display: inline-block; align-self: flex-start;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--accent2);
-      background: var(--accent-glow); border-radius: 6px;
-      padding: 3px 10px; margin-bottom: 18px;
-    }
-    .uc-card h3 { font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: 10px; }
-    .uc-card p { font-size: 0.86rem; color: var(--muted); line-height: 1.55; margin-bottom: 18px; flex: 1; }
-    .uc-figure { font-size: 1.05rem; font-weight: 700; color: var(--accent2); margin-bottom: 12px; }
-    .uc-link { font-size: 0.82rem; font-weight: 600; color: var(--accent); }
-    .uc-card:hover .uc-link { text-decoration: underline; }
-    .uc-all { margin-top: 40px; text-align: center; }
-    .uc-all a { font-size: 0.9rem; font-weight: 600; color: var(--accent); text-decoration: none; }
-    .uc-all a:hover { text-decoration: underline; }
   </style>
 </head>
-<body>
+<body class="no-js">
 
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54MMFRP"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#">Nico<span>.</span>AI</a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#results">Résultats</a></li>
-    <li><a href="#use-cases">Réalisations</a></li>
-    <li><a href="#experience">Parcours</a></li>
-    <li><a href="#stack">Stack</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <div class="lang-switch" aria-label="Language selector">
+<div class="shell">
+
+  <!-- COLONNE GAUCHE (collante) -->
+  <aside class="aside">
+    <a class="brand" href="#top">nico<b>.</b>garay <span aria-hidden="true">/</span> agents_ia</a>
+    <div id="top"></div>
+    <h1 class="aside-pos">L'agent IA ne s'explique pas. <span class="hl">Il se regarde travailler.</span></h1>
+    <p class="aside-sub">Consultant indépendant. J'intègre des agents IA dans les PME pour qu'ils traitent le répétitif, pendant que vos équipes gardent la main sur ce qui compte.</p>
+    <div class="aside-status"><span class="dot"></span>Disponible, missions remote</div>
+
+    <a class="btn btn-primary aside-cta" data-cta-appel="aside" href="https://nicogaray.com/go/rdv/?lead=home&utm_source=nicogaray-home&utm_medium=site&utm_campaign=site" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Réserver un appel
+    </a>
+
+    <nav class="toc" aria-label="Sommaire">
+      <div class="toc-title">Sommaire</div>
+      <ul>
+        <li><a href="#demo">Démonstration</a></li>
+        <li><a href="#offres">Offres et délais</a></li>
+        <li><a href="#cas">Réalisations</a></li>
+        <li><a href="#preuves">Scénarios types</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#stack">Stack technique</a></li>
+        <li><a href="#zones">Zones</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="aside-lang" aria-label="Choix de langue">
       <a href="/" class="active" aria-current="page">FR</a>
       <span class="sep">·</span>
       <a href="/en/">EN</a>
     </div>
-    <a class="nav-cta" href="#contact">Réserver un appel</a>
-  </div>
-</nav>
+  </aside>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="dot"></span>
-        Disponible pour nouvelles missions · Remote uniquement
-      </div>
-      <h1>
-        Et si votre équipe ne faisait<br/>
-        <span class="accent underline">que ce qu'elle fait de mieux ?</span>
-      </h1>
-      <p class="hero-desc">
-        J'intègre les meilleurs agents IA dans votre entreprise pour automatiser tout le reste.
-        Vos équipes se concentrent sur ce qui crée vraiment de la valeur, l'IA gère le bruit.
-      </p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="#contact" aria-label="Réserver un appel découverte gratuit">
-          <span aria-hidden="true">▶</span> Réserver un appel découverte gratuit
-        </a>
-        <a class="btn-secondary" href="#results" aria-label="Voir les cas d'usage">
-          Voir les cas d'usage <span aria-hidden="true">→</span>
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div>
-          <div class="stat-num">5<span>+</span></div>
-          <div class="stat-label">ans en consulting digital</div>
-        </div>
-        <div>
-          <div class="stat-num">100<span>%</span></div>
-          <div class="stat-label">remote · partout dans le monde</div>
-        </div>
-        <div>
-          <div class="stat-num">2</div>
-          <div class="stat-label">langues : FR · EN</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- COLONNE DROITE (défile) -->
+  <main class="main">
+    <div class="rail">
 
-<!-- PAIN POINTS -->
-<section id="problems">
-  <div class="container">
-    <div class="section-label">Pourquoi maintenant</div>
-    <h2>Vos équipes refont<br/>les mêmes tâches. Tous les jours.</h2>
-    <p class="subtitle">En moyenne, les PME passent 30% de leur temps sur des tâches qu'un agent IA peut faire à leur place. Autant le récupérer.</p>
-    <div class="problems-grid">
-      <div class="problem-card">
-        <div class="problem-icon">📥</div>
-        <h3>Emails et tickets traités à la main</h3>
-        <p>Trier, qualifier, répondre. Votre équipe y passe des heures alors qu'un agent IA boucle ça en quelques secondes.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">📊</div>
-        <h3>Reportings bricolés à la main</h3>
-        <p>Sortir les données de 3 outils, les recroiser dans Excel, envoyer le fichier par mail. Toutes les semaines. Ça mérite mieux.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">📞</div>
-        <h3>Leads qui arrivent trop tard</h3>
-        <p>Un prospect remplit votre formulaire. Il attend 4 heures. Il est déjà parti chez un concurrent. Un agent IA lui répond en 2 minutes, 24h/24.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">🔄</div>
-        <h3>Outils qui ne se parlent pas</h3>
-        <p>CRM, compta, e-commerce, support : chaque outil vit dans sa bulle, vous faites le pont à la main. Un agent connecte tout, en continu.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- DEMONSTRATION -->
+      <section class="block" id="demo" aria-labelledby="demo-h">
+        <div class="kicker">Démonstration en direct</div>
+        <h2 id="demo-h">Une demande client, traitée sous vos yeux</h2>
+        <p class="lead">Choisissez un métier. L'agent reçoit une demande et la traite étape par étape, en appelant vos outils. C'est ce qu'il fait vraiment, en production.</p>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="container">
-    <div class="section-label">Services</div>
-    <h2>Quatre étapes,<br/>un accompagnement complet</h2>
-    <p class="subtitle">De l'idée à la mise en production, je m'occupe de tout le cycle de vie de vos agents IA.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-num">01 /</span>
-        <div class="service-icon">🔍</div>
-        <h3>Audit IA</h3>
-        <p>Je passe vos process au crible, je sors les 3 cas d'usage à ROI rapide, et je vous livre un plan d'action concret. Pas de PowerPoint de 80 slides : un rapport activable.</p>
-        <div class="service-tags">
-          <span class="tag">2-3 jours</span>
-          <span class="tag">Rapport livré</span>
-          <span class="tag">ROI estimé</span>
-        </div>
-      </div>
-      <div class="service-card">
-        <span class="service-num">02 /</span>
-        <div class="service-icon">🛠️</div>
-        <h3>Build</h3>
-        <p>Je conçois, je développe et je déploie vos agents IA sur mesure. De l'architecture à la mise en prod, en branchant tout sur vos outils existants. Tests inclus.</p>
-        <div class="service-tags">
-          <span class="tag">Sur mesure</span>
-          <span class="tag">Intégration complète</span>
-          <span class="tag">Tests inclus</span>
-        </div>
-      </div>
-      <div class="service-card">
-        <span class="service-num">03 /</span>
-        <div class="service-icon">🎓</div>
-        <h3>Formation</h3>
-        <p>Je forme vos équipes à comprendre, utiliser et faire évoluer les agents en place. Un outil que personne n'adopte ne sert à rien.</p>
-        <div class="service-tags">
-          <span class="tag">Ateliers pratiques</span>
-          <span class="tag">Documentation</span>
-          <span class="tag">Suivi post-formation</span>
-        </div>
-      </div>
-      <div class="service-card">
-        <span class="service-num">04 /</span>
-        <div class="service-icon">🔧</div>
-        <h3>Maintenance</h3>
-        <p>Je surveille vos agents, j'affine les prompts, je gère les mises à jour de modèles et je fais évoluer les workflows. Votre IA reste toujours au niveau.</p>
-        <div class="service-tags">
-          <span class="tag">Monitoring</span>
-          <span class="tag">Alertes</span>
-          <span class="tag">Évolutions</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTS -->
-<section id="results">
-  <div class="container">
-    <div class="section-label">Cas d'usage type</div>
-    <h2>Ce que ça change<br/>concrètement</h2>
-    <p class="subtitle">Scénarios représentatifs basés sur des missions types. Problématiques courantes, solutions déployables.</p>
-    <div class="results-grid">
-      <div class="result-card">
-        <span class="result-sector">E-commerce · Mode</span>
-        <h3>Boutique en ligne, 42 salariés, Lyon</h3>
-        <p class="result-context">Agent IA pour la gestion du service client</p>
-        <div class="result-challenge">
-          "On recevait 300+ tickets par semaine. Mon équipe SAV passait 90% de son temps sur des questions répétitives. On ne pouvait plus se concentrer sur les vrais problèmes."
-        </div>
-        <div class="result-metrics">
-          <div class="metric">
-            <div class="metric-val">-73%</div>
-            <div class="metric-desc">tickets traités manuellement</div>
+        <div class="console" style="margin-top:20px;" role="group" aria-labelledby="demo-h">
+          <div class="console-bar">
+            <div class="console-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="console-name" id="consoleName">agent://service-client-ecommerce</div>
+            <div class="console-timer" id="consoleTimer" aria-hidden="true">0.0s</div>
           </div>
-          <div class="metric">
-            <div class="metric-val">2h</div>
-            <div class="metric-desc">délai réponse moyen (vs 18h)</div>
+
+          <div class="console-tabs" role="tablist" aria-label="Choisir le métier de la démonstration">
+            <button class="console-tab" role="tab" id="tab-ecom" aria-selected="true" aria-controls="consoleLog" data-metier="ecom">Service client</button>
+            <button class="console-tab" role="tab" id="tab-cv" aria-selected="false" aria-controls="consoleLog" tabindex="-1" data-metier="cv">Présélection de CV</button>
+            <button class="console-tab" role="tab" id="tab-devis" aria-selected="false" aria-controls="consoleLog" tabindex="-1" data-metier="devis">Relance de devis</button>
           </div>
-          <div class="metric">
-            <div class="metric-val">+28%</div>
-            <div class="metric-desc">satisfaction client (NPS)</div>
+
+          <ol class="log console-body" id="consoleLog" aria-live="polite" aria-atomic="false"></ol>
+
+          <div class="console-foot">
+            <button class="btn-replay" id="btnReplay" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+              Rejouer
+            </button>
+            <span class="console-done" id="consoleDone">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Traitement terminé
+            </span>
           </div>
         </div>
-      </div>
+        <p class="console-note">Reconstitution d'un scénario type, pas l'enregistrement d'un client réel. Les outils et les étapes sont représentatifs de ce qui se déploie en mission.</p>
+      </section>
 
-      <div class="result-card">
-        <span class="result-sector">RH · Cabinet de recrutement</span>
-        <h3>Cabinet de recrutement spécialisé tech</h3>
-        <p class="result-context">Agent IA présélection candidatures + scoring fit poste</p>
-        <div class="result-challenge">
-          "Sur un poste développeur senior, on reçoit 200 à 400 CV en quelques jours. Mes consultants y passent 2 à 3 jours de lecture avant même d'avoir un short-list. Pendant ce temps, les meilleurs profils signent ailleurs."
+      <!-- OFFRES -->
+      <section class="block" id="offres" aria-labelledby="offres-h">
+        <div class="kicker">Ce que ça coûte, ce que ça prend</div>
+        <h2 id="offres-h">Quatre modules, un cycle complet</h2>
+        <p class="lead">De l'audit à la maintenance. On prend ce dont vous avez besoin, dans l'ordre qui a du sens pour votre activité.</p>
+
+        <div class="modules" style="margin-top:24px;">
+          <div class="module">
+            <span class="module-num">01</span>
+            <div class="module-body">
+              <h3>Audit IA</h3>
+              <p>Je passe vos process au crible, je sors les trois cas d'usage à ROI rapide et je livre un plan d'action activable. Pas quatre-vingts slides, un rapport qui se met en œuvre.</p>
+              <div class="module-tags"><span>rapport livré</span><span>ROI estimé</span></div>
+            </div>
+            <span class="module-meta">2 à 3 jours</span>
+          </div>
+          <div class="module">
+            <span class="module-num">02</span>
+            <div class="module-body">
+              <h3>Build</h3>
+              <p>Je conçois, développe et déploie vos agents sur mesure, branchés sur vos outils existants. De l'architecture à la mise en production, tests inclus.</p>
+              <div class="module-tags"><span>sur mesure</span><span>intégration complète</span><span>tests inclus</span></div>
+            </div>
+            <span class="module-meta">au projet</span>
+          </div>
+          <div class="module">
+            <span class="module-num">03</span>
+            <div class="module-body">
+              <h3>Formation</h3>
+              <p>Je forme vos équipes à comprendre, utiliser et faire évoluer les agents en place. Un outil que personne n'adopte ne sert à rien.</p>
+              <div class="module-tags"><span>ateliers pratiques</span><span>documentation</span><span>suivi</span></div>
+            </div>
+            <span class="module-meta">à la session</span>
+          </div>
+          <div class="module">
+            <span class="module-num">04</span>
+            <div class="module-body">
+              <h3>Maintenance</h3>
+              <p>Je surveille les agents, j'affine les prompts, je gère les mises à jour de modèles et je fais évoluer les workflows. Votre IA reste au niveau.</p>
+              <div class="module-tags"><span>monitoring</span><span>alertes</span><span>évolutions</span></div>
+            </div>
+            <span class="module-meta">au mois</span>
+          </div>
         </div>
-        <div class="result-metrics">
-          <div class="metric">
-            <div class="metric-val">-80%</div>
-            <div class="metric-desc">temps de présélection</div>
-          </div>
-          <div class="metric">
-            <div class="metric-val">3j → 4h</div>
-            <div class="metric-desc">délai short-list livrée</div>
-          </div>
-          <div class="metric">
-            <div class="metric-val">+35%</div>
-            <div class="metric-desc">taux conversion entretien client</div>
-          </div>
+      </section>
+
+      <!-- REALISATIONS -->
+      <section class="block" id="cas" aria-labelledby="cas-h">
+        <div class="kicker">Réalisations</div>
+        <h2 id="cas-h">Ce que j'ai déjà mis en service</h2>
+        <p class="lead">Six cas détaillés, de l'artisan seul au déploiement sur vingt marchés. Chaque page décrit le problème de départ, ce qui a été construit et ce que cela a changé.</p>
+
+        <div class="cases" style="margin-top:24px;">
+          <a class="case" href="/cas/assistant-multicanal/">
+            <div class="case-top"><span class="case-tag">En production</span><span class="case-fig">1 h/jour rendue</span></div>
+            <h3>Assistant IA multi-canal en production</h3>
+            <p>Il lit les mails, l'agenda et les documents, propose une action et attend votre validation avant de l'exécuter.</p>
+            <span class="case-link">Lire le cas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="case" href="/cas/automatisation-formulaires/">
+            <div class="case-top"><span class="case-tag">Back-office</span><span class="case-fig">1 saisie au lieu de 4</span></div>
+            <h3>Automatisation d'un processus à formulaires</h3>
+            <p>Collecte, génération des documents et remplissage automatique de quatre portails en ligne, avec validation humaine avant envoi.</p>
+            <span class="case-link">Lire le cas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="case" href="/cas/agent-devis-artisan/">
+            <div class="case-top"><span class="case-tag">Artisan · Scénario type</span><span class="case-fig">Devis le jour même</span></div>
+            <h3>Agent IA pour un plombier : devis automatisés</h3>
+            <p>Une demande WhatsApp ou un vocal de chantier, et le devis chiffré revient prêt à relire. Rien ne part sans validation.</p>
+            <span class="case-link">Lire le cas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="case" href="/cas/chatbot-sante-agenda/">
+            <div class="case-top"><span class="case-tag">Santé · Scénario type</span><span class="case-fig">Créneaux replacés le jour même</span></div>
+            <h3>Agent IA pour un cabinet médical : agenda et rappels</h3>
+            <p>Gestion des rendez-vous, rappels patients et annulations pour un cabinet de trois praticiens.</p>
+            <span class="case-link">Lire le cas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="case" href="/cas/deploiement-20-marches/">
+            <div class="case-top"><span class="case-tag">Grand compte</span><span class="case-fig">+15 % de trafic</span></div>
+            <h3>Déploiement d'un site de marque sur 20 marchés</h3>
+            <p>Cadrage en Italie et en Espagne, développement en Inde, adaptation par chaque équipe locale. Un seul backlog.</p>
+            <span class="case-link">Lire le cas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="case" href="/cas/parcours-clients-crm/">
+            <div class="case-top"><span class="case-tag">Grand compte · CRM</span><span class="case-fig">+5 % de clients gardés</span></div>
+            <h3>Refonte des parcours clients et activation CRM</h3>
+            <p>Nettoyage de la base, définition des groupes avec le métier, construction et mesure des parcours.</p>
+            <span class="case-link">Lire le cas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
         </div>
-      </div>
+        <div class="all-cases"><a href="/cas/">Voir les six cas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </section>
 
-      <div class="result-card">
-        <span class="result-sector">Immobilier · Mandataire indépendant</span>
-        <h3>Mandataire immobilier indépendant</h3>
-        <p class="result-context">Agent IA qualification leads + synchronisation CRM</p>
-        <div class="result-challenge">
-          "Je suis seul à gérer prospection, visites et closing. Les leads entrants attendaient parfois une demi-journée avant que je puisse les rappeler. Le week-end et le soir, impossible de répondre. Je perdais des mandats au profit des grandes agences."
-        </div>
-        <div class="result-metrics">
-          <div class="metric">
-            <div class="metric-val">2 min</div>
-            <div class="metric-desc">délai premier contact (24/7)</div>
-          </div>
-          <div class="metric">
-            <div class="metric-val">100%</div>
-            <div class="metric-desc">leads pré-qualifiés avant rappel</div>
-          </div>
-          <div class="metric">
-            <div class="metric-val">+12h</div>
-            <div class="metric-desc">temps commercial libéré / semaine</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- SCENARIOS TYPES -->
+      <section class="block" id="preuves" aria-labelledby="preuves-h">
+        <div class="kicker">Scénarios types</div>
+        <h2 id="preuves-h">Ce que ça change, concrètement</h2>
+        <p class="lead">Scénarios représentatifs basés sur des missions types. Problématiques courantes, solutions déployables.</p>
 
-
-<!-- USE CASES -->
-<section id="use-cases">
-  <div class="container">
-    <div class="section-label">Réalisations</div>
-    <h2>Ce que j'ai déjà<br/>mis en service</h2>
-    <p class="subtitle">Six cas détaillés, de l'artisan seul au déploiement sur vingt marchés. Chaque page décrit le problème de départ, ce qui a été construit et ce que cela a changé.</p>
-    <div class="uc-grid">
-      <a class="uc-card" href="/cas/assistant-multicanal/">
-        <span class="uc-tag">En production</span>
-        <h3>Assistant IA multi-canal en production</h3>
-        <p>Il lit les mails, l'agenda et les documents, propose une action et attend votre validation avant de l'exécuter.</p>
-        <div class="uc-figure">1 h/jour rendue</div>
-        <span class="uc-link">Lire le cas &rarr;</span>
-      </a>
-      <a class="uc-card" href="/cas/automatisation-formulaires/">
-        <span class="uc-tag">Back-office</span>
-        <h3>Automatisation d'un processus à formulaires</h3>
-        <p>Collecte, génération des documents et remplissage automatique de quatre portails en ligne, avec validation humaine avant envoi.</p>
-        <div class="uc-figure">1 saisie au lieu de 4</div>
-        <span class="uc-link">Lire le cas &rarr;</span>
-      </a>
-      <a class="uc-card" href="/cas/agent-devis-artisan/">
-        <span class="uc-tag">Artisan &middot; Sc&eacute;nario type</span>
-        <h3>Agent IA pour un plombier : devis automatis&eacute;s</h3>
-        <p>Une demande WhatsApp ou un vocal de chantier, et le devis chiffr&eacute; revient pr&ecirc;t &agrave; relire. Rien ne part sans validation.</p>
-        <div class="uc-figure">Devis le jour même</div>
-        <span class="uc-link">Lire le cas &rarr;</span>
-      </a>
-      <a class="uc-card" href="/cas/chatbot-sante-agenda/">
-        <span class="uc-tag">Santé &middot; Scénario type</span>
-        <h3>Agent IA pour un cabinet médical : agenda et rappels</h3>
-        <p>Gestion des rendez-vous, rappels patients et annulations pour un cabinet de trois praticiens.</p>
-        <div class="uc-figure">Créneaux replacés le jour même</div>
-        <span class="uc-link">Lire le cas &rarr;</span>
-      </a>
-      <a class="uc-card" href="/cas/deploiement-20-marches/">
-        <span class="uc-tag">Grand compte</span>
-        <h3>Déploiement d'un site de marque sur 20 marchés</h3>
-        <p>Cadrage en Italie et en Espagne, développement en Inde, adaptation par chaque équipe locale. Un seul backlog.</p>
-        <div class="uc-figure">+15 % de trafic</div>
-        <span class="uc-link">Lire le cas &rarr;</span>
-      </a>
-      <a class="uc-card" href="/cas/parcours-clients-crm/">
-        <span class="uc-tag">Grand compte &middot; CRM</span>
-        <h3>Refonte des parcours clients et activation CRM</h3>
-        <p>Nettoyage de la base, définition des groupes avec le métier, construction et mesure des parcours.</p>
-        <div class="uc-figure">+5 % de clients gardés</div>
-        <span class="uc-link">Lire le cas &rarr;</span>
-      </a>
-    </div>
-    <div class="uc-all"><a href="/cas/">Voir les six cas &rarr;</a></div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <div class="section-label">Parcours</div>
-    <h2>5+ ans à me spécialiser<br/>sur l'automatisation</h2>
-    <p class="subtitle">Chef de projet digital en grand compte, puis consultant IA indépendant. Toujours le même fil rouge : automatiser ce qui peut l'être.</p>
-    <div class="exp-grid">
-      <div>
-        <div class="exp-timeline">
-          <div class="exp-item">
-            <div class="exp-dot">🤖</div>
-            <div class="exp-content">
-              <div class="exp-role">Consultant · AI Agent Integrator</div>
-              <div class="exp-company">Indépendant</div>
-              <div class="exp-period">Oct 2025 → aujourd'hui · Remote</div>
+        <div class="scenarios" style="margin-top:24px;">
+          <div class="scenario">
+            <span class="scenario-sector">E-commerce · Mode</span>
+            <h3>Boutique en ligne, 42 salariés, Lyon</h3>
+            <blockquote>« On recevait plus de 300 tickets par semaine. Mon équipe SAV passait 90 % de son temps sur des questions répétitives. »</blockquote>
+            <div class="metrics">
+              <div class="metric"><div class="metric-val">-73 %</div><div class="metric-desc">tickets traités à la main</div></div>
+              <div class="metric"><div class="metric-val">2 h</div><div class="metric-desc">délai réponse (vs 18 h)</div></div>
+              <div class="metric"><div class="metric-val">+28 %</div><div class="metric-desc">satisfaction (NPS)</div></div>
             </div>
           </div>
-          <div class="exp-item">
-            <div class="exp-dot">🌏</div>
-            <div class="exp-content">
-              <div class="exp-role">Congé sabbatique · Spécialisation IA</div>
-              <div class="exp-company">Voyage & formation continue</div>
-              <div class="exp-period">Oct 2024 - Oct 2025 · Worldwide</div>
+          <div class="scenario">
+            <span class="scenario-sector">RH · Cabinet de recrutement</span>
+            <h3>Cabinet spécialisé tech</h3>
+            <blockquote>« Sur un poste senior, on reçoit 200 à 400 CV en quelques jours. Pendant la lecture, les meilleurs profils signent ailleurs. »</blockquote>
+            <div class="metrics">
+              <div class="metric"><div class="metric-val">-80 %</div><div class="metric-desc">temps de présélection</div></div>
+              <div class="metric"><div class="metric-val">3j → 4h</div><div class="metric-desc">délai short-list</div></div>
+              <div class="metric"><div class="metric-val">+35 %</div><div class="metric-desc">conversion entretien</div></div>
             </div>
           </div>
-          <div class="exp-item">
-            <div class="exp-dot">🚗</div>
-            <div class="exp-content">
-              <div class="exp-role">Digital CX Manager / Project Manager</div>
-              <div class="exp-company">Stellantis</div>
-              <div class="exp-period">Sept 2022 - Oct 2024 · Remote</div>
-            </div>
-          </div>
-          <div class="exp-item">
-            <div class="exp-dot">📮</div>
-            <div class="exp-content">
-              <div class="exp-role">Project Manager</div>
-              <div class="exp-company">La Poste Groupe</div>
-              <div class="exp-period">Sept 2020 - Sept 2022 · Hybride</div>
+          <div class="scenario">
+            <span class="scenario-sector">Immobilier · Mandataire indépendant</span>
+            <h3>Mandataire immobilier indépendant</h3>
+            <blockquote>« Les leads entrants attendaient parfois une demi-journée. Le soir et le week-end, impossible de répondre. Je perdais des mandats. »</blockquote>
+            <div class="metrics">
+              <div class="metric"><div class="metric-val">2 min</div><div class="metric-desc">premier contact (24/7)</div></div>
+              <div class="metric"><div class="metric-val">100 %</div><div class="metric-desc">leads pré-qualifiés</div></div>
+              <div class="metric"><div class="metric-val">+12 h</div><div class="metric-desc">temps libéré / semaine</div></div>
             </div>
           </div>
         </div>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 16px;">
-        <div class="problem-card" style="flex: 1;">
-          <h3 style="margin-bottom: 10px; font-size: 1rem;">Consulting grand compte</h3>
-          <p>2 ans chez Stellantis à piloter des projets digitaux complexes en international, 100% remote. ServiceNow, gouvernance data, expérience client digitale.</p>
-        </div>
-        <div class="problem-card" style="flex: 1;">
-          <h3 style="margin-bottom: 10px; font-size: 1rem;">Projets dans le public</h3>
-          <p>2 ans à La Poste sur la transformation numérique : coordination entre plusieurs équipes, conduite du changement, livraison dans des environnements pas toujours simples.</p>
-        </div>
-        <div class="problem-card" style="flex: 1;">
-          <h3 style="margin-bottom: 10px; font-size: 1rem;">Remote depuis 2020</h3>
-          <p>Tous mes postes depuis le Covid ont été remote ou hybrides. Pas une lubie récente : 5 ans à bosser en distribué, depuis n'importe où dans le monde.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <p class="disclaimer">Scénarios représentatifs, pas des résultats clients publiés.</p>
+      </section>
 
-<!-- STACK -->
-<section id="stack">
-  <div class="container">
-    <div class="section-label">Stack technique</div>
-    <h2>Les bons outils,<br/>choisis pour votre business</h2>
-    <p class="stack-intro">Je maîtrise l'écosystème de bout en bout : modèles, frameworks d'agents, orchestration, données, intégrations métier. Toujours le bon outil pour le bon usage, jamais le dernier hype.</p>
-    <div class="stack-categories">
-      <div class="stack-cat">
-        <h4>Modèles & LLMs</h4>
-        <div class="stack-tools">
-          <div class="stack-tool"><span class="dot"></span>Claude (Anthropic)</div>
-          <div class="stack-tool"><span class="dot"></span>OpenAI GPT-5 · o-series</div>
-          <div class="stack-tool"><span class="dot"></span>Gemini (Google)</div>
-          <div class="stack-tool"><span class="dot"></span>Mistral AI</div>
-          <div class="stack-tool"><span class="dot"></span>Modèles open-source (Llama, Qwen)</div>
-        </div>
-      </div>
-      <div class="stack-cat">
-        <h4>Frameworks agents</h4>
-        <div class="stack-tools">
-          <div class="stack-tool"><span class="dot"></span>LangGraph</div>
-          <div class="stack-tool"><span class="dot"></span>Claude Agent SDK</div>
-          <div class="stack-tool"><span class="dot"></span>LangChain</div>
-          <div class="stack-tool"><span class="dot"></span>MCP (Model Context Protocol)</div>
-          <div class="stack-tool"><span class="dot"></span>CrewAI</div>
-        </div>
-      </div>
-      <div class="stack-cat">
-        <h4>Orchestration & no-code</h4>
-        <div class="stack-tools">
-          <div class="stack-tool"><span class="dot"></span>n8n</div>
-          <div class="stack-tool"><span class="dot"></span>Make</div>
-          <div class="stack-tool"><span class="dot"></span>Zapier</div>
-          <div class="stack-tool"><span class="dot"></span>Activepieces</div>
-        </div>
-      </div>
-      <div class="stack-cat">
-        <h4>Données & mémoire vectorielle</h4>
-        <div class="stack-tools">
-          <div class="stack-tool"><span class="dot"></span>Supabase (pgvector)</div>
-          <div class="stack-tool"><span class="dot"></span>Pinecone</div>
-          <div class="stack-tool"><span class="dot"></span>Qdrant</div>
-          <div class="stack-tool"><span class="dot"></span>Airtable</div>
-          <div class="stack-tool"><span class="dot"></span>Notion API</div>
-        </div>
-      </div>
-      <div class="stack-cat">
-        <h4>Dev & infra</h4>
-        <div class="stack-tools">
-          <div class="stack-tool"><span class="dot"></span>Python · FastAPI</div>
-          <div class="stack-tool"><span class="dot"></span>TypeScript · Node</div>
-          <div class="stack-tool"><span class="dot"></span>Docker</div>
-          <div class="stack-tool"><span class="dot"></span>Railway · Fly.io</div>
-          <div class="stack-tool"><span class="dot"></span>GitHub Actions</div>
-        </div>
-      </div>
-      <div class="stack-cat">
-        <h4>CRM & outils métier</h4>
-        <div class="stack-tools">
-          <div class="stack-tool"><span class="dot"></span>HubSpot</div>
-          <div class="stack-tool"><span class="dot"></span>Pipedrive</div>
-          <div class="stack-tool"><span class="dot"></span>Salesforce</div>
-          <div class="stack-tool"><span class="dot"></span>ServiceNow</div>
-          <div class="stack-tool"><span class="dot"></span>Slack · Notion · Google Workspace</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- PARCOURS -->
+      <section class="block" id="parcours" aria-labelledby="parcours-h">
+        <div class="kicker">Parcours</div>
+        <h2 id="parcours-h">Cinq ans à me spécialiser sur l'automatisation</h2>
+        <p class="lead">Chef de projet digital en grand compte, puis consultant IA indépendant. Toujours le même fil rouge : automatiser ce qui peut l'être.</p>
 
-<!-- PARTENAIRE -->
-<section id="partenaire">
-  <div class="container">
-    <div class="section-label">Partenaires</div>
-    <h2>Les outils sur lesquels<br/>tournent mes projets</h2>
-    <p class="subtitle">Tout ce que je construis, pour moi comme pour mes clients, repose sur ces deux-là. C'est aussi ce que je recommande quand on part de zéro.</p>
-    <div class="partner-card">
-      <div>
-        <div class="partner-brand"><span class="mark" aria-hidden="true">H</span>Hostinger</div>
-        <p>VPS pour faire tourner les agents et les automatisations 24h/24, hébergement web, noms de domaine et messagerie professionnelle au même endroit. Interface simple, tarifs bas, support en français : le socle que j'installe le plus souvent chez mes clients.</p>
-        <div class="partner-uses">
-          <span>VPS &amp; Docker</span>
-          <span>Hébergement web</span>
-          <span>Noms de domaine</span>
-          <span>Messagerie pro</span>
-          <span>SSL inclus</span>
+        <div class="timeline" style="margin-top:24px;">
+          <div class="tl-item"><span class="tl-dot"></span><div><div class="tl-role">Consultant, intégrateur d'agents IA</div><div class="tl-company">Indépendant</div><div class="tl-period">Oct. 2025 → aujourd'hui · Remote</div></div></div>
+          <div class="tl-item"><span class="tl-dot"></span><div><div class="tl-role">Congé sabbatique, spécialisation IA</div><div class="tl-company">Voyage et formation continue</div><div class="tl-period">Oct. 2024 - Oct. 2025 · Worldwide</div></div></div>
+          <div class="tl-item"><span class="tl-dot"></span><div><div class="tl-role">Digital CX Manager / Project Manager</div><div class="tl-company">Stellantis</div><div class="tl-period">Sept. 2022 - Oct. 2024 · Remote</div></div></div>
+          <div class="tl-item"><span class="tl-dot"></span><div><div class="tl-role">Project Manager</div><div class="tl-company">La Poste Groupe</div><div class="tl-period">Sept. 2020 - Sept. 2022 · Hybride</div></div></div>
         </div>
-      </div>
-      <div class="partner-side">
-        <div class="partner-promo">-20 % avec mon lien</div>
-        <a class="btn-primary btn-partner" data-cta="partenaire-hostinger"
-           href="/go/hostinger/?lead=home-partenaire&utm_source=nicogaray-home&utm_medium=site&utm_campaign=partenaire-hostinger"
-           target="_blank" rel="sponsored nofollow noopener"
-           aria-label="Découvrir Hostinger avec 20 % de remise">
-          <span aria-hidden="true">🚀</span> Profiter des -20 %
-        </a>
-      </div>
-    </div>
-    <div class="partner-card claude">
-      <div>
-        <div class="partner-brand"><span class="mark" aria-hidden="true">✳</span>Claude</div>
-        <p>Le modèle que j'utilise tous les jours : conception et exécution des agents, rédaction de code, analyse de documents, connexion aux outils métier via MCP. C'est le moteur derrière la plupart des automatisations que je livre.</p>
-        <div class="partner-uses">
-          <span>Agents &amp; Claude Code</span>
-          <span>API Anthropic</span>
-          <span>Analyse de documents</span>
-          <span>MCP</span>
-        </div>
-      </div>
-      <div class="partner-side">
-        <div class="partner-promo claude">7 jours de Pro offerts</div>
-        <a class="btn-primary btn-claude" data-cta="partenaire-claude"
-           href="/go/claude/?lead=home-partenaire&utm_source=nicogaray-home&utm_medium=site&utm_campaign=partenaire-claude"
-           target="_blank" rel="sponsored nofollow noopener"
-           aria-label="Essayer Claude Pro gratuitement pendant 7 jours">
-          <span aria-hidden="true">✨</span> Essayer Claude
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+        <p class="lead" style="margin-top:20px;">Deux ans chez Stellantis à piloter des projets digitaux internationaux en remote, deux ans à La Poste sur la transformation numérique. Remote ou hybride depuis 2020, sans interruption.</p>
+      </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="container">
-    <div class="section-label">Recommandations</div>
-    <h2>Ils ont travaillé<br/>avec moi</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text" lang="en">"One of my best consultants in digital. Very proactive, autonomous, fast learner yet pragmatic and analytic. He has been taking projects from ideation to measurement of success in an autonomous way, always proposing improvements, always challenging the status quo. Clearly customer centric. I highly recommend Nico for any digital position."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">🚗</div>
-          <div>
-            <div class="author-name">Yoann Bregent</div>
-            <div class="author-role">Marketing Strategy · DS Automobiles / Stellantis · Client direct</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Curieux, appliqué et déterminé, Nico a su rapidement s'adapter et se rendre indispensable. Il a très vite été en mesure de mener à bien des projets de leur conception à leur livraison. Toujours à la recherche de nouveaux challenges, Nico est une personne fiable, efficace et en qui j'ai toute confiance."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">📋</div>
-          <div>
-            <div class="author-name">Fanny Xiberras</div>
-            <div class="author-role">Responsable Projets · Manager direct</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Motivé, autonome et force de proposition, j'ai pu voir Nico évoluer et monter rapidement en compétences. Je suis convaincu qu'il saura mettre à profit cette riche expérience pour relever de nouveaux défis !"</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">💻</div>
-          <div>
-            <div class="author-name">Vincent Trouillet</div>
-            <div class="author-role">Product Owner / PM · Manager direct</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Nico a été un formidable atout au sein de notre équipe. Doué d'un point de vue opérationnel, sa curiosité le pousse à apprendre et progresser continuellement. Un super élément avec de superbes valeurs et une belle ambition."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">🎾</div>
-          <div>
-            <div class="author-name">Yohann Aube</div>
-            <div class="author-role">CEO · MyTennisBox · Manager direct</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Nico est très à l'écoute et s'adapte très bien à votre niveau. Il a parfaitement compris mes attentes et m'aide beaucoup à progresser sur les différents points demandés. Je recommande."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">🎯</div>
-          <div>
-            <div class="author-name">Vincent C.</div>
-            <div class="author-role">Client formation · Coaching individuel</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Excellente expérience avec Nico en tant que formateur ! Il est très compétent et attentif aux besoins de chacun. Je recommande vivement son cours."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">🧑‍🏫</div>
-          <div>
-            <div class="author-name">Daniel M.</div>
-            <div class="author-role">Client formation · Coaching individuel</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Très bon premier contact. Sérieux, pédagogue et patient, je reprendrais rendez-vous avec Nico dès que j'en aurai besoin avec grand plaisir."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">💬</div>
-          <div>
-            <div class="author-name">Corinne V.</div>
-            <div class="author-role">Client formation · Coaching individuel</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- STACK -->
+      <section class="block" id="stack" aria-labelledby="stack-h">
+        <div class="kicker">Stack technique</div>
+        <h2 id="stack-h">Les bons outils, choisis pour votre business</h2>
+        <p class="lead">Je maîtrise l'écosystème de bout en bout : modèles, frameworks d'agents, orchestration, données, intégrations métier. Le bon outil pour le bon usage, jamais le dernier hype.</p>
 
-<!-- ZONES / HUB -->
-<section id="zones">
-  <div class="container">
-    <div class="section-label">Zones d'intervention</div>
-    <h2>Un consultant IA<br/>proche de votre marché</h2>
-    <p class="subtitle">J'accompagne artisans, commerçants et PME à distance, partout en France et à l'international. Trouvez votre ville ou votre pays :</p>
-    <div class="zone-group">
-      <h4>Villes en France</h4>
-      <div class="zone-links">
-        <a href="/paris/">Paris</a>
-        <a href="/lyon/">Lyon</a>
-        <a href="/marseille/">Marseille</a>
-        <a href="/toulouse/">Toulouse</a>
-        <a href="/nantes/">Nantes</a>
-        <a href="/lille/">Lille</a>
-        <a href="/nice/">Nice</a>
-        <a href="/bordeaux/">Bordeaux</a>
-      </div>
-    </div>
-    <div class="zone-group">
-      <h4>Pays francophones</h4>
-      <div class="zone-links">
-        <a href="/be/">Belgique</a>
-        <a href="/ch/">Suisse</a>
-        <a href="/lu/">Luxembourg</a>
-      </div>
-    </div>
-    <div class="zone-group">
-      <h4>International (pages en anglais)</h4>
-      <div class="zone-links">
-        <a href="/en/us/">United States</a>
-        <a href="/en/ca/">Canada</a>
-        <a href="/en/gb/">United Kingdom</a>
-        <a href="/en/sg/">Singapore</a>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="stack-cats" style="margin-top:24px;">
+          <div class="stack-cat"><h4>Modèles et LLMs</h4><div class="stack-tools"><span>Claude</span><span>OpenAI GPT-5</span><span>Gemini</span><span>Mistral AI</span><span>Llama · Qwen</span></div></div>
+          <div class="stack-cat"><h4>Frameworks agents</h4><div class="stack-tools"><span>LangGraph</span><span>Claude Agent SDK</span><span>LangChain</span><span>MCP</span><span>CrewAI</span></div></div>
+          <div class="stack-cat"><h4>Orchestration et no-code</h4><div class="stack-tools"><span>n8n</span><span>Make</span><span>Zapier</span><span>Activepieces</span></div></div>
+          <div class="stack-cat"><h4>Données et mémoire vectorielle</h4><div class="stack-tools"><span>Supabase</span><span>Pinecone</span><span>Qdrant</span><span>Airtable</span><span>Notion API</span></div></div>
+          <div class="stack-cat"><h4>Dev et infra</h4><div class="stack-tools"><span>Python · FastAPI</span><span>TypeScript · Node</span><span>Docker</span><span>Railway · Fly.io</span><span>GitHub Actions</span></div></div>
+          <div class="stack-cat"><h4>CRM et outils métier</h4><div class="stack-tools"><span>HubSpot</span><span>Pipedrive</span><span>Salesforce</span><span>ServiceNow</span><span>Slack · Notion</span></div></div>
+        </div>
+      </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="section-label" style="justify-content: center;">Contact</div>
-    <h2 style="text-align: center;">On automatise<br/>votre première tâche ?</h2>
-    <div class="contact-card">
-      <div class="contact-glow"></div>
-      <h3>Parlons de votre projet</h3>
-      <p>30 minutes au téléphone, gratuit, pour voir si on peut travailler ensemble. Aucun engagement.</p>
-      <div class="contact-methods">
-        <a class="contact-method" href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener" aria-label="Profil LinkedIn">
-          <span aria-hidden="true">💼</span> LinkedIn
-        </a>
-        <a class="contact-method" href="/go/malt/?lead=contact-home&utm_source=nicogaray-contact&utm_medium=site&utm_campaign=profil-malt" target="_blank" rel="noopener" aria-label="Profil Malt">
-          <span aria-hidden="true">🧩</span> Malt
-        </a>
-        <a class="btn-primary" href="https://nicogaray.com/go/rdv/?lead=home&utm_source=nicogaray-home&utm_medium=site&utm_campaign=site" target="_blank" rel="noopener" style="border-radius: 10px;" aria-label="Réserver un appel sur Calendly">
-          <span aria-hidden="true">📅</span> Réserver un appel
-        </a>
-      </div>
-      <div class="remote-badge">
-        <span class="globe">🌍</span>
-        Disponible pour missions remote · Partout dans le monde
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- ZONES -->
+      <section class="block" id="zones" aria-labelledby="zones-h">
+        <div class="kicker">Zones d'intervention</div>
+        <h2 id="zones-h">Un consultant IA proche de votre marché</h2>
+        <p class="lead">J'accompagne artisans, commerçants et PME à distance, partout en France et à l'international.</p>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-left">
-    © <span id="footer-year">2026</span> Nico Garay · Consultant IA indépendant · Remote uniquement · Partout dans le monde
+        <div class="zone-group"><h4>Villes en France</h4><div class="zone-links">
+          <a href="/paris/">Paris</a><a href="/lyon/">Lyon</a><a href="/marseille/">Marseille</a><a href="/toulouse/">Toulouse</a><a href="/nantes/">Nantes</a><a href="/lille/">Lille</a><a href="/nice/">Nice</a><a href="/bordeaux/">Bordeaux</a>
+        </div></div>
+        <div class="zone-group"><h4>Pays francophones</h4><div class="zone-links">
+          <a href="/be/">Belgique</a><a href="/ch/">Suisse</a><a href="/lu/">Luxembourg</a>
+        </div></div>
+        <div class="zone-group"><h4>International (pages en anglais)</h4><div class="zone-links">
+          <a href="/en/us/">United States</a><a href="/en/ca/">Canada</a><a href="/en/gb/">United Kingdom</a><a href="/en/sg/">Singapore</a>
+        </div></div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="block" id="contact" aria-labelledby="contact-h">
+        <div class="kicker">Contact</div>
+        <h2 id="contact-h">On automatise votre première tâche ?</h2>
+        <div class="contact-card" style="margin-top:24px;">
+          <h3>Parlons de votre projet</h3>
+          <p>30 minutes au téléphone, gratuit, pour voir si on peut travailler ensemble. Aucun engagement.</p>
+          <div class="contact-methods">
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4 0 4.75 2.6 4.75 6V21h-4v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg>
+              LinkedIn
+            </a>
+            <a class="btn btn-ghost" href="/go/malt/?lead=contact-home&utm_source=nicogaray-contact&utm_medium=site&utm_campaign=profil-malt" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.5 5.5L20 11l-5.5 2.5L12 19l-2.5-5.5L4 11l5.5-2.5z"/></svg>
+              Malt
+            </a>
+            <a class="btn btn-primary" data-cta-appel="contact" href="https://nicogaray.com/go/rdv/?lead=home&utm_source=nicogaray-home&utm_medium=site&utm_campaign=site" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              Réserver un appel
+            </a>
+          </div>
+          <span class="remote">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            Missions remote, partout dans le monde
+          </span>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <div class="footer-copy">© <span id="footer-year">2026</span> Nico Garay · Consultant IA indépendant · Remote uniquement · Partout dans le monde</div>
+        <div class="footer-links">
+          <a href="/paris/">Paris</a>
+          <a href="/lyon/">Lyon</a>
+          <a href="/marseille/">Marseille</a>
+          <a href="/bordeaux/">Bordeaux</a>
+          <a href="#zones">Toutes les zones</a>
+          <a href="https://formation.nicogaray.com" target="_blank" rel="noopener">Cours d'informatique (particuliers)</a>
+          <a href="https://flegm.fr" target="_blank" rel="noopener">Flegm · classement YouTube communautaire</a>
+          <a href="/go/hostinger/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-hostinger" target="_blank" rel="sponsored nofollow noopener">Hostinger · mon hébergeur (-20 %)</a>
+          <a href="/go/claude/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-claude" target="_blank" rel="sponsored nofollow noopener">Claude · l'IA que j'utilise</a>
+          <a href="/go/mercato/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=app-mercato" target="_blank" rel="noopener">Mercato · quiz transferts foot (Android)</a>
+          <a href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="/go/malt/?lead=footer-home&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=profil-malt" target="_blank" rel="noopener">Malt · me missionner en freelance</a>
+          <a href="#top">Haut de page</a>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+</div>
+
+<!-- BARRE COLLANTE MOBILE -->
+<div class="mobile-cta">
+  <div class="mobile-cta-lang" aria-label="Choix de langue">
+    <a href="/" class="active" aria-current="page">FR</a>
+    <a href="/en/">EN</a>
   </div>
-  <div class="footer-links">
-    <a href="/paris/">Paris</a>
-    <a href="/lyon/">Lyon</a>
-    <a href="/marseille/">Marseille</a>
-    <a href="/bordeaux/">Bordeaux</a>
-    <a href="#zones">Toutes les zones</a>
-    <a href="https://formation.nicogaray.com" target="_blank" rel="noopener">Cours d'informatique (particuliers)</a>
-    <a href="https://flegm.fr" target="_blank" rel="noopener">Flegm · classement YouTube communautaire</a>
-    <a href="/go/hostinger/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-hostinger" target="_blank" rel="sponsored nofollow noopener">Hostinger · mon hébergeur (-20 %)</a>
-    <a href="/go/claude/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-claude" target="_blank" rel="sponsored nofollow noopener">Claude · l'IA que j'utilise</a>
-    <a href="/go/mercato/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=app-mercato" target="_blank" rel="noopener">Mercato · quiz transferts foot (Android)</a>
-    <a href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="/go/malt/?lead=footer-home&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=profil-malt" target="_blank" rel="noopener">Malt · me missionner en freelance</a>
-    <a href="#hero">Haut de page ↑</a>
-  </div>
-</footer>
+  <a class="btn btn-primary" data-cta-appel="barre-mobile" href="https://nicogaray.com/go/rdv/?lead=home&utm_source=nicogaray-home&utm_medium=site&utm_campaign=site" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    Réserver un appel
+  </a>
+</div>
 
 <script>
   document.getElementById('footer-year').textContent = new Date().getFullYear();
 </script>
 
-<!-- PRIVACY TRAY -->
-<button class="ng-pill" id="ngPill" aria-label="Préférences de confidentialité" title="Préférences de confidentialité">🍪</button>
+<!-- CONSOLE : moteur de démonstration -->
+<script>
+(function() {
+  var body = document.body;
+  body.classList.remove('no-js');
+
+  function ev(name, params) {
+    if (typeof window.gtag === 'function') { window.gtag('event', name, params || {}); }
+    else { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: name }, params || {})); }
+  }
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var scenarios = {
+    ecom: {
+      target: 'agent://service-client-ecommerce',
+      steps: [
+        { msg: 'Nouveau message client reçu sur la boîte support', tool: 'inbox.read(canal="email")', ms: 300 },
+        { msg: 'Lecture de la fiche client dans le CRM', tool: 'crm.get_customer(id="C-4471")', ms: 700 },
+        { msg: 'Motif détecté : où en est ma commande', tool: 'nlu.classify() → suivi_commande', ms: 1100 },
+        { msg: 'Rédaction de la réponse avec le numéro de suivi', tool: 'draft.compose(ton="courtois")', ms: 1600 },
+        { msg: 'Vérification du stock avant proposition d\'échange', tool: 'stock.check(sku="ROBE-38")', ms: 2100 },
+        { msg: 'Réponse envoyée au client', tool: 'email.send()', ms: 2500 },
+        { msg: 'Fiche client mise à jour, ticket clos', tool: 'crm.update(status="résolu")', ms: 2900 }
+      ]
+    },
+    cv: {
+      target: 'agent://preselection-cv',
+      steps: [
+        { msg: 'Nouvelle candidature reçue pour le poste Dev senior', tool: 'ats.read(offre="DEV-SR-12")', ms: 300 },
+        { msg: 'Lecture du CV et de la lettre', tool: 'parser.extract(doc="cv.pdf")', ms: 700 },
+        { msg: 'Comparaison au référentiel de compétences du poste', tool: 'match.score(criteres=8)', ms: 1200 },
+        { msg: 'Score de fit calculé : 82 sur 100', tool: 'rank.compute() → 82/100', ms: 1700 },
+        { msg: 'Rédaction de la note de synthèse pour le consultant', tool: 'draft.summary(langue="fr")', ms: 2100 },
+        { msg: 'Candidat ajouté à la short-list, consultant notifié', tool: 'ats.shortlist.add()', ms: 2500 },
+        { msg: 'Fiche candidat mise à jour dans l\'ATS', tool: 'ats.update(etat="à revoir")', ms: 2900 }
+      ]
+    },
+    devis: {
+      target: 'agent://relance-devis',
+      steps: [
+        { msg: 'Devis sans réponse depuis 7 jours détecté', tool: 'crm.query(statut="envoyé", j=7)', ms: 300 },
+        { msg: 'Lecture de l\'historique du prospect', tool: 'crm.get_deal(id="D-902")', ms: 700 },
+        { msg: 'Vérification qu\'aucun paiement n\'est arrivé', tool: 'billing.check(devis="D-902")', ms: 1100 },
+        { msg: 'Rédaction d\'une relance personnalisée', tool: 'draft.compose(objet="votre devis")', ms: 1600 },
+        { msg: 'Créneau de rappel proposé dans l\'agenda', tool: 'calendar.suggest_slot()', ms: 2000 },
+        { msg: 'Relance envoyée au prospect', tool: 'email.send()', ms: 2400 },
+        { msg: 'Tâche de suivi créée pour dans 3 jours', tool: 'crm.task.create(j=3)', ms: 2900 }
+      ]
+    }
+  };
+
+  var logEl = document.getElementById('consoleLog');
+  var timerEl = document.getElementById('consoleTimer');
+  var nameEl = document.getElementById('consoleName');
+  var doneEl = document.getElementById('consoleDone');
+  var replayBtn = document.getElementById('btnReplay');
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.console-tab'));
+
+  var current = 'ecom';
+  var timers = [];
+  var rafId = null;
+  var started = false;
+
+  var checkSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+
+  function clearTimers() {
+    timers.forEach(clearTimeout);
+    timers = [];
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  function buildLine(step, index) {
+    var li = document.createElement('li');
+    li.className = 'log-line';
+    li.innerHTML =
+      '<span class="log-step">[' + (index + 1) + '/7]</span>' +
+      '<span class="log-msg">' + step.msg + '</span>' +
+      '<br><span class="log-tool">' + step.tool + '</span>' +
+      '<span class="log-state">' + checkSvg + 'ok</span>';
+    return li;
+  }
+
+  function renderStatic(key) {
+    clearTimers();
+    var sc = scenarios[key];
+    nameEl.textContent = sc.target;
+    logEl.innerHTML = '';
+    sc.steps.forEach(function(step, i) {
+      var li = buildLine(step, i);
+      li.classList.add('show');
+      logEl.appendChild(li);
+    });
+    timerEl.textContent = '2.9s';
+    doneEl.classList.add('show');
+  }
+
+  function play(key) {
+    clearTimers();
+    var sc = scenarios[key];
+    nameEl.textContent = sc.target;
+    logEl.innerHTML = '';
+    doneEl.classList.remove('show');
+    timerEl.textContent = '0.0s';
+
+    var t0 = performance.now();
+    function tick() {
+      var el = (performance.now() - t0) / 1000;
+      if (el > 2.9) el = 2.9;
+      timerEl.textContent = el.toFixed(1) + 's';
+      if (el < 2.9) rafId = requestAnimationFrame(tick);
+    }
+    rafId = requestAnimationFrame(tick);
+
+    sc.steps.forEach(function(step, i) {
+      var li = buildLine(step, i);
+      logEl.appendChild(li);
+      timers.push(setTimeout(function() {
+        li.classList.add('show');
+      }, step.ms));
+    });
+    timers.push(setTimeout(function() {
+      doneEl.classList.add('show');
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      timerEl.textContent = '2.9s';
+      ev('demo_terminee', { metier: key });
+    }, 3100));
+  }
+
+  function run(key, isReplay) {
+    current = key;
+    if (reduce) { renderStatic(key); }
+    else { play(key); }
+  }
+
+  function selectTab(tab, fromClick) {
+    tabs.forEach(function(t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    var key = tab.getAttribute('data-metier');
+    if (fromClick && key !== current) { ev('demo_metier_change', { metier: key }); }
+    run(key);
+  }
+
+  tabs.forEach(function(tab, idx) {
+    tab.addEventListener('click', function() { selectTab(tab, true); tab.focus(); });
+    tab.addEventListener('keydown', function(e) {
+      var i = null;
+      if (e.key === 'ArrowRight') i = (idx + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') i = (idx - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') i = 0;
+      else if (e.key === 'End') i = tabs.length - 1;
+      if (i !== null) { e.preventDefault(); selectTab(tabs[i], true); tabs[i].focus(); }
+    });
+  });
+
+  replayBtn.addEventListener('click', function() {
+    ev('demo_rejouee', { metier: current });
+    run(current, true);
+  });
+
+  // Lancement au premier passage à l'écran
+  function firstStart() {
+    if (started) return;
+    started = true;
+    ev('demo_lancee', { metier: current });
+    run(current);
+  }
+
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { firstStart(); io.disconnect(); }
+      });
+    }, { threshold: 0.35 });
+    io.observe(document.getElementById('demo'));
+  } else {
+    firstStart();
+  }
+})();
+</script>
+
+<!-- Sommaire actif + section_vue -->
+<script>
+(function() {
+  function ev(name, params) {
+    if (typeof window.gtag === 'function') { window.gtag('event', name, params || {}); }
+    else { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: name }, params || {})); }
+  }
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.block'));
+  var seen = {};
+
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        var id = e.target.id;
+        if (e.isIntersecting) {
+          links.forEach(function(a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          });
+          if (!seen[id]) { seen[id] = true; ev('section_vue', { section: id }); }
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    sections.forEach(function(s) { spy.observe(s); });
+  }
+})();
+</script>
+
+<!-- CTA d'appel : suivi -->
+<script>
+(function() {
+  function ev(name, params) {
+    if (typeof window.gtag === 'function') { window.gtag('event', name, params || {}); }
+    else { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: name }, params || {})); }
+  }
+  document.querySelectorAll('[data-cta-appel]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      ev('cta_appel_clic', { position: el.getAttribute('data-cta-appel') });
+    });
+  });
+})();
+</script>
+
+<!-- PRIVACY TRAY (recopié du site : mêmes clés localStorage, mêmes événements de consentement) -->
+<button class="ng-pill" id="ngPill" aria-label="Préférences de confidentialité" title="Préférences de confidentialité">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5z"/><circle cx="9" cy="12" r="1"/><circle cx="14" cy="15" r="1"/><circle cx="15" cy="10" r="1"/></svg>
+</button>
 <div class="ng-tray" id="ngTray" role="dialog" aria-live="polite" aria-label="Préférences de confidentialité">
-  <div class="ng-tray-h">🍪 Confidentialité</div>
+  <div class="ng-tray-h">Confidentialité</div>
   <p class="ng-tray-p">
     J'utilise des outils de mesure d'audience (Google Analytics) pour comprendre comment le site est utilisé.
     Aucune donnée n'est partagée à des fins publicitaires. Vous pouvez accepter, refuser ou personnaliser.
@@ -1397,6 +1334,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 </script>
 
-  <script src="/assets/track.js" defer></script>
+<script src="/assets/track.js" defer></script>
 </body>
 </html>
