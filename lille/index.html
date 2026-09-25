@@ -596,6 +596,15 @@
     }
     .city-link:hover { border-color: var(--accent); color: var(--accent); }
     .city-link.current { border-color: var(--accent); color: var(--accent2); background: var(--accent-glow); }
+  
+    /* Platform logos: self-hosted favicons in /assets/logos, on a white tile so dark marks stay visible */
+    .pf-logo { width: 16px; height: 16px; padding: 2px; border-radius: 5px; background: #fff; object-fit: contain; flex-shrink: 0; vertical-align: middle; box-sizing: content-box; }
+    .pf-logos { display: inline-flex; gap: 4px; flex-shrink: 0; }
+    footer a .pf-logo { width: 12px; height: 12px; margin-right: 6px; vertical-align: -3px; border-radius: 4px; }
+    .contact-method .pf-logo { width: 18px; height: 18px; }
+    .partner-brand .mark.has-logo { background: #fff; }
+    .partner-brand .mark.has-logo .pf-logo { width: 22px; height: 22px; padding: 0; }
+    .exp-dot .pf-logo { width: 22px; height: 22px; padding: 3px; }
   </style>
 </head>
 <body>
@@ -906,7 +915,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="exp-item">
-            <div class="exp-dot">🚗</div>
+            <div class="exp-dot"><img class="pf-logo" src="/assets/logos/stellantis.png" alt="" width="16" height="16" loading="lazy" decoding="async"></div>
             <div class="exp-content">
               <div class="exp-role">Digital CX Manager / Project Manager</div>
               <div class="exp-company">Stellantis</div>
@@ -914,7 +923,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="exp-item">
-            <div class="exp-dot">📮</div>
+            <div class="exp-dot"><img class="pf-logo" src="/assets/logos/laposte.png" alt="" width="16" height="16" loading="lazy" decoding="async"></div>
             <div class="exp-content">
               <div class="exp-role">Project Manager</div>
               <div class="exp-company">La Poste Groupe</div>
@@ -951,39 +960,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="stack-cat">
         <h4>Modèles et LLMs</h4>
         <div class="stack-tools">
-          <div class="stack-tool"><span class="dot"></span>Claude (Anthropic)</div>
-          <div class="stack-tool"><span class="dot"></span>OpenAI GPT-5 · o-series</div>
-          <div class="stack-tool"><span class="dot"></span>Gemini (Google)</div>
-          <div class="stack-tool"><span class="dot"></span>Mistral AI</div>
-          <div class="stack-tool"><span class="dot"></span>Modèles open-source (Llama, Qwen)</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/claude.png" alt="" width="16" height="16" loading="lazy" decoding="async">Claude (Anthropic)</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/openai.png" alt="" width="16" height="16" loading="lazy" decoding="async">OpenAI GPT-5 · o-series</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/gemini.png" alt="" width="16" height="16" loading="lazy" decoding="async">Gemini (Google)</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/mistral.png" alt="" width="16" height="16" loading="lazy" decoding="async">Mistral AI</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/huggingface.png" alt="" width="16" height="16" loading="lazy" decoding="async">Modèles open-source (Llama, Qwen)</div>
         </div>
       </div>
       <div class="stack-cat">
         <h4>Frameworks agents</h4>
         <div class="stack-tools">
-          <div class="stack-tool"><span class="dot"></span>LangGraph</div>
-          <div class="stack-tool"><span class="dot"></span>Claude Agent SDK</div>
-          <div class="stack-tool"><span class="dot"></span>LangChain</div>
-          <div class="stack-tool"><span class="dot"></span>MCP (Model Context Protocol)</div>
-          <div class="stack-tool"><span class="dot"></span>CrewAI</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/langchain.png" alt="" width="16" height="16" loading="lazy" decoding="async">LangGraph</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/claude.png" alt="" width="16" height="16" loading="lazy" decoding="async">Claude Agent SDK</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/langchain.png" alt="" width="16" height="16" loading="lazy" decoding="async">LangChain</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/mcp.png" alt="" width="16" height="16" loading="lazy" decoding="async">MCP (Model Context Protocol)</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/crewai.png" alt="" width="16" height="16" loading="lazy" decoding="async">CrewAI</div>
         </div>
       </div>
       <div class="stack-cat">
         <h4>Orchestration et no-code</h4>
         <div class="stack-tools">
-          <div class="stack-tool"><span class="dot"></span>n8n</div>
-          <div class="stack-tool"><span class="dot"></span>Make</div>
-          <div class="stack-tool"><span class="dot"></span>Zapier</div>
-          <div class="stack-tool"><span class="dot"></span>Activepieces</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/n8n.png" alt="" width="16" height="16" loading="lazy" decoding="async">n8n</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/make.png" alt="" width="16" height="16" loading="lazy" decoding="async">Make</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/zapier.png" alt="" width="16" height="16" loading="lazy" decoding="async">Zapier</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/activepieces.png" alt="" width="16" height="16" loading="lazy" decoding="async">Activepieces</div>
         </div>
       </div>
       <div class="stack-cat">
         <h4>CRM et outils métier</h4>
         <div class="stack-tools">
-          <div class="stack-tool"><span class="dot"></span>HubSpot</div>
-          <div class="stack-tool"><span class="dot"></span>Pipedrive</div>
-          <div class="stack-tool"><span class="dot"></span>Salesforce</div>
-          <div class="stack-tool"><span class="dot"></span>Slack · Notion · Google Workspace</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/hubspot.png" alt="" width="16" height="16" loading="lazy" decoding="async">HubSpot</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/pipedrive.png" alt="" width="16" height="16" loading="lazy" decoding="async">Pipedrive</div>
+          <div class="stack-tool"><img class="pf-logo" src="/assets/logos/salesforce.png" alt="" width="16" height="16" loading="lazy" decoding="async">Salesforce</div>
+          <div class="stack-tool"><span class="pf-logos"><img class="pf-logo" src="/assets/logos/slack.png" alt="" width="16" height="16" loading="lazy" decoding="async"><img class="pf-logo" src="/assets/logos/notion.png" alt="" width="16" height="16" loading="lazy" decoding="async"><img class="pf-logo" src="/assets/logos/google-workspace.png" alt="" width="16" height="16" loading="lazy" decoding="async"></span>Slack · Notion · Google Workspace</div>
         </div>
       </div>
     </div>
@@ -1101,7 +1110,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>30 minutes en visio, gratuit, pour voir si un agent IA sur mesure peut vous faire gagner du temps. Aucun engagement.</p>
       <div class="contact-methods">
         <a class="contact-method" href="https://nicogaray.com/go/linkedin?utm_source=seo&utm_medium=site&utm_campaign=ville-lille" target="_blank" rel="noopener" aria-label="Profil LinkedIn">
-          <span aria-hidden="true">💼</span> LinkedIn
+          <img class="pf-logo" src="/assets/logos/linkedin.png" alt="" width="16" height="16" loading="lazy" decoding="async"> LinkedIn
         </a>
         <a class="btn-primary" href="https://nicogaray.com/go/rdv/?lead=lille&utm_source=seo&utm_medium=site&utm_campaign=ville-lille" target="_blank" rel="noopener" style="border-radius: 10px;" aria-label="Réserver un appel sur Calendly">
           <span aria-hidden="true">📅</span> Réserver un appel
@@ -1124,11 +1133,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="/">Accueil</a>
     <a href="/lyon/">Lyon</a>
     <a href="/marseille/">Marseille</a>
-    <a href="/go/hostinger/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-hostinger" target="_blank" rel="sponsored nofollow noopener">Hostinger · mon hébergeur (-20 %)</a>
-    <a href="/go/claude/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-claude" target="_blank" rel="sponsored nofollow noopener">Claude · l'IA que j'utilise</a>
-    <a href="/go/mercato/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=app-mercato" target="_blank" rel="noopener">Mercato · quiz transferts foot (Android)</a>
-    <a href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="/go/malt/?lead=footer-lille&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=profil-malt" target="_blank" rel="noopener">Malt · me missionner en freelance</a>
+    <a href="/go/hostinger/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-hostinger" target="_blank" rel="sponsored nofollow noopener"><img class="pf-logo" src="/assets/logos/hostinger.png" alt="" width="16" height="16" loading="lazy" decoding="async">Hostinger · mon hébergeur (-20 %)</a>
+    <a href="/go/claude/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-claude" target="_blank" rel="sponsored nofollow noopener"><img class="pf-logo" src="/assets/logos/claude.png" alt="" width="16" height="16" loading="lazy" decoding="async">Claude · l'IA que j'utilise</a>
+    <a href="/go/mercato/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=app-mercato" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/mercato.png" alt="" width="16" height="16" loading="lazy" decoding="async">Mercato · quiz transferts foot (Android)</a>
+    <a href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/linkedin.png" alt="" width="16" height="16" loading="lazy" decoding="async">LinkedIn</a>
+    <a href="/go/malt/?lead=footer-lille&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=profil-malt" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/malt.png" alt="" width="16" height="16" loading="lazy" decoding="async">Malt · me missionner en freelance</a>
     <a href="#hero">Haut de page ↑</a>
   </div>
 </footer>
