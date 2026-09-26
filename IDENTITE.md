@@ -1,5 +1,7 @@
 # nicogaraycons
-Ce dossier sert le SITE PRINCIPAL: https://www.nicogaray.com (incl. les pages consulting "Consultant IA").
-- Site statique, deploye via Vercel (app "nicogaraycons").
-- Propriete Google Analytics: "Nico Garay", ID de mesure G-L2DZPV8S00.
-- Pas de distinction GA entre nicogaraycons et nicogaray.com: meme propriete.
+
+This repository serves the main site: https://nicogaray.com (including the "AI consultant" pages).
+
+- Static site, hosted on GitHub Pages (custom domain in `CNAME`).
+- Google Analytics property "Nico Garay", measurement ID G-L2DZPV8S00, shared with formation.nicogaray.com.
+- formation.nicogaray.com is hosted separately, from the nicogaray7/nicogaray-formation repository.

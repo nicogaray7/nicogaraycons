@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://formation.nicogaray.com/sitemap.xml
