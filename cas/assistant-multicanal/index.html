@@ -188,6 +188,15 @@
     .case-viz img { display: block; width: 100%; height: auto; }
     .case-viz figcaption { font-size: 0.83rem; color: var(--muted); padding: 12px 18px; border-top: 1px solid var(--border); }
     .case-env { font-family: 'Google Sans Code', ui-monospace, monospace; font-size: 0.78rem; color: var(--muted); margin: 0 0 38px; }
+  
+    /* Platform logos: self-hosted favicons in /assets/logos, on a white tile so dark marks stay visible */
+    .pf-logo { width: 16px; height: 16px; padding: 2px; border-radius: 5px; background: #fff; object-fit: contain; flex-shrink: 0; vertical-align: middle; box-sizing: content-box; }
+    .pf-logos { display: inline-flex; gap: 4px; flex-shrink: 0; }
+    footer a .pf-logo { width: 12px; height: 12px; margin-right: 6px; vertical-align: -3px; border-radius: 4px; }
+    .contact-method .pf-logo { width: 18px; height: 18px; }
+    .partner-brand .mark.has-logo { background: #fff; }
+    .partner-brand .mark.has-logo .pf-logo { width: 22px; height: 22px; padding: 0; }
+    .exp-dot .pf-logo { width: 22px; height: 22px; padding: 3px; }
   </style>
 </head>
 <body>
@@ -258,7 +267,7 @@
     <div class="wrap-wide">
       Nico Garay, consultant agents IA<br>
       <a href="https://nicogaray.com/?utm_source=article-artisan&utm_medium=footer&utm_campaign=cas-clients">nicogaray.com</a>
-      &nbsp;|&nbsp; <a href="https://nicogaray.com/go/linkedin?utm_source=article-artisan&utm_medium=footer&utm_campaign=cas-clients" target="_blank" rel="noopener">LinkedIn</a>
+      &nbsp;|&nbsp; <a href="https://nicogaray.com/go/linkedin?utm_source=article-artisan&utm_medium=footer&utm_campaign=cas-clients" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/linkedin.png" alt="" width="16" height="16" loading="lazy" decoding="async">LinkedIn</a>
       &nbsp;|&nbsp; <a href="https://nicogaray.com/go/rdv/?utm_source=article-artisan&utm_medium=footer&utm_campaign=cas-clients">Prendre rendez-vous</a>
     </div>
   </footer>
