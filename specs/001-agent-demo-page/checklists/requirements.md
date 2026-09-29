@@ -13,7 +13,7 @@
 
 ## Requirement Completeness
 
-- [ ] No [NEEDS CLARIFICATION] markers remain
+- [x] No [NEEDS CLARIFICATION] markers remain
 - [x] Requirements are testable and unambiguous
 - [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic (no implementation details)
@@ -31,4 +31,4 @@
 
 ## Notes
 
-- Two clarifications open (FR-008 lead capture, FR-015 English in MVP); waiting for Nico.
+- Clarifications resolved on 2026-09-29 (lead capture, English in MVP). Ready for planning.

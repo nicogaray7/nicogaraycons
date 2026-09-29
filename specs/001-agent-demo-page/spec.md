@@ -119,9 +119,12 @@ the page metadata and the language switch.
   (default: a daily budget cap), and show a clear message when a limit is reached.
 - **FR-007**: The demo MUST accept requests only from nicogaray.com pages.
 - **FR-008**: Visitor task descriptions MUST NOT be stored beyond what is needed to answer and to
-  count usage, and the page MUST say so next to the field.
-  [NEEDS CLARIFICATION: Should the visitor be able to leave their email to receive the plan
-  and be contacted (lead capture), or should the MVP only link to the booking call?]
+  count usage, except when the visitor leaves their email (FR-008b), and the page MUST say so
+  next to the field.
+- **FR-008b**: After a plan is displayed, the visitor MAY leave their email, with an explicit
+  unticked consent box, to receive the plan by email and be contacted by Nico. The email, the
+  plan, the page language and the consent date are kept for 12 months at most, then deleted, and
+  deleted earlier on request. Nico receives a copy of each lead.
 - **FR-009**: Every plan MUST end with a call to action to book a discovery call, reusing the
   site's existing booking path.
 - **FR-010**: The page MUST include: a hero with an animated agent run, agent examples for small
@@ -135,14 +138,14 @@ the page metadata and the language switch.
   example prompt used, and booking click from the page.
 - **FR-014**: The page MUST be linked from the home page and listed in the sitemap, with search
   and social metadata consistent with the other pages.
-- **FR-015**: The page MUST exist in French and English with a language switch.
-  [NEEDS CLARIFICATION: Ship the English version in this MVP, or French first and English in a
-  follow-up?]
+- **FR-015**: The page MUST exist in French and English with a language switch, both shipped
+  in this MVP.
 
 ### Key Entities
 
 - **Task description**: free text typed by the visitor, 20 to 600 characters, page language.
 - **Agent plan**: name, trigger, ordered steps, tools, approval points, estimated time saved.
+- **Lead**: email, consent timestamp, page language, the plan sent; retained 12 months at most.
 - **Usage counter**: number of plans per visitor per hour and total per day, used only to
   enforce limits.
 
@@ -156,9 +159,18 @@ the page metadata and the language switch.
 - **SC-003**: 100 % of a set of 10 off-topic or instruction-override prompts are refused.
 - **SC-004**: The demo cost never exceeds the daily cap, verified by sending requests beyond it.
 - **SC-005**: Within 30 days of launch, at least 20 % of page visitors try the demo and at least
-  5 % of demo users click the booking call to action.
+  5 % of demo users click the booking call to action or leave their email.
+- **SC-007**: A visitor who leaves their email receives the plan within 2 minutes.
 - **SC-006**: The page scores 90 or more for mobile performance and accessibility, and has no
   horizontal scroll at phone width.
+
+## Clarifications
+
+### Session 2026-09-29
+
+- Q: After the plan, booking link only or also email capture? → A: Email capture plus booking
+  link (FR-008b).
+- Q: English version in the MVP? → A: Yes, French and English ship together (FR-015).
 
 ## Assumptions
 
