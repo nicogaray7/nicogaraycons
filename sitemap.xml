@@ -2,16 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nicogaray.com/</loc>
+    <loc>https://nicogaray.com/fr/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/fr/" />
   </url>
   <url>
-    <loc>https://nicogaray.com/en/</loc>
+    <loc>https://nicogaray.com/en</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/fr/" />
   </url>
   <url>
     <loc>https://nicogaray.com/bordeaux/</loc>
