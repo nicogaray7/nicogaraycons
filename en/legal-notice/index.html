@@ -53,39 +53,49 @@
     }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: 'Google Sans Text', 'Google Sans', sans-serif; font-size: 16px; line-height: 1.7; overflow-x: hidden; }
-    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 5%; background: rgba(7,8,15,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 5%;
+      background: rgba(7,8,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
     .nav-logo span { color: var(--accent); }
-    .nav-cta { background: var(--accent); color: #fff; border-radius: 8px; padding: 10px 18px; font-size: 0.88rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
-    .nav-cta:hover { opacity: 0.88; }
-    .nav-right { display: flex; align-items: center; gap: 14px; }
-    .lang-switch { display: flex; align-items: center; gap: 4px; font-size: 0.82rem; font-weight: 600; }
-    .lang-switch a { color: var(--muted); text-decoration: none; padding: 4px 8px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent);
+      color: #fff; border: none; border-radius: 8px;
+      padding: 10px 20px; font-size: 0.88rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+    .lang-switch {
+      display: flex; align-items: center; gap: 4px;
+      font-size: 0.82rem; font-weight: 600;
+      margin-right: 14px;
+    }
+    .lang-switch a {
+      color: var(--muted); text-decoration: none;
+      padding: 4px 8px; border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+    }
     .lang-switch a.active { color: var(--text); background: var(--bg3); }
     .lang-switch a:hover { color: var(--text); }
     .lang-switch .sep { color: var(--border); }
-    @media (max-width: 420px) { .nav-right { gap: 8px; } .nav-cta { padding: 9px 12px; font-size: 0.82rem; } .lang-switch a { padding: 4px 6px; } }
-    main { max-width: 760px; margin: 0 auto; padding: 56px 5% 96px; }
-    .crumb { font-size: 0.85rem; color: var(--muted); margin-bottom: 18px; }
-    .crumb a { color: var(--muted); }
-    h1 { font-family: 'Google Sans', sans-serif; font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 10px; }
-    .updated { color: var(--muted); font-size: 0.9rem; margin-bottom: 40px; }
-    h2 { font-family: 'Google Sans', sans-serif; font-size: 1.3rem; margin: 40px 0 12px; color: var(--text); }
-    p, li { color: #c5c9e0; }
-    p + p { margin-top: 10px; }
-    ul { padding-left: 20px; margin-top: 8px; }
-    li + li { margin-top: 6px; }
-    main a { color: var(--accent2); }
-    strong { color: var(--text); font-weight: 600; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; margin-top: 12px; }
-    .table-wrap { overflow-x: auto; margin-top: 12px; border: 1px solid var(--border); border-radius: var(--radius); }
-    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
-    th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: #c5c9e0; }
-    th { color: var(--text); background: var(--bg3); font-weight: 600; }
-    tr:last-child td { border-bottom: none; }
-    code { font-size: 0.85rem; color: var(--accent2); }
-    .btn { display: inline-block; margin-top: 16px; background: var(--accent); color: #fff !important; border: none; border-radius: 8px; padding: 12px 22px; font: 600 0.95rem 'Google Sans Text', sans-serif; cursor: pointer; text-decoration: none; }
-    .btn:hover { opacity: 0.88; }
+    .nav-right { display: flex; align-items: center; }
     /* ── FOOTER ── */
     footer {
       padding: 32px 5%;
@@ -97,8 +107,33 @@
     .footer-links { display: flex; flex-wrap: wrap; gap: 12px 24px; }
     .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--text); }
+    .pf-logo { width: 16px; height: 16px; padding: 2px; border-radius: 5px; background: #fff; object-fit: contain; flex-shrink: 0; vertical-align: middle; box-sizing: content-box; }
+    footer a .pf-logo { width: 12px; height: 12px; margin-right: 6px; vertical-align: -3px; border-radius: 4px; }
     .footer-links a[aria-current] { color: var(--text); }
-    @media (max-width: 520px) { main { padding-top: 36px; } th, td { padding: 10px; } }
+    @media (max-width: 768px) { nav .nav-links { display: none; } }
+    @media (max-width: 520px) { main { padding-top: 116px; } }
+    main { max-width: 760px; margin: 0 auto; padding: 136px 5% 96px; }
+    .crumb { font-size: 0.85rem; color: var(--muted); margin-bottom: 18px; }
+    .crumb a { color: var(--muted); }
+    h1 { font-family: 'Google Sans', sans-serif; font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .updated { color: var(--muted); font-size: 0.9rem; margin-bottom: 40px; }
+    h2 { font-family: 'Google Sans', sans-serif; font-size: 1.3rem; margin: 40px 0 12px; color: var(--text); }
+    main p, main li { color: #c5c9e0; }
+    p + p { margin-top: 10px; }
+    main ul { padding-left: 20px; margin-top: 8px; }
+    main li + li { margin-top: 6px; }
+    main a { color: var(--accent2); }
+    strong { color: var(--text); font-weight: 600; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; margin-top: 12px; }
+    .table-wrap { overflow-x: auto; margin-top: 12px; border: 1px solid var(--border); border-radius: var(--radius); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: #c5c9e0; }
+    th { color: var(--text); background: var(--bg3); font-weight: 600; }
+    tr:last-child td { border-bottom: none; }
+    code { font-size: 0.85rem; color: var(--accent2); }
+    .btn { display: inline-block; margin-top: 16px; background: var(--accent); color: #fff !important; border: none; border-radius: 8px; padding: 12px 22px; font: 600 0.95rem 'Google Sans Text', sans-serif; cursor: pointer; text-decoration: none; }
+    .btn:hover { opacity: 0.88; }
+    @media (max-width: 520px) { th, td { padding: 10px; } }
     /* ── PRIVACY TRAY ── */
     .ng-tray {
       position: fixed; bottom: 20px; left: 20px; right: 20px; z-index: 9999;
@@ -172,17 +207,24 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54MMFRP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav>
   <a class="nav-logo" href="/en">Nico<span>.</span>AI</a>
+  <ul class="nav-links">
+    <li><a href="/en#services">Services</a></li>
+    <li><a href="/en#results">Use cases</a></li>
+    <li><a href="/en#experience">Experience</a></li>
+    <li><a href="/en#stack">Stack</a></li>
+    <li><a href="/en#contact">Contact</a></li>
+  </ul>
   <div class="nav-right">
-    <div class="lang-switch" role="group" aria-label="Language selector">
+    <div class="lang-switch" aria-label="Language selector">
       <a href="/mentions-legales/" hreflang="fr" lang="fr">FR</a>
-      <span class="sep" aria-hidden="true">·</span>
+      <span class="sep">·</span>
       <a href="/en/legal-notice/" hreflang="en" lang="en" class="active" aria-current="page">EN</a>
     </div>
-    <a class="nav-cta" href="/en#contact" data-cta="nav-en-mentions-legales">Book a call</a>
+    <a class="nav-cta" href="/en#contact" data-cta="nav-en-legal-notice">Book a call</a>
   </div>
 </nav>
 <main>
@@ -231,12 +273,21 @@
   <p>The site contains links to other sites (Calendly booking, Malt, LinkedIn, Flegm, Google Play, partners). Their content and data practices are the responsibility of their respective publishers.</p>
 </main>
 <footer>
-  <div class="footer-left">© <span id="footer-year">2026</span> Nico Garay · Independent AI consultant</div>
+  <div class="footer-left">
+    © <span id="footer-year">2026</span> Nico Garay · Independent AI consultant · Remote only · Anywhere in the world
+  </div>
   <div class="footer-links">
-    <a href="/en">Home</a>
+    <a href="/en/us/">United States</a>
+    <a href="/en/gb/">United Kingdom</a>
+    <a href="/en/sg/">Singapore</a>
+    <a href="/go/hostinger/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-hostinger" target="_blank" rel="sponsored nofollow noopener"><img class="pf-logo" src="/assets/logos/hostinger.png" alt="" width="16" height="16" loading="lazy" decoding="async">Hostinger · my hosting partner (-20%)</a>
+    <a href="/go/claude/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-claude" target="_blank" rel="sponsored nofollow noopener"><img class="pf-logo" src="/assets/logos/claude.png" alt="" width="16" height="16" loading="lazy" decoding="async">Claude · the AI I use</a>
+    <a href="/go/mercato/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=app-mercato" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/mercato.png" alt="" width="16" height="16" loading="lazy" decoding="async">Mercato · football transfer quiz (Android)</a>
+    <a href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/linkedin.png" alt="" width="16" height="16" loading="lazy" decoding="async">LinkedIn</a>
+    <a href="/go/malt/?lead=footer-en-legal-notice&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=profil-malt" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/malt.png" alt="" width="16" height="16" loading="lazy" decoding="async">Malt · hire me as a freelancer</a>
     <a href="/en/legal-notice/" aria-current="page">Legal notice</a>
     <a href="/en/cookies/">Cookies</a>
-    <a href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="#top">Back to top ↑</a>
   </div>
 </footer>
 <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
