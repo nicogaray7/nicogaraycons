@@ -27,6 +27,9 @@
   <title>Mentions légales | Nico Garay</title>
   <meta name="description" content="Mentions légales de nicogaray.com : éditeur, prestataire des missions, hébergement, données personnelles." />
   <link rel="canonical" href="https://nicogaray.com/mentions-legales/" />
+  <link rel="alternate" hreflang="fr" href="https://nicogaray.com/mentions-legales/" />
+  <link rel="alternate" hreflang="en" href="https://nicogaray.com/en/legal-notice/" />
+  <link rel="alternate" hreflang="x-default" href="https://nicogaray.com/mentions-legales/" />
   <meta name="robots" content="noindex, follow" />
   <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,6 +58,13 @@
     .nav-logo span { color: var(--accent); }
     .nav-cta { background: var(--accent); color: #fff; border-radius: 8px; padding: 10px 18px; font-size: 0.88rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
     .nav-cta:hover { opacity: 0.88; }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .lang-switch { display: flex; align-items: center; gap: 4px; font-size: 0.82rem; font-weight: 600; }
+    .lang-switch a { color: var(--muted); text-decoration: none; padding: 4px 8px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+    .lang-switch a.active { color: var(--text); background: var(--bg3); }
+    .lang-switch a:hover { color: var(--text); }
+    .lang-switch .sep { color: var(--border); }
+    @media (max-width: 420px) { .nav-right { gap: 8px; } .nav-cta { padding: 9px 12px; font-size: 0.82rem; } .lang-switch a { padding: 4px 6px; } }
     main { max-width: 760px; margin: 0 auto; padding: 56px 5% 96px; }
     .crumb { font-size: 0.85rem; color: var(--muted); margin-bottom: 18px; }
     .crumb a { color: var(--muted); }
@@ -166,7 +176,14 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54MMFRP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav>
   <a class="nav-logo" href="/fr/">Nico<span>.</span>AI</a>
-  <a class="nav-cta" href="/fr/#contact" data-cta="nav-mentions-legales">Réserver un appel</a>
+  <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Choix de la langue">
+      <a href="/mentions-legales/" hreflang="fr" lang="fr" class="active" aria-current="page">FR</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <a href="/en/legal-notice/" hreflang="en" lang="en">EN</a>
+    </div>
+    <a class="nav-cta" href="/fr/#contact" data-cta="nav-mentions-legales">Réserver un appel</a>
+  </div>
 </nav>
 <main>
   <div class="crumb"><a href="/fr/">Accueil</a> › Mentions légales</div>
