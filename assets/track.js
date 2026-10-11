@@ -33,13 +33,13 @@
     }
   }
 
-  // 1) clic_cta sur tout clic de CTA + generate_lead GA4 sur les liens RDV/Calendly
+  // 1) clic_cta sur tout clic de CTA + generate_lead GA4 sur les liens RDV/Cal.com
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a, button') : null;
     if (!a) return;
     var href = (a.getAttribute && a.getAttribute('href')) || '';
     var cls = a.className || '';
-    var isCTA = /btn|cta/i.test(cls) || /calendly\.com|\/go\/rdv/i.test(href);
+    var isCTA = /btn|cta/i.test(cls) || /calendly\.com|cal\.com|\/go\/rdv/i.test(href);
     if (!isCTA) return;
     var label = (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
     var location = ctaLocation(a);
@@ -51,8 +51,8 @@
       cta_location: location
     });
 
-    // Event GA4 standard generate_lead sur tous les liens RDV/Calendly
-    if (/calendly\.com|\/go\/rdv/i.test(href)) {
+    // Event GA4 standard generate_lead sur tous les liens RDV/Cal.com
+    if (/calendly\.com|cal\.com|\/go\/rdv/i.test(href)) {
       send('generate_lead', {
         lead_source: leadSource(href),
         cta_location: location,
