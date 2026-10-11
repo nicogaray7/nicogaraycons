@@ -7,7 +7,7 @@
 | Evenement | Declencheur | Parametres cles | Fichier |
 |---|---|---|---|
 | `clic_cta` | Tout clic sur un bouton ou lien CTA | `cta_label`, `cta_url`, `cta_location` | `assets/track.js` |
-| `generate_lead` | Clic sur un lien `/go/rdv/` ou `calendly.com` | `lead_source`, `cta_location`, `cta_label` | `assets/track.js` |
+| `generate_lead` | Clic sur un lien `/go/rdv/`, `cal.com` ou `calendly.com` | `lead_source`, `cta_location`, `cta_label` | `assets/track.js` |
 | `scroll_paliers` | Scroll aux seuils 25/50/75/90 % | `percent_scrolled` | `assets/track.js` |
 | `page_view` | Navigation (chargement de page) | `page_path`, `page_location` | Inline HTML (gtag config) |
 

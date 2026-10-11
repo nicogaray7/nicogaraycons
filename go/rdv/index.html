@@ -27,64 +27,67 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex,nofollow" />
-  <title>Redirection vers la prise de rendez-vous…</title>
+  <title>Réserver un appel découverte</title>
   <style>
-    body{font-family:'Google Sans Text','Google Sans',system-ui,sans-serif;background:#07080f;color:#e8eaf6;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;text-align:center}
+    *{box-sizing:border-box}
+    body{font-family:'Google Sans Text','Google Sans',system-ui,sans-serif;background:#07080f;color:#e8eaf6;margin:0;padding:24px 12px 40px}
+    header{max-width:960px;margin:0 auto 12px;text-align:center}
+    h1{font-size:1.5rem;line-height:1.25;margin:8px 0}
+    p{color:#a3a8c3;line-height:1.5;margin:0 0 8px}
     a{color:#818cf8}
+    #cal-inline{max-width:1000px;margin:0 auto;min-height:620px;width:100%}
+    .fallback{text-align:center;margin-top:16px;font-size:.95rem}
   </style>
   <script>
     (function(){
-      // Lit les paramètres lead et email de l'URL
       var p = new URLSearchParams(window.location.search);
       function clean(v){ return (v||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,60); }
       var lead = clean(p.get('lead') || p.get('utm_content'));
       var email = clean(p.get('email') || p.get('utm_term'));
-      // Destination Calendly, en conservant l'attribution
-      var base = 'https://calendly.com/garay-nico/30min';
-      function val(k, d){ var v = p.get(k); return v ? encodeURIComponent(v) : d; }
-      var qs = 'utm_source=' + val('utm_source','email') + '&utm_medium=' + val('utm_medium','site') + '&utm_campaign=' + val('utm_campaign','prospection-bordeaux');
-      if (lead)  qs += '&utm_content=' + encodeURIComponent(lead);
-      if (email) qs += '&utm_term=' + encodeURIComponent(email);
-      var dest = base + '?' + qs;
-      window.__dest = dest;
+      // Attribution transmise à Cal.com (enregistrée sur la réservation)
+      var utm = {
+        utm_source: p.get('utm_source') || 'email',
+        utm_medium: p.get('utm_medium') || 'site',
+        utm_campaign: p.get('utm_campaign') || 'prospection-bordeaux'
+      };
+      if (lead) utm.utm_content = lead;
+      if (email) utm.utm_term = email;
+      window.__utm = utm; window.__lead = lead; window.__email = email;
+      window.__fallback = 'https://cal.com/flegm/30min?' + new URLSearchParams(utm).toString();
       // Applique le choix mémorisé (opt-out) : granted par défaut, denied si l'utilisateur a refusé
       try { var _r = localStorage.getItem('ng-pref-v1'); if (_r) { gtag('consent','update',{ 'analytics_storage': JSON.parse(_r).analytics ? 'granted' : 'denied' }); } } catch(e){}
-      // Redirige une seule fois, APRES l'envoi du beacon GA4
-      var redirected = false;
-      function go(){ if (redirected) return; redirected = true; window.location.replace(dest); }
-      // Envoie l'évènement GA4 clic_rdv DIRECTEMENT via gtag (gtag.js déjà chargé),
-      // avec event_callback pour rediriger une fois le hit parti. Plus fiable que
-      // la couche de données + tag GTM avant une redirection rapide.
-      // On garde aussi le push dataLayer pour ceux qui veulent un déclencheur GTM.
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'clic_rdv_dl', lead: lead || '(non renseigne)', email_sequence: email || '(non renseigne)' });
-      if (typeof gtag === 'function') {
-        gtag('event', 'clic_rdv', {
-          lead: lead || '(non renseigne)',
-          email_sequence: email || '(non renseigne)',
-          transport_type: 'beacon',
-          event_callback: go,
-          event_timeout: 1500
-        });
-      } else { go(); }
-      // Filet de sécurité si gtag absent ou callback non appelé
-      setTimeout(go, 2000);
+      gtag('event', 'clic_rdv', { lead: lead || '(non renseigne)', email_sequence: email || '(non renseigne)' });
     })();
   </script>
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54MMFRP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <div>
-    <p>Redirection vers la prise de rendez-vous…</p>
-    <p><a id="manual" href="https://calendly.com/garay-nico/30min">Cliquez ici si rien ne se passe</a></p>
-  </div>
+  <header>
+    <h1>Réserver un appel découverte</h1>
+    <p>30 minutes en visio, gratuit et sans engagement. Choisissez le créneau qui vous arrange.</p>
+  </header>
+  <div id="cal-inline"></div>
+  <p class="fallback">Le calendrier ne s'affiche pas ? <a id="manual" href="https://cal.com/flegm/30min" target="_blank" rel="noopener">Ouvrir la page de réservation</a> · <a href="/">Retour au site</a></p>
   <script>
-    // Filet de sécurité : met à jour le lien manuel et redirige si JS du head a échoué
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
     (function(){
-      try {
-        var a = document.getElementById('manual');
-        if (window.__dest && a) a.href = window.__dest;
-      } catch(e){}
+      try { var a = document.getElementById('manual'); if (window.__fallback && a) a.href = window.__fallback; } catch(e){}
+      Cal("init", "30min", { origin: "https://app.cal.com" });
+      var cfg = Object.assign({ layout: "month_view", theme: "dark" }, window.__utm || {});
+      Cal.ns["30min"]("inline", { elementOrSelector: "#cal-inline", calLink: "flegm/30min", config: cfg });
+      Cal.ns["30min"]("ui", { theme: "dark", hideEventTypeDetails: false, layout: "month_view", cssVarsPerTheme: { light: { "cal-brand": "#818cf8" }, dark: { "cal-brand": "#818cf8" } } });
+      // Conversion GA4 : réservation réellement confirmée dans Cal.com.
+      // Seuls le type de rendez-vous et l'attribution partent vers GA4, jamais le nom ni l'e-mail saisis.
+      var sent = false;
+      function booked(){
+        if (sent) return; sent = true;
+        gtag('event', 'rdv_reserve', { rdv_type: '30min', lead: window.__lead || '(non renseigne)', email_sequence: window.__email || '(non renseigne)' });
+        window.dataLayer.push({ event: 'rdv_reserve_dl', rdv_type: '30min' });
+      }
+      Cal.ns["30min"]("on", { action: "bookingSuccessfulV2", callback: booked });
+      Cal.ns["30min"]("on", { action: "bookingSuccessful", callback: booked });
     })();
   </script>
 </body>
