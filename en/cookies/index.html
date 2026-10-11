@@ -98,6 +98,12 @@
     .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--text); }
     .footer-links a[aria-current] { color: var(--text); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .pf-logo { width: 16px; height: 16px; padding: 2px; border-radius: 5px; background: #fff; object-fit: contain; flex-shrink: 0; vertical-align: middle; box-sizing: content-box; }
+    footer a .pf-logo { width: 12px; height: 12px; margin-right: 6px; vertical-align: -3px; border-radius: 4px; }
+    @media (max-width: 768px) { nav .nav-links { display: none; } }
     @media (max-width: 520px) { main { padding-top: 36px; } th, td { padding: 10px; } }
     /* ── PRIVACY TRAY ── */
     .ng-tray {
@@ -176,6 +182,13 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54MMFRP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav>
   <a class="nav-logo" href="/en">Nico<span>.</span>AI</a>
+  <ul class="nav-links">
+    <li><a href="/en#services">Services</a></li>
+    <li><a href="/en#results">Use cases</a></li>
+    <li><a href="/en#experience">Experience</a></li>
+    <li><a href="/en#stack">Stack</a></li>
+    <li><a href="/en#contact">Contact</a></li>
+  </ul>
   <div class="nav-right">
     <div class="lang-switch" role="group" aria-label="Language selector">
       <a href="/cookies/" hreflang="fr" lang="fr">FR</a>
@@ -227,12 +240,22 @@
   <p>For any question: <a href="mailto:contact@nicogaray.com">contact@nicogaray.com</a>. More information in the <a href="/en/legal-notice/">legal notice</a>.</p>
 </main>
 <footer>
-  <div class="footer-left">© <span id="footer-year">2026</span> Nico Garay · Independent AI consultant</div>
+  <div class="footer-left">
+    © <span id="footer-year">2026</span> Nico Garay · Independent AI consultant · Remote only · Anywhere in the world
+  </div>
   <div class="footer-links">
     <a href="/en">Home</a>
+    <a href="/en/us/">United States</a>
+    <a href="/en/gb/">United Kingdom</a>
+    <a href="/en/sg/">Singapore</a>
+    <a href="/go/hostinger/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-hostinger" target="_blank" rel="sponsored nofollow noopener"><img class="pf-logo" src="/assets/logos/hostinger.png" alt="" width="16" height="16" loading="lazy" decoding="async">Hostinger · my hosting partner (-20%)</a>
+    <a href="/go/claude/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-claude" target="_blank" rel="sponsored nofollow noopener"><img class="pf-logo" src="/assets/logos/claude.png" alt="" width="16" height="16" loading="lazy" decoding="async">Claude · the AI I use</a>
+    <a href="/go/mercato/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=app-mercato" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/mercato.png" alt="" width="16" height="16" loading="lazy" decoding="async">Mercato · football transfer quiz (Android)</a>
+    <a href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/linkedin.png" alt="" width="16" height="16" loading="lazy" decoding="async">LinkedIn</a>
+    <a href="/go/malt/?lead=footer-legal&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=profil-malt" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/malt.png" alt="" width="16" height="16" loading="lazy" decoding="async">Malt · hire me as a freelancer</a>
     <a href="/en/legal-notice/">Legal notice</a>
     <a href="/en/cookies/" aria-current="page">Cookies</a>
-    <a href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="#">Back to top ↑</a>
   </div>
 </footer>
 <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
