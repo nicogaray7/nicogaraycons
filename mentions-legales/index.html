@@ -98,6 +98,12 @@
     .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--text); }
     .footer-links a[aria-current] { color: var(--text); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .pf-logo { width: 16px; height: 16px; padding: 2px; border-radius: 5px; background: #fff; object-fit: contain; flex-shrink: 0; vertical-align: middle; box-sizing: content-box; }
+    footer a .pf-logo { width: 12px; height: 12px; margin-right: 6px; vertical-align: -3px; border-radius: 4px; }
+    @media (max-width: 768px) { nav .nav-links { display: none; } }
     @media (max-width: 520px) { main { padding-top: 36px; } th, td { padding: 10px; } }
     /* ── PRIVACY TRAY ── */
     .ng-tray {
@@ -176,6 +182,14 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54MMFRP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav>
   <a class="nav-logo" href="/fr/">Nico<span>.</span>AI</a>
+  <ul class="nav-links">
+    <li><a href="/fr/#services">Services</a></li>
+    <li><a href="/fr/#results">Résultats</a></li>
+    <li><a href="/fr/#use-cases">Réalisations</a></li>
+    <li><a href="/fr/#experience">Parcours</a></li>
+    <li><a href="/fr/#stack">Stack</a></li>
+    <li><a href="/fr/#contact">Contact</a></li>
+  </ul>
   <div class="nav-right">
     <div class="lang-switch" role="group" aria-label="Choix de la langue">
       <a href="/mentions-legales/" hreflang="fr" lang="fr" class="active" aria-current="page">FR</a>
@@ -232,12 +246,25 @@
 
 </main>
 <footer>
-  <div class="footer-left">© <span id="footer-year">2026</span> Nico Garay · Consultant IA indépendant</div>
+  <div class="footer-left">
+    © <span id="footer-year">2026</span> Nico Garay · Consultant IA indépendant · Remote uniquement · Partout dans le monde
+  </div>
   <div class="footer-links">
     <a href="/fr/">Accueil</a>
+    <a href="/paris/">Paris</a>
+    <a href="/lyon/">Lyon</a>
+    <a href="/marseille/">Marseille</a>
+    <a href="/bordeaux/">Bordeaux</a>
+    <a href="https://formation.nicogaray.com" target="_blank" rel="noopener">Cours d'informatique (particuliers)</a>
+    <a href="https://flegm.fr" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/flegm.png" alt="" width="16" height="16" loading="lazy" decoding="async">Flegm · classement YouTube communautaire</a>
+    <a href="/go/hostinger/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-hostinger" target="_blank" rel="sponsored nofollow noopener"><img class="pf-logo" src="/assets/logos/hostinger.png" alt="" width="16" height="16" loading="lazy" decoding="async">Hostinger · mon hébergeur (-20 %)</a>
+    <a href="/go/claude/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-claude" target="_blank" rel="sponsored nofollow noopener"><img class="pf-logo" src="/assets/logos/claude.png" alt="" width="16" height="16" loading="lazy" decoding="async">Claude · l'IA que j'utilise</a>
+    <a href="/go/mercato/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=app-mercato" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/mercato.png" alt="" width="16" height="16" loading="lazy" decoding="async">Mercato · quiz transferts foot (Android)</a>
+    <a href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/linkedin.png" alt="" width="16" height="16" loading="lazy" decoding="async">LinkedIn</a>
+    <a href="/go/malt/?lead=footer-legal&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=profil-malt" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/malt.png" alt="" width="16" height="16" loading="lazy" decoding="async">Malt · me missionner en freelance</a>
     <a href="/mentions-legales/" aria-current="page">Mentions légales</a>
     <a href="/cookies/">Cookies</a>
-    <a href="https://www.linkedin.com/in/nicogaray/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="#">Haut de page ↑</a>
   </div>
 </footer>
 <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
