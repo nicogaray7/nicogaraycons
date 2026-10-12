@@ -94,37 +94,128 @@
   </url>
   <url>
     <loc>https://nicogaray.com/cas/</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/" />
+  </url>
+  <url>
+    <loc>https://nicogaray.com/en/cases/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/" />
   </url>
   <url>
     <loc>https://nicogaray.com/cas/assistant-multicanal/</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/assistant-multicanal/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/ai-assistant/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/assistant-multicanal/" />
+  </url>
+  <url>
+    <loc>https://nicogaray.com/en/cases/ai-assistant/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/assistant-multicanal/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/ai-assistant/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/assistant-multicanal/" />
   </url>
   <url>
     <loc>https://nicogaray.com/cas/automatisation-formulaires/</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/automatisation-formulaires/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/form-automation/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/automatisation-formulaires/" />
   </url>
   <url>
-    <loc>https://nicogaray.com/cas/deploiement-20-marches/</loc>
+    <loc>https://nicogaray.com/en/cases/form-automation/</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://nicogaray.com/cas/parcours-clients-crm/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/automatisation-formulaires/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/form-automation/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/automatisation-formulaires/" />
   </url>
   <url>
     <loc>https://nicogaray.com/cas/agent-devis-artisan/</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/agent-devis-artisan/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/plumber-quote-agent/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/agent-devis-artisan/" />
+  </url>
+  <url>
+    <loc>https://nicogaray.com/en/cases/plumber-quote-agent/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/agent-devis-artisan/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/plumber-quote-agent/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/agent-devis-artisan/" />
   </url>
   <url>
     <loc>https://nicogaray.com/cas/chatbot-sante-agenda/</loc>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/chatbot-sante-agenda/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/medical-practice-scheduling/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/chatbot-sante-agenda/" />
+  </url>
+  <url>
+    <loc>https://nicogaray.com/en/cases/medical-practice-scheduling/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/chatbot-sante-agenda/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/medical-practice-scheduling/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/chatbot-sante-agenda/" />
+  </url>
+  <url>
+    <loc>https://nicogaray.com/cas/deploiement-20-marches/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/deploiement-20-marches/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/brand-site-20-markets/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/deploiement-20-marches/" />
+  </url>
+  <url>
+    <loc>https://nicogaray.com/en/cases/brand-site-20-markets/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/deploiement-20-marches/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/brand-site-20-markets/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/deploiement-20-marches/" />
+  </url>
+  <url>
+    <loc>https://nicogaray.com/cas/parcours-clients-crm/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/parcours-clients-crm/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/crm-customer-journeys/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/parcours-clients-crm/" />
+  </url>
+  <url>
+    <loc>https://nicogaray.com/en/cases/crm-customer-journeys/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nicogaray.com/cas/parcours-clients-crm/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicogaray.com/en/cases/crm-customer-journeys/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicogaray.com/cas/parcours-clients-crm/" />
   </url>
 </urlset>

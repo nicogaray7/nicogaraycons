@@ -10,7 +10,8 @@ This repository powers Nico Garay's consulting presence:
 
 - **nicogaray.com** ([index.html](index.html)): main consulting portfolio, presenting AI agent integration services, remote-first positioning, and client case studies.
 - **City landing pages**: localized versions for Bordeaux, Lille, Lyon, Marseille, Nantes, Nice, Paris, Toulouse, plus country pages for Belgium, Switzerland, and Luxembourg, and an English section (`/en`) for international audiences (Canada, UK, Singapore, US).
-- **Case studies** (`/cas`): concrete AI agent implementation examples.
+- **Case studies** (`/cas` in French, `/en/cases` in English, linked with hreflang): concrete AI agent implementations in production. They share [assets/cas/case.css](assets/cas/case.css).
+- **Use-case diagnostic**: the `#results` section of the generic home pages (FR, Paris, BE, CH, LU and the English pages) lets visitors pick their problem and see the matching agent. Styles and script live in [assets/cas/diagnostic.css](assets/cas/diagnostic.css) and [assets/cas/diagnostic.js](assets/cas/diagnostic.js).
 - **formation.nicogaray.com** lives in its own repository, [nicogaray7/nicogaray-formation](https://github.com/nicogaray7/nicogaray-formation).
 
 ## Tech stack
