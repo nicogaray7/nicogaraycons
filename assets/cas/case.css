@@ -158,7 +158,7 @@ h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 700; letter-spacing: -0.
 .cs-nearby a { margin-right: 4px; }
 
 /* Index page */
-.cs-index-cta { margin: 8px 0 72px; }
+.cs-index-cta { margin: 8px 0 72px; max-width: 640px; }
 
 footer { border-top: 1px solid var(--line); padding: 30px 20px; text-align: center; color: var(--muted); font-size: 0.85rem; line-height: 1.8; }
 footer a { color: var(--accent-ink); }
@@ -179,6 +179,7 @@ footer .pf-logo { width: 12px; height: 12px; padding: 2px; margin-right: 6px; ve
 
 @media (min-width: 720px) {
   .wrap { padding: 0 32px; }
+  .cs-index-cta .cs-btn { align-self: flex-start; }
   .cs-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cs-compare-head, .cs-row { display: grid; grid-template-columns: 160px minmax(0, 1fr) minmax(0, 1fr); gap: 0; }
   .cs-compare { border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
