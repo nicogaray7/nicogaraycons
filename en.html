@@ -530,6 +530,36 @@
       .contact-card { padding: 40px 24px; }
     }
 
+    /* -- USE CASES -- */
+    #use-cases { background: var(--bg); }
+    .uc-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr));
+      gap: 20px; margin-top: 48px;
+    }
+    .uc-card {
+      display: flex; flex-direction: column; min-width: 0;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+      text-decoration: none; color: inherit;
+      transition: border-color .18s ease, transform .18s ease;
+    }
+    .uc-card:hover, .uc-card:focus-visible { border-color: var(--accent); transform: translateY(-2px); }
+    .uc-tag {
+      display: inline-block; align-self: flex-start;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--accent2);
+      background: var(--accent-glow); border-radius: 6px;
+      padding: 3px 10px; margin-bottom: 18px;
+    }
+    .uc-card h3 { font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: 10px; }
+    .uc-card p { font-size: 0.86rem; color: var(--muted); line-height: 1.55; margin-bottom: 18px; flex: 1; }
+    .uc-figure { font-size: 1.05rem; font-weight: 700; color: var(--accent2); margin-bottom: 12px; }
+    .uc-link { font-size: 0.82rem; font-weight: 600; color: var(--accent); }
+    .uc-card:hover .uc-link { text-decoration: underline; }
+    .uc-all { margin-top: 40px; text-align: center; }
+    .uc-all a { font-size: 0.9rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+    .uc-all a:hover { text-decoration: underline; }
+
     /* ── PRIVACY TRAY ── */
     .ng-tray {
       position: fixed; bottom: 20px; left: 20px; right: 20px; z-index: 9999;
@@ -621,6 +651,7 @@
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#results">Use cases</a></li>
+    <li><a href="#use-cases">Case studies</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -860,6 +891,59 @@
         <div class="dx-actions"><a class="dx-cta" href="#contact">Book a call</a></div>
       </article>
     </div>
+  </div>
+</section>
+
+<section id="use-cases">
+  <div class="container">
+    <div class="section-label">Case studies</div>
+    <h2>What I have already<br/>put into production</h2>
+    <p class="subtitle">Six detailed cases, from a self-employed tradesman to a rollout across twenty markets. Each page covers the starting problem, what was built and what it changed.</p>
+    <div class="uc-grid">
+      <a class="uc-card" href="/en/cases/ai-assistant/">
+        <span class="uc-tag">In production</span>
+        <h3>Multichannel AI assistant in production</h3>
+        <p>It reads email, calendar and documents, suggests an action and waits for your approval before carrying it out.</p>
+        <div class="uc-figure">1 h/day saved</div>
+        <span class="uc-link">Read the case &rarr;</span>
+      </a>
+      <a class="uc-card" href="/en/cases/form-automation/">
+        <span class="uc-tag">Back office</span>
+        <h3>Automating a form-heavy process</h3>
+        <p>Collection, document generation and automatic filling of four online portals, with human approval before sending.</p>
+        <div class="uc-figure">1 entry instead of 4</div>
+        <span class="uc-link">Read the case &rarr;</span>
+      </a>
+      <a class="uc-card" href="/en/cases/plumber-quote-agent/">
+        <span class="uc-tag">Trades</span>
+        <h3>AI agent for a plumber: automated quotes</h3>
+        <p>A WhatsApp request or a voice note on site, and the priced quote comes back ready to review. Nothing goes out without approval.</p>
+        <div class="uc-figure">Same-day quotes</div>
+        <span class="uc-link">Read the case &rarr;</span>
+      </a>
+      <a class="uc-card" href="/en/cases/medical-practice-scheduling/">
+        <span class="uc-tag">Healthcare</span>
+        <h3>AI agent for a medical practice: scheduling and reminders</h3>
+        <p>Appointments, patient reminders and cancellations for a three-doctor practice.</p>
+        <div class="uc-figure">Slots refilled the same day</div>
+        <span class="uc-link">Read the case &rarr;</span>
+      </a>
+      <a class="uc-card" href="/en/cases/brand-site-20-markets/">
+        <span class="uc-tag">Large account</span>
+        <h3>Rolling out a brand website across 20 markets</h3>
+        <p>Scoping in Italy and Spain, development in India, adaptation by each local team. One single backlog.</p>
+        <div class="uc-figure">+15% traffic</div>
+        <span class="uc-link">Read the case &rarr;</span>
+      </a>
+      <a class="uc-card" href="/en/cases/crm-customer-journeys/">
+        <span class="uc-tag">Large account &middot; CRM</span>
+        <h3>Customer journey redesign and CRM activation</h3>
+        <p>Cleaning the database, defining groups with the business, building and measuring the journeys.</p>
+        <div class="uc-figure">+5% customers retained</div>
+        <span class="uc-link">Read the case &rarr;</span>
+      </a>
+    </div>
+    <div class="uc-all"><a href="/en/cases/">See all six cases &rarr;</a></div>
   </div>
 </section>
 
@@ -1171,6 +1255,7 @@
     <a href="/en/gb/">United Kingdom</a>
     <a href="/en/sg/">Singapore</a>
     <a href="/en/ca/">Canada</a>
+    <a href="https://formation.nicogaray.com" target="_blank" rel="noopener">Computer lessons (individuals, France)</a>
     <a href="https://clipilot.cloud" target="_blank" rel="noopener"><img class="pf-logo" src="/assets/logos/clipilot.png" alt="" width="16" height="16" loading="lazy" decoding="async">Clipilot · community YouTube ranking</a>
     <a href="/go/hostinger/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-hostinger" target="_blank" rel="sponsored nofollow noopener"><img class="pf-logo" src="/assets/logos/hostinger.png" alt="" width="16" height="16" loading="lazy" decoding="async">Hostinger · my hosting partner (-20%)</a>
     <a href="/go/claude/?lead=footer&utm_source=nicogaray-footer&utm_medium=site&utm_campaign=partenaire-claude" target="_blank" rel="sponsored nofollow noopener"><img class="pf-logo" src="/assets/logos/claude.png" alt="" width="16" height="16" loading="lazy" decoding="async">Claude · the AI I use</a>
