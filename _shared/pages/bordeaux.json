@@ -1,0 +1,16 @@
+{
+  "file": "bordeaux/index.html",
+  "footer_family": "case",
+  "footer_locale": "fr",
+  "vars": {
+    "src": "landing-bordeaux",
+    "tagline": "Nico Garay, consultant agents IA à Bordeaux et en Gironde",
+    "home_href": "https://nicogaray.com/fr/?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux",
+    "linkedin_href": "https://nicogaray.com/go/linkedin?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux",
+    "rdv_href": "https://nicogaray.com/go/rdv/?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux",
+    "rdv_label": "Prendre rendez-vous",
+    "wrap_open": "\n    <div class=\"wrap\">",
+    "wrap_close": "\n    </div>",
+    "extra_links": "\n    &nbsp;|&nbsp; <a href=\"https://nicogaray.com/go/malt/?lead=footer-bordeaux&utm_source=landing-bordeaux&utm_medium=site&utm_campaign=profil-malt\" target=\"_blank\" rel=\"noopener\"><img class=\"pf-logo\" src=\"/assets/logos/malt.png\" alt=\"\" width=\"16\" height=\"16\" loading=\"lazy\" decoding=\"async\">Malt</a>"
+  }
+}

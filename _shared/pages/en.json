@@ -1,0 +1,15 @@
+{
+  "file": "en.html",
+  "footer_family": "home",
+  "footer_locale": "en",
+  "vars": {
+    "tagline": "Independent AI consultant · Remote only · Anywhere in the world",
+    "home_link": "",
+    "nav_links": "@snippet:footer-links-root",
+    "lead": "footer-en",
+    "lead_malt": "footer-en",
+    "legal_current": "",
+    "cookies_current": "",
+    "top_href": "#hero"
+  }
+}

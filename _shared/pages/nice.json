@@ -1,0 +1,15 @@
+{
+  "file": "nice/index.html",
+  "footer_family": "home",
+  "footer_locale": "fr",
+  "vars": {
+    "tagline": "Agence automatisation IA Nice · Agents IA sur mesure · principalement à distance",
+    "home_link": "    <a href=\"/fr/\">Accueil</a>\n",
+    "nav_links": "    <a href=\"/lyon/\">Lyon</a>\n    <a href=\"/marseille/\">Marseille</a>\n",
+    "lead": "footer-nice",
+    "lead_malt": "footer-nice",
+    "legal_current": "",
+    "cookies_current": "",
+    "top_href": "#hero"
+  }
+}

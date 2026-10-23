@@ -1,0 +1,16 @@
+{
+  "file": "en/cases/crm-customer-journeys/index.html",
+  "footer_family": "case",
+  "footer_locale": "en",
+  "vars": {
+    "src": "cas-crm",
+    "tagline": "Nico Garay, AI agent consultant",
+    "home_href": "https://nicogaray.com/en?utm_source=cas-crm&amp;utm_medium=footer&amp;utm_campaign=cas-clients",
+    "linkedin_href": "https://nicogaray.com/go/linkedin?utm_source=cas-crm&amp;utm_medium=footer&amp;utm_campaign=cas-clients",
+    "rdv_href": "https://nicogaray.com/go/rdv/?lead=cas-crm&amp;utm_source=cas-crm&amp;utm_medium=footer&amp;utm_campaign=cas-clients",
+    "rdv_label": "Book a meeting",
+    "wrap_open": "",
+    "wrap_close": "",
+    "extra_links": ""
+  }
+}

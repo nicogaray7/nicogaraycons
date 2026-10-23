@@ -1,0 +1,15 @@
+{
+  "file": "mentions-legales/index.html",
+  "footer_family": "home",
+  "footer_locale": "fr",
+  "vars": {
+    "tagline": "Consultant IA indépendant · Remote uniquement · Partout dans le monde",
+    "home_link": "    <a href=\"/fr/\">Accueil</a>\n",
+    "nav_links": "@snippet:footer-links-root",
+    "lead": "footer-legal-fr",
+    "lead_malt": "footer-legal",
+    "legal_current": " aria-current=\"page\"",
+    "cookies_current": "",
+    "top_href": "#"
+  }
+}

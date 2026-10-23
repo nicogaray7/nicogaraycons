@@ -1,0 +1,16 @@
+{
+  "file": "cas/automatisation-formulaires/index.html",
+  "footer_family": "case",
+  "footer_locale": "fr",
+  "vars": {
+    "src": "cas-forms",
+    "tagline": "Nico Garay, consultant agents IA",
+    "home_href": "https://nicogaray.com/fr/?utm_source=cas-forms&amp;utm_medium=footer&amp;utm_campaign=cas-clients",
+    "linkedin_href": "https://nicogaray.com/go/linkedin?utm_source=cas-forms&amp;utm_medium=footer&amp;utm_campaign=cas-clients",
+    "rdv_href": "https://nicogaray.com/go/rdv/?lead=cas-forms&amp;utm_source=cas-forms&amp;utm_medium=footer&amp;utm_campaign=cas-clients",
+    "rdv_label": "Prendre rendez-vous",
+    "wrap_open": "",
+    "wrap_close": "",
+    "extra_links": ""
+  }
+}

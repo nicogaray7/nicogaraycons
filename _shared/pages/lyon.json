@@ -1,0 +1,15 @@
+{
+  "file": "lyon/index.html",
+  "footer_family": "home",
+  "footer_locale": "fr",
+  "vars": {
+    "tagline": "Consultant IA Lyon · Création d'agents IA sur mesure · principalement à distance",
+    "home_link": "    <a href=\"/fr/\">Accueil</a>\n",
+    "nav_links": "    <a href=\"/marseille/\">Marseille</a>\n    <a href=\"/paris/\">Paris</a>\n",
+    "lead": "footer-lyon",
+    "lead_malt": "footer-lyon",
+    "legal_current": "",
+    "cookies_current": "",
+    "top_href": "#hero"
+  }
+}

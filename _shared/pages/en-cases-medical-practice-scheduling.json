@@ -1,0 +1,16 @@
+{
+  "file": "en/cases/medical-practice-scheduling/index.html",
+  "footer_family": "case",
+  "footer_locale": "en",
+  "vars": {
+    "src": "cas-medical",
+    "tagline": "Nico Garay, AI agent consultant",
+    "home_href": "https://nicogaray.com/en?utm_source=cas-medical&amp;utm_medium=footer&amp;utm_campaign=cas-clients",
+    "linkedin_href": "https://nicogaray.com/go/linkedin?utm_source=cas-medical&amp;utm_medium=footer&amp;utm_campaign=cas-clients",
+    "rdv_href": "https://nicogaray.com/go/rdv/?lead=cas-medical&amp;utm_source=cas-medical&amp;utm_medium=footer&amp;utm_campaign=cas-clients",
+    "rdv_label": "Book a meeting",
+    "wrap_open": "",
+    "wrap_close": "",
+    "extra_links": ""
+  }
+}

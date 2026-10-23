@@ -1,0 +1,14 @@
+name: Check shared header/footer
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check every page matches its shared template
+        run: python3 _shared/render.py --check

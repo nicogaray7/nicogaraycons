@@ -1,0 +1,15 @@
+{
+  "file": "en/ca/index.html",
+  "footer_family": "home",
+  "footer_locale": "en",
+  "vars": {
+    "tagline": "Independent AI consultant · Canada · fully remote",
+    "home_link": "",
+    "nav_links": "",
+    "lead": "footer-en-ca",
+    "lead_malt": "footer-en-ca",
+    "legal_current": "",
+    "cookies_current": "",
+    "top_href": "#hero"
+  }
+}
