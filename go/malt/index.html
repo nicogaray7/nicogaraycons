@@ -10,12 +10,26 @@
   <!-- Cible de redirection (modifiable a un seul endroit) -->
   <script>
     window.MALT_URL = "https://www.malt.fr/profile/nicogaray";
-    window.REDIRECT_FALLBACK_MS = 1500; // securite si GTM ne rappelle pas
+    window.REDIRECT_FALLBACK_MS = 1500; // safety net if the GA4 hit is never acknowledged
   </script>
 
-  <!-- dataLayer + event de clic AVANT le chargement de GTM -->
+  <!-- Google Consent Mode v2 (opt-out: analytics granted by default, denied if the visitor refused on the site) -->
   <script>
     window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+      'analytics_storage': 'granted', 'functionality_storage': 'granted',
+      'personalization_storage': 'denied', 'security_storage': 'granted'
+    });
+    try { var _r = localStorage.getItem('ng-pref-v1'); if (_r) { gtag('consent', 'update', { 'analytics_storage': JSON.parse(_r).analytics ? 'granted' : 'denied' }); } } catch (e) {}
+  </script>
+
+  <!-- Google tag (gtag.js): this page used to rely on an empty GTM container, so no visit was ever recorded -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2DZPV8S00"></script>
+  <script>
+    gtag('js', new Date());
+    if (/(^|\.)nicogaray\.com$/.test(location.hostname)) { gtag('config', 'G-L2DZPV8S00'); }
 
     window.doRedirect = function () {
       if (window.__redirected) return;
@@ -23,17 +37,18 @@
       window.location.replace(window.MALT_URL);
     };
 
-    // Event de clic : declenche les tags GTM (GA4, etc.).
-    // GA4 attribue la campagne automatiquement via les utm_* presents sur l'URL de cette page.
-    window.dataLayer.push({
-      event: "malt_redirect",
+    // Redirect event sent straight to GA4. The page_view above already carries the utm_* of this URL;
+    // the event adds the partner and the ?lead= slot, then redirects as soon as the hit is sent.
+    var _p = new URLSearchParams(window.location.search);
+    gtag('event', 'malt_redirect', {
+      partenaire: 'malt',
+      lead: (_p.get('lead') || _p.get('utm_content') || '(direct)').slice(0, 60),
       link_destination: window.MALT_URL,
-      page_referrer: document.referrer || "(direct)",
-      eventTimeout: window.REDIRECT_FALLBACK_MS,
-      eventCallback: window.doRedirect
+      event_callback: window.doRedirect,
+      event_timeout: window.REDIRECT_FALLBACK_MS
     });
 
-    // Filet de securite : redirige meme si GTM est bloque (adblock) ou lent
+    // Safety net: redirect even if gtag.js is blocked (ad blocker) or slow
     setTimeout(window.doRedirect, window.REDIRECT_FALLBACK_MS);
   </script>
 

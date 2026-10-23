@@ -4,6 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
+  <!-- Google Consent Mode v2 (opt-out: analytics granted by default, denied if the visitor refused on the site) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied',
+      'analytics_storage': 'granted', 'functionality_storage': 'granted',
+      'personalization_storage': 'denied', 'security_storage': 'granted'
+    });
+    try { var _r = localStorage.getItem('ng-pref-v1'); if (_r) { gtag('consent', 'update', { 'analytics_storage': JSON.parse(_r).analytics ? 'granted' : 'denied' }); } } catch (e) {}
+  </script>
+  <!-- Google tag (gtag.js): records broken links, the missing URL is in page_location and the source in page_referrer -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2DZPV8S00"></script>
+  <script>
+    gtag('js', new Date());
+    if (/(^|\.)nicogaray\.com$/.test(location.hostname)) {
+      gtag('config', 'G-L2DZPV8S00');
+      gtag('event', 'page_404', { missing_path: location.pathname.slice(0, 100) });
+    }
+  </script>
   <title>Page introuvable | Nico Garay</title>
   <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32.png" />
