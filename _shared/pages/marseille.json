@@ -1,0 +1,15 @@
+{
+  "file": "marseille/index.html",
+  "footer_family": "home",
+  "footer_locale": "fr",
+  "vars": {
+    "tagline": "Consultant IA Marseille · Agents IA sur mesure et coaching individuel IA · principalement à distance",
+    "home_link": "    <a href=\"/fr/\">Accueil</a>\n",
+    "nav_links": "    <a href=\"/lyon/\">Lyon</a>\n    <a href=\"/paris/\">Paris</a>\n",
+    "lead": "footer-marseille",
+    "lead_malt": "footer-marseille",
+    "legal_current": "",
+    "cookies_current": "",
+    "top_href": "#hero"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "file": "en/legal-notice/index.html",
+  "footer_family": "home",
+  "footer_locale": "en",
+  "vars": {
+    "tagline": "Independent AI consultant · Remote only · Anywhere in the world",
+    "home_link": "    <a href=\"/en\">Home</a>\n",
+    "nav_links": "@snippet:footer-links-root",
+    "lead": "footer-legal-en",
+    "lead_malt": "footer-legal",
+    "legal_current": " aria-current=\"page\"",
+    "cookies_current": "",
+    "top_href": "#"
+  }
+}

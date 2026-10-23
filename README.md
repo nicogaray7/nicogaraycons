@@ -31,3 +31,19 @@ Each locale/city has its own directory with a self-contained `index.html`. Share
 ## License
 
 Proprietary. See [LICENSE](LICENSE).
+
+## Shared header and footer
+
+The footer of every page except the Bordeaux landing page comes from a shared
+template, so a footer change is made once:
+
+- Templates: `_shared/footer-home.fr.html` / `.en.html` (home, city, country and
+  legal pages) and `_shared/footer-case.fr.html` / `.en.html` (case studies).
+- Fragments shared by several pages: `_shared/snippets/`.
+- Per-page values (tagline, city links, `lead=`): `_shared/pages/<page>.json`.
+
+After editing any of them, run `python3 _shared/render.py` and commit the
+regenerated pages. Never edit a footer inside a page between the
+`<!-- shared:footer -->` markers: the `Check shared header/footer` workflow
+fails the pull request when a page no longer matches its template
+(`python3 _shared/render.py --check` runs the same check locally).

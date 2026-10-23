@@ -99,8 +99,11 @@ _shared/
 ├── header-home.en.html
 ├── header-case.fr.html         # case-study-family header template
 ├── header-case.en.html
-├── footer.fr.html               # single footer template
-├── footer.en.html
+├── footer-home.fr.html          # footer of root, city, country and legal pages
+├── footer-home.en.html
+├── footer-case.fr.html          # footer of case-study pages
+├── footer-case.en.html
+├── snippets/                    # shared fragments referenced as "@snippet:<name>"
 └── pages/
     ├── fr-index.json            # per-page settings (header family, locale, lead=, taglines,
     ├── paris.json                #   sibling city links, active nav item, booking link, ...)

@@ -1,0 +1,8 @@
+{
+  "file": "en/cases/form-automation/index.html",
+  "footer_family": "case",
+  "footer_locale": "en",
+  "vars": {
+    "src": "cas-forms"
+  }
+}

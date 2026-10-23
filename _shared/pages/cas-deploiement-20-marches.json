@@ -1,0 +1,8 @@
+{
+  "file": "cas/deploiement-20-marches/index.html",
+  "footer_family": "case",
+  "footer_locale": "fr",
+  "vars": {
+    "src": "cas-markets"
+  }
+}

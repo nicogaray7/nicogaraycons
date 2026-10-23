@@ -29,10 +29,28 @@ class RenderError(Exception):
     pass
 
 
+SNIPPET_PREFIX = "@snippet:"
+
+
 def template_path(kind: str, family: str | None, locale: str) -> Path:
-    if kind == "header":
-        return SHARED / f"header-{family}.{locale}.html"
-    return SHARED / f"footer.{locale}.html"
+    return SHARED / f"{kind}-{family}.{locale}.html"
+
+
+def resolve_vars(variables: dict, locale: str, page_key: str) -> dict:
+    """A var whose value is "@snippet:<name>" is replaced by the content of
+    _shared/snippets/<name>.<locale>.html, so text shared by several pages
+    (for example the extra footer links of the root and legal pages) lives in
+    one file instead of being copied into every page's settings."""
+    out = {}
+    for key, value in variables.items():
+        if isinstance(value, str) and value.startswith(SNIPPET_PREFIX):
+            name = value[len(SNIPPET_PREFIX):]
+            path = SHARED / "snippets" / f"{name}.{locale}.html"
+            if not path.exists():
+                raise RenderError(f"{page_key}: missing snippet {path.relative_to(ROOT)}")
+            value = path.read_text(encoding="utf-8")
+        out[key] = value
+    return out
 
 
 def load_template(kind: str, family: str | None, locale: str) -> string.Template:
@@ -45,7 +63,7 @@ def load_template(kind: str, family: str | None, locale: str) -> string.Template
 def render_region(kind: str, family: str | None, locale: str, variables: dict, page_key: str) -> str:
     tpl = load_template(kind, family, locale)
     try:
-        return tpl.substitute(variables)
+        return tpl.substitute(resolve_vars(variables, locale, page_key))
     except KeyError as e:
         raise RenderError(
             f"{page_key}: missing var {e.args[0]!r} for {kind} "
@@ -62,7 +80,14 @@ def splice_region(file_text: str, kind: str, new_inner: str, page_key: str) -> s
     start_content = start + len(start_marker)
     if end < start_content:
         raise RenderError(f"{page_key}: {kind} end marker before start marker")
-    return file_text[:start_content] + "\n" + new_inner.strip() + "\n" + file_text[end:]
+    # Keep the indentation of the end marker's line, so indented pages stay
+    # byte-identical: templates carry their own leading indentation.
+    line_start = file_text.rfind("\n", 0, end) + 1
+    indent = file_text[line_start:end]
+    if indent.strip():
+        indent = ""
+    return (file_text[:start_content] + "\n" + new_inner.rstrip("\n") + "\n"
+            + indent + file_text[end:])
 
 
 def load_page_settings() -> list[dict]:
@@ -93,9 +118,10 @@ def render_page(settings: dict) -> tuple[Path, str, list[str]]:
         text = splice_region(text, "header", inner, page_key)
         rendered_kinds.append("header")
 
+    footer_family = settings.get("footer_family")
     footer_locale = settings.get("footer_locale")
-    if footer_locale:
-        inner = render_region("footer", None, footer_locale, variables, page_key)
+    if footer_family and footer_locale:
+        inner = render_region("footer", footer_family, footer_locale, variables, page_key)
         text = splice_region(text, "footer", inner, page_key)
         rendered_kinds.append("footer")
 

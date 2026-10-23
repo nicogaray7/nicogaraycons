@@ -1,0 +1,15 @@
+{
+  "file": "paris/index.html",
+  "footer_family": "home",
+  "footer_locale": "fr",
+  "vars": {
+    "tagline": "Consultant IA indépendant · Paris &amp; Île-de-France · principalement à distance",
+    "home_link": "",
+    "nav_links": "",
+    "lead": "footer-paris",
+    "lead_malt": "footer-paris",
+    "legal_current": "",
+    "cookies_current": "",
+    "top_href": "#hero"
+  }
+}

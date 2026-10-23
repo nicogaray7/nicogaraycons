@@ -1,0 +1,15 @@
+{
+  "file": "lu/index.html",
+  "footer_family": "home",
+  "footer_locale": "fr",
+  "vars": {
+    "tagline": "Consultant IA indépendant · Luxembourg · principalement à distance",
+    "home_link": "",
+    "nav_links": "",
+    "lead": "footer-lu",
+    "lead_malt": "footer-lu",
+    "legal_current": "",
+    "cookies_current": "",
+    "top_href": "#hero"
+  }
+}

@@ -20,7 +20,7 @@ Constraints:
 
 ## FooterTemplate
 
-The footer source file: `_shared/footer.<locale>.html`.
+The footer source file: `_shared/footer-<family>.<locale>.html` (`home` or `case`).
 
 | Field | Meaning |
 |---|---|
@@ -39,7 +39,8 @@ One JSON file per page under `_shared/pages/<page-key>.json`.
 | file | path to the HTML file, relative to repo root | `"lyon/index.html"` |
 | header_family | `"home"`, `"case"`, or `null` if the page has no header | `"home"` |
 | header_locale | `"fr"` or `"en"` | `"fr"` |
-| footer_locale | `"fr"`, `"en"`, or `null` if the page has no footer | `"fr"` |
+| footer_family | `"home"`, `"case"`, or absent if the page has no shared footer | `"home"` |
+| footer_locale | `"fr"` or `"en"` | `"fr"` |
 | vars | flat string-to-string map, one entry per placeholder the page's templates need: `lead_footer`, `lead_nav_cta`, `utm_campaign_*`, `tagline`, `nav_logo_href`, `lang_switch_href`, `active_page`, `booking_href`, `sibling_links_html` (pre-rendered `<a>` list for cities), etc. | see quickstart.md |
 
 Validation rules (enforced by `render.py`, not by a schema library, to keep the
@@ -75,6 +76,9 @@ PageSettings.file                            -->  one existing HTML page,
                                                     region and/or one
                                                     shared:footer region
 ```
+
+A `vars` value of the form `"@snippet:<name>"` is replaced by the content of
+`_shared/snippets/<name>.<locale>.html`.
 
 No other state. The render script is stateless between runs; `--check` failures
 are reported to stdout/CI, nothing is persisted.

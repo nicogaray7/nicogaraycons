@@ -30,6 +30,36 @@ quickstart.md, are the test.
 
 Total: 35 pages, matching plan.md's Scale/Scope.
 
+## Implementation notes (lot 1, 2026-10-23)
+
+Reading the 35 real footers showed the "one footer per locale" assumption was
+wrong. What was built instead:
+
+- Two footer families, not one: `footer-home.{fr,en}.html` (root, city, country
+  and legal pages, 20 pages) and `footer-case.{fr,en}.html` (case studies, 14
+  pages). Templates live at `_shared/<kind>-<family>.<locale>.html`; page
+  settings carry `footer_family`.
+- `bordeaux/index.html` is out of scope for now: its footer is a separate
+  landing-page design (own wrapper, absolute URLs, different link set). It has
+  no markers and no settings file; folding it into a family is a decision for
+  Nico, not a dedup.
+- The migration is zero-visual-change: each page keeps its own link list,
+  tagline and `lead=` values. Shared text used by several pages (the extra
+  links of the root and legal pages) lives in `_shared/snippets/` and is
+  referenced from settings as `"@snippet:<name>"`. The only byte change outside
+  the markers is `&copy;` written as `©` on 6 city pages (same glyph).
+- Existing inconsistencies are kept as they are and listed for a later
+  decision: Paris and the country pages have no sibling-city links while the
+  other city pages do; legal pages use `lead=footer-legal` for Malt and
+  `footer-legal-fr`/`-en` for Hostinger and Mercato.
+- T010 was done for footers only; header markers come with User Story 2.
+- Verification: a label change in `footer-home.fr.html` reached all FR home
+  pages with their own `lead=` kept; a hand edit in `lyon/index.html` made
+  `--check` fail naming `lyon`; mobile footer screenshots of `/lyon/`, `/cas/`,
+  `/en/us/` and `/fr/` are pixel-identical to production; clicking the footer
+  Hostinger and Malt links fires `partenaire_clic` and `clic_malt` with
+  `lead=footer-lyon`.
+
 ## Phase 1: Setup
 
 - [X] T001 Create the `_shared/` directory and `_shared/pages/` subdirectory;
@@ -63,7 +93,7 @@ story's pages are migrated through.**
   memory, diffs against the file's current region, and on any mismatch prints
   the offending `page_key` and `file` and exits 1 (0 if every page matches),
   per quickstart.md.
-- [ ] T007 Extract `_shared/footer.fr.html` and `_shared/footer.en.html` from
+- [X] T007 Extract `_shared/footer.fr.html` and `_shared/footer.en.html` from
   the current footer markup in `fr/index.html` and `en.html`, turning the
   per-page tagline, sibling-city links, `lead_footer` value and any
   `utm_campaign_*` value into `$placeholder` tokens while keeping every
@@ -95,24 +125,24 @@ and markers are in place.
 regenerate, confirm every page with a footer shows it and keeps its own
 `lead=` value.
 
-- [ ] T011 [US1] Create `_shared/pages/<key>.json` for each of the 14 FR
+- [X] T011 [US1] Create `_shared/pages/<key>.json` for each of the 14 FR
   home-family pages (listed in Page inventory) with `file` and `footer_locale:
   "fr"`, and `vars` covering `tagline`, `sibling_links_html`, `lead_footer`,
   and any footer `utm_campaign_*` used by that page today.
-- [ ] T012 [P] [US1] Create `_shared/pages/<key>.json` for each of the 7 EN
+- [X] T012 [P] [US1] Create `_shared/pages/<key>.json` for each of the 7 EN
   home-family pages with `footer_locale: "en"` and the same `vars` shape as
   T011, values translated/adapted per page.
-- [ ] T013 [P] [US1] Create `_shared/pages/<key>.json` for each of the 7 FR
+- [X] T013 [P] [US1] Create `_shared/pages/<key>.json` for each of the 7 FR
   case-study pages with `footer_locale: "fr"` and the same `vars` shape.
-- [ ] T014 [P] [US1] Create `_shared/pages/<key>.json` for each of the 7 EN
+- [X] T014 [P] [US1] Create `_shared/pages/<key>.json` for each of the 7 EN
   case-study pages with `footer_locale: "en"` and the same `vars` shape.
-- [ ] T015 [US1] Run `python3 _shared/render.py`; review `git diff` for all 35
+- [X] T015 [US1] Run `python3 _shared/render.py`; review `git diff` for all 35
   footer regions; list in the pull request description every case where a page
   gains or loses a link compared to today, per FR-009 and research.md's
   unified-link-set decision.
-- [ ] T016 [US1] Run `python3 _shared/render.py --check`; confirm exit code 0
+- [X] T016 [US1] Run `python3 _shared/render.py --check`; confirm exit code 0
   for all 35 pages (SC-002, footer half).
-- [ ] T017 [US1] Follow quickstart.md "Prove a footer change reaches every
+- [X] T017 [US1] Follow quickstart.md "Prove a footer change reaches every
   page": change one link label in `_shared/footer.fr.html`, regenerate,
   `grep` for it in `fr/index.html`, `paris/index.html`, `lyon/index.html`,
   `mentions-legales/index.html`, confirm the new label is there and each
@@ -169,7 +199,7 @@ the page.
 **Independent Test**: per spec.md, hand-edit the footer of one page, run the
 check, see it fail naming that page; regenerate and see it pass.
 
-- [ ] T026 [US3] Hand-edit the footer markup inside the `shared:footer` region
+- [X] T026 [US3] Hand-edit the footer markup inside the `shared:footer` region
   of one already-migrated page (for example `lyon/index.html`) without going
   through `_shared/footer.fr.html`; run `python3 _shared/render.py --check`;
   confirm it exits 1 and its output names `lyon` and `lyon/index.html`
@@ -184,7 +214,7 @@ written.
 
 ## Phase 6: Polish & Cross-Cutting Concerns
 
-- [ ] T028 [P] Add a short section to `README.md` naming `_shared/render.py`,
+- [X] T028 [P] Add a short section to `README.md` naming `_shared/render.py`,
   `_shared/pages/`, the two commands (plain run, `--check`), and "Add a new
   page later" steps from quickstart.md (FR-008).
 - [ ] T029 [P] Re-read `docs/analytics-conversions.md` against the migrated

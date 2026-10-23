@@ -1,0 +1,15 @@
+{
+  "file": "fr/index.html",
+  "footer_family": "home",
+  "footer_locale": "fr",
+  "vars": {
+    "tagline": "Consultant IA indépendant · Remote uniquement · Partout dans le monde",
+    "home_link": "",
+    "nav_links": "@snippet:footer-links-root",
+    "lead": "footer-home",
+    "lead_malt": "footer-home",
+    "legal_current": "",
+    "cookies_current": "",
+    "top_href": "#hero"
+  }
+}
