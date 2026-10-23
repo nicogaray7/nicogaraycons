@@ -1,6 +1,6 @@
 # Analytics conversions - nicogaray.com + formation.nicogaray.com
 
-## Propriete GA4 : G-L2DZPV8S00 (via GTM-54MMFRP)
+## Propriete GA4 : G-L2DZPV8S00 (direct gtag on every page, GTM removed on 2026-10-18)
 
 ## Evenements implementes
 
@@ -11,6 +11,9 @@
 | `scroll_paliers` | Scroll aux seuils 25/50/75/90 % | `percent_scrolled` | `assets/track.js` |
 | `page_view` | Navigation (chargement de page) | `page_path`, `page_location` | Inline HTML (gtag config) |
 | `use_case_select` | Visitor picks an answer in the use-case diagnostic (#results) | `use_case` (card id, e.g. `dx-case-2`) | `assets/cas/diagnostic.js` |
+| `partenaire_clic` | Click on a `/go/claude/`, `/go/hostinger/` or `/go/mercato/` link | `partenaire`, `lead`, `cta_location`, `cta_label` | `assets/track.js` |
+| `claude_redirect`, `hostinger_redirect`, `malt_redirect`, `linkedin_redirect`, `mercato_redirect` | Load of the matching `/go/<name>/` redirect page, sent before leaving the site | `partenaire`, `lead`, `link_destination` | Inline in `go/<name>/index.html` |
+| `page_404` | Unknown URL served by GitHub Pages | `missing_path` | Inline in `404.html` |
 
 ## Quel event = quelle vente / lead
 
@@ -44,3 +47,7 @@ Le `lead_source` est extrait du parametre `?lead=` deja present dans les URLs CT
 
 - Les pages villes (lyon, paris, etc.) et formation chargent toutes `/assets/track.js`. L'ajout de `generate_lead` dans ce fichier couvre automatiquement l'ensemble du site.
 - Le script inline de `formation/index.html` (lignes 659-666) tentait de capturer les clics Calendly directs mais les CTAs formation pointent vers `/go/rdv/` : ce script ne se declenchait pas. Il peut etre supprime lors d'une prochaine PR de nettoyage.
+
+## Redirect pages (`/go/<name>/`)
+
+Each redirect page loads gtag directly, sends a `page_view` (which carries the `utm_*` of the link) and a `<name>_redirect` event, then leaves for the target once the hit is sent, or after 1.5 s at most. Every link on the site sets a distinct `?lead=` slot (`home-partenaire`, `en-home-partner`, `footer-<page>`, `footer-legal-fr`, `footer-legal-en`...), so a partner signup can be traced back to the page and the block that sent it. Until 2026-10-23 these pages only pushed to an empty GTM container and recorded nothing.

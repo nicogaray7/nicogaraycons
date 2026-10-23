@@ -66,10 +66,11 @@
     var a = e.target && e.target.closest ? e.target.closest('a') : null;
     if (!a) return;
     var href = (a.getAttribute && a.getAttribute('href')) || '';
-    var m = href.match(/\/go\/(hostinger|claude)\b/i);
+    var m = href.match(/\/go\/(hostinger|claude|mercato)\b/i);
     if (!m) return;
     send('partenaire_clic', {
       partenaire: m[1].toLowerCase(),
+      lead: leadSource(href),
       cta_location: ctaLocation(a),
       cta_label: (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60)
     });

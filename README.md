@@ -20,7 +20,7 @@ This repository powers Nico Garay's consulting presence:
 - Hosted on GitHub Pages from the `main` branch, with the custom domain set in [CNAME](CNAME); `www.nicogaray.com` redirects to the apex domain
 - `.nojekyll` publishes every file as is; [404.html](404.html) is served for unknown URLs
 - Moved URLs are handled by small browser redirect pages (for example [cas/agent-rdv-artisan/](cas/agent-rdv-artisan/index.html)), since GitHub Pages cannot send server redirects
-- Google Analytics 4 (via GTM and direct gtag) for traffic and conversion tracking, with custom event tracking in [assets/track.js](assets/track.js) (see [docs/analytics-conversions.md](docs/analytics-conversions.md))
+- Google Analytics 4 (direct gtag on every page, including the `/go/` redirect pages and the 404) for traffic and conversion tracking, with custom event tracking in [assets/track.js](assets/track.js) (see [docs/analytics-conversions.md](docs/analytics-conversions.md))
 - Platform logos are self-hosted favicons in [assets/logos](assets/logos)
 - Structured data (JSON-LD) for SEO and local business signals
 
