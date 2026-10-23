@@ -54,7 +54,30 @@ wrong. What was built instead:
   decision: Paris and the country pages have no sibling-city links while the
   other city pages do; legal pages use `lead=footer-legal` for Malt and
   `footer-legal-fr`/`-en` for Hostinger and Mercato.
-- T010 was done for footers only; header markers come with User Story 2.
+- T010 now covers headers too, for all 35 pages.
+- Header, lot 2 (2026-10-23): two families, `header-home` (one `<ul class="nav-links">`
+  block per page, since the set of in-page anchors genuinely differs page to
+  page, e.g. Paris has no `#use-cases` link lyon has `#cas-usage`/`#coaching`
+  instead) and `header-case` (uniform `cs-nav`, logo/lang/CTA hrefs as vars).
+  Bordeaux's header joins `header-case` too, the same way its footer did:
+  `header_wrap_open/close` and `header_lang_link` default to the cs-nav shape
+  for the 14 case pages and to empty for Bordeaux, which also gets its own
+  `nav_class`/`logo_class`/`cta_class` (`""`/`nav-logo`/`nav-cta`) so it keeps
+  its own CSS instead of the unstyled `cs-logo`/`cs-btn-sm` it doesn't define.
+  A first pass on the header-case migration re-ran the migration script twice
+  by mistake (duplicated end markers on 2 pages) and reused `wrap_open`/
+  `wrap_close` for both header and footer vars in the same flat per-page `vars`
+  map, which corrupted the footer of all 14 case pages (the header's
+  `cs-nav-right` div leaked into the footer). Caught by `--check` and a diff
+  review before anything was pushed; fixed by renaming the header's vars to
+  `header_wrap_open`/`header_wrap_close`/`header_lang_link` so they can never
+  collide with the footer's own `wrap_open`/`wrap_close`/`extra_links`.
+- Verification: a glyph change in `header-home.fr.html`'s separator reached
+  `/fr/`, `/paris/`, `/lyon/`, `/mentions-legales/`; a hand edit in a nav link
+  on `/lyon/` made `--check` fail naming `lyon`; mobile nav screenshots of
+  `/lyon/`, `/en/us/`, `/cas/` and `/bordeaux/` are pixel-identical to
+  production; the nav CTA click fires `clic_cta` and `generate_lead` with the
+  page's own `lead`/`cta_label` on all four.
 - Verification: a label change in `footer-home.fr.html` reached all FR home
   pages with their own `lead=` kept; a hand edit in `lyon/index.html` made
   `--check` fail naming `lyon`; mobile footer screenshots of `/lyon/`, `/cas/`,
@@ -102,16 +125,16 @@ story's pages are migrated through.**
   existing `href`, `rel="sponsored nofollow noopener"`, `target`, `data-cta`
   and logo `<img>` exactly as today (research.md's unified-footer decision,
   FR-005).
-- [ ] T008 Extract `_shared/header-home.fr.html` and `_shared/header-home.en.html`
+- [X] T008 Extract `_shared/header-home.fr.html` and `_shared/header-home.en.html`
   from the current header markup in `fr/index.html` and `en.html`, turning
   `nav_logo_href`, the language-switch target, the `active`/`aria-current`
   page marker, the booking-link href/`utm_*` and the CTA label into
   `$placeholder` tokens (research.md's two-families decision, FR-005).
-- [ ] T009 Extract `_shared/header-case.fr.html` and `_shared/header-case.en.html`
+- [X] T009 Extract `_shared/header-case.fr.html` and `_shared/header-case.en.html`
   from the current header markup in `cas/index.html` and
   `en/cases/index.html`, turning the language-switch target and the
   `lead=`/`utm_*` values on its CTA into `$placeholder` tokens.
-- [ ] T010 Add the `<!-- shared:header start/end -->` and
+- [X] T010 Add the `<!-- shared:header start/end -->` and
   `<!-- shared:footer start/end -->` marker comments around the existing,
   unmodified header and footer markup in all 35 pages listed in the Page
   inventory above (mechanical: markers only, no content change yet).
@@ -161,31 +184,31 @@ every page of that family.
 source, regenerate, confirm every home/city/legal page shows it while section
 links and booking-link parameters stay per-page.
 
-- [ ] T018 [US2] Extend each of the 14 FR home-family `_shared/pages/<key>.json`
+- [X] T018 [US2] Extend each of the 14 FR home-family `_shared/pages/<key>.json`
   files from T011 with `header_family: "home"`, `header_locale: "fr"`, and the
   additional `vars` the home header template needs (`nav_logo_href`,
   `lang_switch_href`, `active_page`, `booking_href` with its page-specific
   `lead=`/`utm_*`, any in-page section hrefs that differ by page).
-- [ ] T019 [P] [US2] Extend each of the 7 EN home-family JSON files from T012
+- [X] T019 [P] [US2] Extend each of the 7 EN home-family JSON files from T012
   with `header_family: "home"`, `header_locale: "en"`, and the same `vars`
   shape as T018.
-- [ ] T020 [P] [US2] Extend each of the 7 FR case-study JSON files from T013
+- [X] T020 [P] [US2] Extend each of the 7 FR case-study JSON files from T013
   with `header_family: "case"`, `header_locale: "fr"`, and the `vars` the case
   header template needs (`lang_switch_href`, CTA `lead=`/`utm_*`).
-- [ ] T021 [P] [US2] Extend each of the 7 EN case-study JSON files from T014
+- [X] T021 [P] [US2] Extend each of the 7 EN case-study JSON files from T014
   with `header_family: "case"`, `header_locale: "en"`, and the same `vars`
   shape as T020.
-- [ ] T022 [US2] Run `python3 _shared/render.py`; review `git diff` for all 35
+- [X] T022 [US2] Run `python3 _shared/render.py`; review `git diff` for all 35
   header regions.
-- [ ] T023 [US2] Run `python3 _shared/render.py --check`; confirm exit code 0
+- [X] T023 [US2] Run `python3 _shared/render.py --check`; confirm exit code 0
   for all 35 pages (SC-002, header half; full SC-002 now satisfied).
-- [ ] T024 [US2] Follow quickstart.md "Prove tracking survived": in a real
+- [X] T024 [US2] Follow quickstart.md "Prove tracking survived": in a real
   browser, open `fr/index.html`, `paris/index.html`, `en/us/index.html` and
   `cas/index.html`; confirm the `gtag('config','G-L2DZPV8S00')` call still
   fires on each, and that clicking each page's footer/header tracked links
   reproduces the same `lead=`/`utm_*` values recorded in the T015/T022 diffs
   (SC-003, Constitution II).
-- [ ] T025 [US2] Follow quickstart.md "Prove nothing else moved": screenshot
+- [X] T025 [US2] Follow quickstart.md "Prove nothing else moved": screenshot
   `fr/index.html`, `paris/index.html`, `en/us/index.html` and `cas/index.html`
   at a phone width and at desktop width, before and after T022's regeneration;
   confirm no visual change beyond the unifications listed in T015 (SC-004,
@@ -207,7 +230,7 @@ check, see it fail naming that page; regenerate and see it pass.
   confirm it exits 1 and its output names `lyon` and `lyon/index.html`
   (Acceptance Scenario 1 of User Story 3); then run
   `python3 _shared/render.py` to restore it and confirm `--check` now passes.
-- [ ] T027 [US3] Push T026's hand-edit on a disposable branch/PR and confirm
+- [X] T027 [US3] Push T026's hand-edit on a disposable branch/PR and confirm
   `.github/workflows/check-shared-partials.yml` (T002) fails that PR's checks;
   close the PR without merging.
 
@@ -219,12 +242,12 @@ written.
 - [X] T028 [P] Add a short section to `README.md` naming `_shared/render.py`,
   `_shared/pages/`, the two commands (plain run, `--check`), and "Add a new
   page later" steps from quickstart.md (FR-008).
-- [ ] T029 [P] Re-read `docs/analytics-conversions.md` against the migrated
+- [X] T029 [P] Re-read `docs/analytics-conversions.md` against the migrated
   templates and confirm every `data-cta`/event hook it documents is still
   described accurately now that the markup lives in `_shared/`; update only if
   a hook's location description is now wrong, do not change the hooks
   themselves.
-- [ ] T030 Run `python3 _shared/render.py --check` once more on the final
+- [X] T030 Run `python3 _shared/render.py --check` once more on the final
   branch state before opening the merge pull request; it must exit 0 for all
   35 pages (SC-002 as a release gate).
 

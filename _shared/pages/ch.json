@@ -10,6 +10,19 @@
     "lead_malt": "footer-ch",
     "legal_current": "",
     "cookies_current": "",
-    "top_href": "#hero"
-  }
+    "top_href": "#hero",
+    "logo_href": "#",
+    "nav_items": "\n    <li><a href=\"#services\">Services</a></li>\n    <li><a href=\"#results\">Résultats</a></li>\n    <li><a href=\"#experience\">Parcours</a></li>\n    <li><a href=\"#stack\">Stack</a></li>\n    <li><a href=\"#contact\">Contact</a></li>\n  ",
+    "lang_switch_attrs": " aria-label=\"Language selector\"",
+    "fr_href": "/ch/",
+    "fr_hreflang": "",
+    "sep_hidden": "",
+    "en_href": "/en",
+    "en_hreflang": "",
+    "cta_href": "#contact",
+    "cta_attrs": "",
+    "cta_label": "Réserver un appel"
+  },
+  "header_family": "home",
+  "header_locale": "fr"
 }

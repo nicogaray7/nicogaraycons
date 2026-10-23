@@ -10,6 +10,19 @@
     "lead_malt": "footer-en-gb",
     "legal_current": "",
     "cookies_current": "",
-    "top_href": "#hero"
-  }
+    "top_href": "#hero",
+    "logo_href": "#",
+    "nav_items": "\n    <li><a href=\"#services\">Services</a></li>\n    <li><a href=\"#results\">Use cases</a></li>\n    <li><a href=\"#experience\">Experience</a></li>\n    <li><a href=\"#stack\">Stack</a></li>\n    <li><a href=\"#contact\">Contact</a></li>\n  ",
+    "lang_switch_attrs": " aria-label=\"Language selector\"",
+    "fr_href": "/fr/",
+    "fr_hreflang": "",
+    "sep_hidden": "",
+    "en_href": "/en/gb/",
+    "en_hreflang": "",
+    "cta_href": "#contact",
+    "cta_attrs": "",
+    "cta_label": "Book a call"
+  },
+  "header_family": "home",
+  "header_locale": "en"
 }

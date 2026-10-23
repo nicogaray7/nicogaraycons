@@ -9,8 +9,20 @@
     "linkedin_href": "https://nicogaray.com/go/linkedin?utm_source=cas-crm&amp;utm_medium=footer&amp;utm_campaign=cas-clients",
     "rdv_href": "https://nicogaray.com/go/rdv/?lead=cas-crm&amp;utm_source=cas-crm&amp;utm_medium=footer&amp;utm_campaign=cas-clients",
     "rdv_label": "Prendre rendez-vous",
+    "extra_links": "",
+    "logo_href": "https://nicogaray.com/fr/?utm_source=cas-crm&amp;utm_medium=site&amp;utm_campaign=cas-clients",
+    "lang_href": "https://nicogaray.com/en/cases/crm-customer-journeys/",
+    "cta_href": "https://nicogaray.com/go/rdv/?lead=cas-crm&amp;utm_source=cas-crm&amp;utm_medium=nav&amp;utm_campaign=cas-clients",
+    "nav_class": " class=\"cs-nav\"",
+    "logo_class": "cs-logo",
+    "cta_class": "cs-btn-sm",
+    "cta_label": "Échanger 30 min",
+    "header_wrap_open": "\n    <div class=\"cs-nav-right\">",
+    "header_lang_link": "\n      <a class=\"cs-lang\" href=\"https://nicogaray.com/en/cases/crm-customer-journeys/\" hreflang=\"en\" lang=\"en\" aria-label=\"English version\">EN</a>",
+    "header_wrap_close": "\n    </div>",
     "wrap_open": "",
-    "wrap_close": "",
-    "extra_links": ""
-  }
+    "wrap_close": ""
+  },
+  "header_family": "case",
+  "header_locale": "fr"
 }
