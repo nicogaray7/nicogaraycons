@@ -11,6 +11,17 @@
     "rdv_label": "Prendre rendez-vous",
     "wrap_open": "\n    <div class=\"wrap\">",
     "wrap_close": "\n    </div>",
-    "extra_links": "\n    &nbsp;|&nbsp; <a href=\"https://nicogaray.com/go/malt/?lead=footer-bordeaux&utm_source=landing-bordeaux&utm_medium=site&utm_campaign=profil-malt\" target=\"_blank\" rel=\"noopener\"><img class=\"pf-logo\" src=\"/assets/logos/malt.png\" alt=\"\" width=\"16\" height=\"16\" loading=\"lazy\" decoding=\"async\">Malt</a>"
-  }
+    "extra_links": "\n    &nbsp;|&nbsp; <a href=\"https://nicogaray.com/go/malt/?lead=footer-bordeaux&utm_source=landing-bordeaux&utm_medium=site&utm_campaign=profil-malt\" target=\"_blank\" rel=\"noopener\"><img class=\"pf-logo\" src=\"/assets/logos/malt.png\" alt=\"\" width=\"16\" height=\"16\" loading=\"lazy\" decoding=\"async\">Malt</a>",
+    "nav_class": "",
+    "logo_class": "nav-logo",
+    "logo_href": "https://nicogaray.com/fr/?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux",
+    "header_wrap_open": "",
+    "header_lang_link": "",
+    "cta_class": "nav-cta",
+    "cta_href": "https://nicogaray.com/go/rdv/?utm_source=landing-bordeaux&utm_medium=site&utm_campaign=prospection-bordeaux",
+    "cta_label": "Échanger 30 min",
+    "header_wrap_close": ""
+  },
+  "header_family": "case",
+  "header_locale": "fr"
 }

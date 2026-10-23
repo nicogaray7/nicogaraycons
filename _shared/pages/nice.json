@@ -10,6 +10,19 @@
     "lead_malt": "footer-nice",
     "legal_current": "",
     "cookies_current": "",
-    "top_href": "#hero"
-  }
+    "top_href": "#hero",
+    "logo_href": "/fr/",
+    "nav_items": "\n    <li><a href=\"#cas-usage\">Cas d'usage</a></li>\n    <li><a href=\"#services\">Services</a></li>\n    <li><a href=\"#coaching\">Coaching IA</a></li>\n    <li><a href=\"#experience\">Parcours</a></li>\n    <li><a href=\"#contact\">Contact</a></li>\n  ",
+    "lang_switch_attrs": " aria-label=\"Language selector\"",
+    "fr_href": "/nice/",
+    "fr_hreflang": "",
+    "sep_hidden": "",
+    "en_href": "/en",
+    "en_hreflang": "",
+    "cta_href": "https://nicogaray.com/go/rdv/?lead=nice&utm_source=seo&utm_medium=site&utm_campaign=ville-nice",
+    "cta_attrs": " target=\"_blank\" rel=\"noopener\"",
+    "cta_label": "Réserver un appel"
+  },
+  "header_family": "home",
+  "header_locale": "fr"
 }

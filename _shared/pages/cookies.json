@@ -10,6 +10,19 @@
     "lead_malt": "footer-legal",
     "legal_current": "",
     "cookies_current": " aria-current=\"page\"",
-    "top_href": "#"
-  }
+    "top_href": "#",
+    "logo_href": "/fr/",
+    "nav_items": "\n    <li><a href=\"/fr/#services\">Services</a></li>\n    <li><a href=\"/fr/#results\">Résultats</a></li>\n    <li><a href=\"/fr/#use-cases\">Réalisations</a></li>\n    <li><a href=\"/fr/#experience\">Parcours</a></li>\n    <li><a href=\"/fr/#stack\">Stack</a></li>\n    <li><a href=\"/fr/#contact\">Contact</a></li>\n  ",
+    "lang_switch_attrs": " role=\"group\" aria-label=\"Choix de la langue\"",
+    "fr_href": "/cookies/",
+    "fr_hreflang": " hreflang=\"fr\" lang=\"fr\"",
+    "sep_hidden": " aria-hidden=\"true\"",
+    "en_href": "/en/cookies/",
+    "en_hreflang": " hreflang=\"en\" lang=\"en\"",
+    "cta_href": "/fr/#contact",
+    "cta_attrs": " data-cta=\"nav-cookies\"",
+    "cta_label": "Réserver un appel"
+  },
+  "header_family": "home",
+  "header_locale": "fr"
 }

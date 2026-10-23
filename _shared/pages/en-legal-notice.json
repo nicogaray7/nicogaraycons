@@ -10,6 +10,19 @@
     "lead_malt": "footer-legal",
     "legal_current": " aria-current=\"page\"",
     "cookies_current": "",
-    "top_href": "#"
-  }
+    "top_href": "#",
+    "logo_href": "/en",
+    "nav_items": "\n    <li><a href=\"/en#services\">Services</a></li>\n    <li><a href=\"/en#results\">Use cases</a></li>\n    <li><a href=\"/en#use-cases\">Case studies</a></li>\n    <li><a href=\"/en#experience\">Experience</a></li>\n    <li><a href=\"/en#stack\">Stack</a></li>\n    <li><a href=\"/en#contact\">Contact</a></li>\n  ",
+    "lang_switch_attrs": " role=\"group\" aria-label=\"Language selector\"",
+    "fr_href": "/mentions-legales/",
+    "fr_hreflang": " hreflang=\"fr\" lang=\"fr\"",
+    "sep_hidden": " aria-hidden=\"true\"",
+    "en_href": "/en/legal-notice/",
+    "en_hreflang": " hreflang=\"en\" lang=\"en\"",
+    "cta_href": "/en#contact",
+    "cta_attrs": " data-cta=\"nav-en-mentions-legales\"",
+    "cta_label": "Book a call"
+  },
+  "header_family": "home",
+  "header_locale": "en"
 }
