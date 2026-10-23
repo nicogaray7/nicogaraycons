@@ -32,11 +32,11 @@ Total: 35 pages, matching plan.md's Scale/Scope.
 
 ## Phase 1: Setup
 
-- [ ] T001 Create the `_shared/` directory and `_shared/pages/` subdirectory;
+- [X] T001 Create the `_shared/` directory and `_shared/pages/` subdirectory;
   create `_shared/render.py` with argument parsing for the default (render and
   write) mode and `--check` (render in memory, no write) mode, per plan.md
   Project Structure.
-- [ ] T002 [P] Create `.github/workflows/check-shared-partials.yml` that checks
+- [X] T002 [P] Create `.github/workflows/check-shared-partials.yml` that checks
   out the repo and runs `python3 _shared/render.py --check` on `pull_request`
   (FR-007); it must fail the workflow when the script exits non-zero.
 
@@ -45,20 +45,20 @@ Total: 35 pages, matching plan.md's Scale/Scope.
 **These must complete before any user story work: they are the engine every
 story's pages are migrated through.**
 
-- [ ] T003 In `_shared/render.py`, implement locating and replacing only the
+- [X] T003 In `_shared/render.py`, implement locating and replacing only the
   span between `<!-- shared:header start -->` and `<!-- shared:header end -->`
   (and the same pair for `shared:footer`) inside a page file, leaving every
   other byte of the file unchanged, per data-model.md "Region markers" and
   plan.md Constitution Check item I (FR-003).
-- [ ] T004 In `_shared/render.py`, implement the `PageSettings` loader: read
+- [X] T004 In `_shared/render.py`, implement the `PageSettings` loader: read
   every `_shared/pages/*.json`, validate `file` exists, and validate that `vars`
   provides every placeholder required by the templates named in
   `header_family`/`header_locale`/`footer_locale`, per data-model.md
   "PageSettings" and its Validation rules.
-- [ ] T005 In `_shared/render.py`, implement rendering a `HeaderTemplate` or
+- [X] T005 In `_shared/render.py`, implement rendering a `HeaderTemplate` or
   `FooterTemplate` body with `string.Template.substitute(vars)`, raising a
   clear error naming the page and the missing key on an unfilled placeholder.
-- [ ] T006 In `_shared/render.py`, wire T003-T005 together: default mode writes
+- [X] T006 In `_shared/render.py`, wire T003-T005 together: default mode writes
   the rendered region back into each page's file; `--check` mode renders in
   memory, diffs against the file's current region, and on any mismatch prints
   the offending `page_key` and `file` and exits 1 (0 if every page matches),
