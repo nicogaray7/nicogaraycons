@@ -39,10 +39,12 @@ wrong. What was built instead:
   and legal pages, 20 pages) and `footer-case.{fr,en}.html` (case studies, 14
   pages). Templates live at `_shared/<kind>-<family>.<locale>.html`; page
   settings carry `footer_family`.
-- `bordeaux/index.html` is out of scope for now: its footer is a separate
-  landing-page design (own wrapper, absolute URLs, different link set). It has
-  no markers and no settings file; folding it into a family is a decision for
-  Nico, not a dedup.
+- `bordeaux/index.html` now joins the `case` footer family too (Nico's
+  decision, 2026-10-23): the template gained `wrap_open`/`wrap_close` (its
+  `<div class="wrap">`) and `extra_links` (its Malt link) as optional vars,
+  defaulting to empty for the 14 existing case pages (verified: 0 byte change
+  on render). Its own tracking (`utm_medium=site`, no `lead=` on the booking
+  link, Malt's `lead=footer-bordeaux`) is kept exactly as it was live.
 - The migration is zero-visual-change: each page keeps its own link list,
   tagline and `lead=` values. Shared text used by several pages (the extra
   links of the root and legal pages) lives in `_shared/snippets/` and is

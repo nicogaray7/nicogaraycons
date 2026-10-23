@@ -77,6 +77,8 @@ PageSettings.file                            -->  one existing HTML page,
                                                     shared:footer region
 ```
 
+`footer-case` additionally supports `wrap_open`, `wrap_close` and `extra_links` (all default-shaped as empty strings in existing pages) so a page can wrap its content or add a link without a new template file (used by `bordeaux/index.html`).
+
 A `vars` value of the form `"@snippet:<name>"` is replaced by the content of
 `_shared/snippets/<name>.<locale>.html`.
 
