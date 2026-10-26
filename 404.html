@@ -30,14 +30,15 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #07080f; --bg3: #12152a; --accent: #5b6ef5; --text: #e8eaf6; --muted: #7c82a3; --border: rgba(255,255,255,0.07); }
+    :root { --bg: #07080f; --bg3: #12152a; --accent: #5b6ef5;
+      --accent-contrast: #5362e6; --text: #e8eaf6; --muted: #7c82a3; --border: rgba(255,255,255,0.07); }
     body { min-height: 100vh; display: grid; place-items: center; padding: 40px 20px; background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; line-height: 1.6; text-align: center; }
     .code { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
     h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 14px; }
     p { color: var(--muted); max-width: 440px; margin: 0 auto 32px; }
     .links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 10px; font-weight: 500; text-decoration: none; }
-    .primary { background: var(--accent); color: #fff; }
+    .primary { background: var(--accent-contrast, var(--accent)); color: #fff; }
     .ghost { background: var(--bg3); border: 1px solid var(--border); color: var(--text); }
     a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   </style>
