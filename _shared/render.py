@@ -24,6 +24,20 @@ MARKERS = {
     "footer": ("<!-- shared:footer start -->", "<!-- shared:footer end -->"),
 }
 
+# Small CSS files inlined (instead of linked) on the pages that list their name
+# in the page's "css" setting, so the browser does not have to fetch them as a
+# separate render-blocking request. Source of truth stays the plain .css file;
+# edit that, then re-run this script, never the <style> block directly.
+CSS_SOURCES = {
+    "fonts": ROOT / "assets" / "fonts.css",
+    "diagnostic": ROOT / "assets" / "cas" / "diagnostic.css",
+}
+for _name in CSS_SOURCES:
+    MARKERS[f"css:{_name}"] = (
+        f"<!-- shared:css:{_name} start -->",
+        f"<!-- shared:css:{_name} end -->",
+    )
+
 
 class RenderError(Exception):
     pass
@@ -58,6 +72,15 @@ def load_template(kind: str, family: str | None, locale: str) -> string.Template
     if not path.exists():
         raise RenderError(f"missing template {path.relative_to(ROOT)}")
     return string.Template(path.read_text(encoding="utf-8"))
+
+
+def render_css(name: str, page_key: str) -> str:
+    path = CSS_SOURCES.get(name)
+    if path is None:
+        raise RenderError(f"{page_key}: unknown shared css {name!r}")
+    if not path.exists():
+        raise RenderError(f"{page_key}: missing css source {path.relative_to(ROOT)}")
+    return f"<style>\n{path.read_text(encoding='utf-8').strip()}\n</style>"
 
 
 def render_region(kind: str, family: str | None, locale: str, variables: dict, page_key: str) -> str:
@@ -124,6 +147,11 @@ def render_page(settings: dict) -> tuple[Path, str, list[str]]:
         inner = render_region("footer", footer_family, footer_locale, variables, page_key)
         text = splice_region(text, "footer", inner, page_key)
         rendered_kinds.append("footer")
+
+    for css_name in settings.get("css", []):
+        inner = render_css(css_name, page_key)
+        text = splice_region(text, f"css:{css_name}", inner, page_key)
+        rendered_kinds.append(f"css:{css_name}")
 
     return file_path, text, rendered_kinds
 
