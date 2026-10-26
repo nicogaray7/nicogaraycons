@@ -24,5 +24,8 @@
     "cta_label": "Réserver un appel"
   },
   "header_family": "home",
-  "header_locale": "fr"
+  "header_locale": "fr",
+  "css": [
+    "fonts"
+  ]
 }

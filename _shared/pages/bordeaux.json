@@ -23,5 +23,8 @@
     "header_wrap_close": ""
   },
   "header_family": "case",
-  "header_locale": "fr"
+  "header_locale": "fr",
+  "css": [
+    "fonts"
+  ]
 }

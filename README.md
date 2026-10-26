@@ -47,3 +47,10 @@ regenerated pages. Never edit a footer inside a page between the
 `<!-- shared:footer -->` markers: the `Check shared header/footer` workflow
 fails the pull request when a page no longer matches its template
 (`python3 _shared/render.py --check` runs the same check locally).
+
+The same script also inlines small shared CSS files (`assets/fonts.css`,
+`assets/cas/diagnostic.css`) as a `<style>` block between
+`<!-- shared:css:<name> -->` markers on any page listing that name in its
+`"css"` array in `_shared/pages/<page>.json`, so the browser does not pay for
+an extra render-blocking request. Edit the `.css` file, never the inlined
+`<style>` block, then re-run `python3 _shared/render.py`.

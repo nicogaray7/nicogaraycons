@@ -24,5 +24,9 @@
     "cta_label": "Book a call"
   },
   "header_family": "home",
-  "header_locale": "en"
+  "header_locale": "en",
+  "css": [
+    "fonts",
+    "diagnostic"
+  ]
 }
