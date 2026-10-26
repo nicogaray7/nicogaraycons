@@ -95,10 +95,8 @@
     if (/(^|\.)nicogaray\.com$/.test(location.hostname)) { gtag('config', 'G-L2DZPV8S00'); }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@400;500;700&family=Google+Sans+Code:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@400;500;700&family=Google+Sans+Code:wght@400;500&display=swap" /></noscript>
+  <link rel="preload" href="/assets/fonts/gst-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/assets/fonts.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -107,6 +105,7 @@
       --bg2: #0d0f1a;
       --bg3: #12152a;
       --accent: #5b6ef5;
+      --accent-contrast: #5362e6;
       --accent2: #818cf8;
       --accent-glow: rgba(91,110,245,0.18);
       --text: #e8eaf6;
@@ -150,7 +149,7 @@
     }
     .nav-links a:hover { color: var(--text); }
     .nav-cta {
-      background: var(--accent);
+      background: var(--accent-contrast, var(--accent));
       color: #fff; border: none; border-radius: 8px;
       padding: 10px 20px; font-size: 0.88rem; font-weight: 600;
       cursor: pointer; text-decoration: none;
@@ -251,7 +250,7 @@
     .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent); color: #fff;
+      background: var(--accent-contrast, var(--accent)); color: #fff;
       border: none; border-radius: 10px;
       padding: 14px 28px; font-size: 0.95rem; font-weight: 600;
       cursor: pointer; text-decoration: none;
@@ -412,7 +411,7 @@
     /* STACK */
     .stack-intro { color: var(--muted); margin-bottom: 40px; max-width: 560px; }
     .stack-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-    .stack-cat h4 {
+    .stack-cat h3 {
       font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
       letter-spacing: 0.08em; color: var(--muted); margin-bottom: 14px;
       padding-bottom: 10px; border-bottom: 1px solid var(--border);
@@ -530,7 +529,7 @@
       border-radius: 9px; cursor: pointer; border: none;
       font-family: inherit; transition: all 0.2s; text-align: center;
     }
-    .ng-tray-btn-y { background: var(--accent); color: #fff; box-shadow: 0 0 20px rgba(91,110,245,0.3); }
+    .ng-tray-btn-y { background: var(--accent-contrast, var(--accent)); color: #fff; box-shadow: 0 0 20px rgba(91,110,245,0.3); }
     .ng-tray-btn-y:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(91,110,245,0.4); }
     .ng-tray-btn-n { background: var(--bg3); color: var(--text); border: 1px solid var(--border); }
     .ng-tray-btn-n:hover { border-color: var(--accent); color: var(--accent); }
@@ -949,7 +948,7 @@
     <p class="stack-intro">Je maîtrise l'écosystème de bout en bout : modèles, frameworks d'agents autonomes, orchestration, bases de données, intégrations métier. Pas de hype, juste les outils qui marchent pour votre cas d'usage.</p>
     <div class="stack-categories">
       <div class="stack-cat">
-        <h4>Modèles et LLMs</h4>
+        <h3>Modèles et LLMs</h3>
         <div class="stack-tools">
           <div class="stack-tool"><img class="pf-logo" src="/assets/logos/claude.png" alt="" width="16" height="16" loading="lazy" decoding="async">Claude (Anthropic)</div>
           <div class="stack-tool"><img class="pf-logo" src="/assets/logos/openai.png" alt="" width="16" height="16" loading="lazy" decoding="async">OpenAI GPT-5 · o-series</div>
@@ -959,7 +958,7 @@
         </div>
       </div>
       <div class="stack-cat">
-        <h4>Frameworks agents</h4>
+        <h3>Frameworks agents</h3>
         <div class="stack-tools">
           <div class="stack-tool"><img class="pf-logo" src="/assets/logos/langchain.png" alt="" width="16" height="16" loading="lazy" decoding="async">LangGraph</div>
           <div class="stack-tool"><img class="pf-logo" src="/assets/logos/claude.png" alt="" width="16" height="16" loading="lazy" decoding="async">Claude Agent SDK</div>
@@ -969,7 +968,7 @@
         </div>
       </div>
       <div class="stack-cat">
-        <h4>Orchestration et no-code</h4>
+        <h3>Orchestration et no-code</h3>
         <div class="stack-tools">
           <div class="stack-tool"><img class="pf-logo" src="/assets/logos/n8n.png" alt="" width="16" height="16" loading="lazy" decoding="async">n8n</div>
           <div class="stack-tool"><img class="pf-logo" src="/assets/logos/make.png" alt="" width="16" height="16" loading="lazy" decoding="async">Make</div>
@@ -978,7 +977,7 @@
         </div>
       </div>
       <div class="stack-cat">
-        <h4>CRM et outils métier</h4>
+        <h3>CRM et outils métier</h3>
         <div class="stack-tools">
           <div class="stack-tool"><img class="pf-logo" src="/assets/logos/hubspot.png" alt="" width="16" height="16" loading="lazy" decoding="async">HubSpot</div>
           <div class="stack-tool"><img class="pf-logo" src="/assets/logos/pipedrive.png" alt="" width="16" height="16" loading="lazy" decoding="async">Pipedrive</div>
