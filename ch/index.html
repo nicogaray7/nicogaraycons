@@ -301,8 +301,9 @@
       font-size: 0.82rem; font-weight: 500; color: var(--accent2);
       margin-bottom: 28px;
     }
+    @media (max-width: 600px) { .hero-badge .badge-more { display: none; } }
     .hero-badge .dot {
-      width: 7px; height: 7px; border-radius: 50%;
+      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
       background: #f5a524;
       box-shadow: 0 0 6px #f5a524;
       animation: pulse 2s infinite;
@@ -833,7 +834,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        Plus de créneau disponible pour l'instant · Contactez-moi pour la suite
+        Plus de créneau disponible pour l'instant<span class="badge-more">· Contactez-moi pour la suite</span>
       </div>
       <h1>
         Consultant IA en Suisse :<br/>
